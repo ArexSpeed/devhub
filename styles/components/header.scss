@@ -1,0 +1,42 @@
+.header {
+  background: $primary-white;
+  color: $primary-black;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  &__logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    & span {
+      font-size: 1.25rem;
+      margin-left: 0.5rem;
+    }
+  }
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    & a {
+      padding: 0 0.5rem;
+    }
+    &-user {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      & span {
+        font-size: 1.25rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
