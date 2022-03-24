@@ -1,0 +1,20 @@
+.skillstags{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: $primary-white;
+    margin-right: 0.5rem;
+    & span {
+      font-size: 12px;
+    }
+  }
+}
