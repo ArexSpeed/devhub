@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 // eslint-disable-next-line prettier/prettier
-import { BlogIcon, CommunityIcon, EventIcon, HomeIcon, LogoutIcon, ProfileIcon, ProjectIcon, TestIcon } from 'components/Icons';
+import { BlogIcon, CommunityIcon, EventIcon, HomeIcon, LogoutIcon, ProfileIcon, ProjectIcon, TestIcon } from 'components/Icons/FontIcons';
 
 const Navigation = () => {
   const router = useRouter();

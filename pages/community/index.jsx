@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SearchIcon } from 'components/Icons';
+import { SearchIcon } from 'components/Icons/FontIcons';
 import SkillsTags from 'components/SkillsTags';
 import TitleSite from 'components/TitleSite';
 import DevCard from 'components/DevCard';
@@ -64,9 +64,9 @@ const ComminityPage = () => {
       </section>
       <section className="community__profiles">
         {users
-          .filter((user) => user.job.includes(developerPosition))
+          .filter((user) => user.position.includes(developerPosition))
           .map((user) => (
-            <DevCard key={user.id} id={user.id} name={user.name} job={user.job} />
+            <DevCard key={user.userid} id={user.userid} name={user.name} position={user.position} />
           ))}
       </section>
     </div>

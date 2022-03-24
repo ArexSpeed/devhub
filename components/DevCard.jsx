@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { DrupalIcon, JavaScriptIcon, ReactIcon } from './Icons'
+import { DrupalIcon, JavaScriptIcon, ReactIcon } from './Icons/SkillsIcons';
 
-const DevCard = ({id, name, job}) => {
+const DevCard = ({ id, name, position }) => {
   return (
     <div className="devcard">
       <article className="devcard__top">
@@ -9,7 +9,7 @@ const DevCard = ({id, name, job}) => {
         <div className="devcard__details">
           <div className="devcard__details--langs">PL, ENG, GER</div>
           <div className="devcard__details--name">{name}</div>
-          <div className="devcard__details--title">{job}</div>
+          <div className="devcard__details--title">{position}</div>
         </div>
       </article>
       <div className="devcard__smalltext">Main skills</div>
@@ -26,7 +26,7 @@ const DevCard = ({id, name, job}) => {
       </article>
       <article className="devcard__social"></article>
     </div>
-  )
-}
+  );
+};
 
-export default DevCard
+export default DevCard;

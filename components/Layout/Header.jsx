@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import logo from 'assets/logo.png';
 import avatar from 'assets/avatar.jpg';
-import { BookmarkIcon, BookmarkOutlineIcon, NotificationIcon } from 'components/Icons';
+import { BookmarkIcon, BookmarkOutlineIcon, NotificationIcon } from 'components/Icons/FontIcons';
 import Link from 'next/link';
 import { useState } from 'react';
 

@@ -1,21 +1,21 @@
-import { DrupalIcon, JavaScriptIcon, ReactIcon } from './Icons';
+import { DrupalIcon, JavaScriptIcon, ReactIcon } from './Icons/SkillsIcons';
 
 const skills = [
   {
     id: 1,
-    name: "React",
-    icon: <ReactIcon className='icon-large primary-blue' />
+    name: 'React',
+    icon: <ReactIcon className="icon-large primary-blue" />
   },
   {
     id: 2,
-    name: "JavaScript",
-    icon: <JavaScriptIcon className='icon-large primary-blue' />
+    name: 'JavaScript',
+    icon: <JavaScriptIcon className="icon-large primary-blue" />
   },
   {
     id: 3,
-    name: "Drupal",
-    icon: <DrupalIcon className='icon-large primary-blue' />
-  },
+    name: 'Drupal',
+    icon: <DrupalIcon className="icon-large primary-blue" />
+  }
 ];
 
 const SkillsTags = () => {
