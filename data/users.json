@@ -1,63 +1,219 @@
 [
   {
-    "id": 1,
+    "userid": 1,
     "name": "Arek Cichocki",
-    "job": "Frontend Developer"
+    "email": "arek@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Frontend Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "social": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
   },
   {
-    "id": 2,
+    "userid": 2,
     "name": "Sebastian Wuczkowski",
-    "job": "Fullstack Developer"
+    "email": "seba@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Fullstack Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "social": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
   },
   {
-    "id": 3,
+    "userid": 3,
     "name": "Bartosz Bielecki",
-    "job": "Backend Developer"
+    "email": "bartosz@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Backend Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "social": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
   },
   {
-    "id": 4,
+    "userid": 4,
     "name": "Dmytro Zaichenko",
-    "job": "Frontend Developer"
+    "email": "dima@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Frontend Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "social": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
   },
   {
-    "id": 5,
+    "userid": 5,
     "name": "Marcin Domagała",
-    "job": "Fullstack Developer"
+    "email": "marcin@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Fullstack Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "social": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
   },
   {
-    "id": 6,
+    "userid": 6,
     "name": "Wojciech Czarnecki",
-    "job": "Backend Developer"
+    "email": "wojtek@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Backend Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "social": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
   },
   {
-    "id": 7,
+    "userid": 7,
     "name": "Adam Małysz",
-    "job": "Frontend Developer"
+    "email": "adam@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Fullstack Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "social": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
   },
   {
-    "id": 8,
+    "userid": 8,
     "name": "Bill Gates",
-    "job": "Frontend Developer"
+    "email": "bill@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Frontend Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "social": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
   },
   {
-    "id": 9,
+    "userid": 9,
     "name": "Mark Zuckerberg",
-    "job": "Backend Developer"
+    "email": "mark@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Backend Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "social": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
   },
   {
-    "id": 10,
+    "userid": 10,
     "name": "Robert Lewandowski",
-    "job": "Frontend Developer"
+    "email": "lewy@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Frontend Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "social": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
   },
   {
-    "id": 11,
+    "userid": 11,
     "name": "Steve Jobs",
-    "job": "Fullstack Developer"
+    "email": "steve@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Backend Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "social": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
   },
   {
-    "id": 12,
-    "name": "Micheal Jordan",
-    "job": "Backend Developer"
+    "userid": 12,
+    "name": "Michael Jordan",
+    "email": "michael@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Fullstack Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "social": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
   }
   
 ]

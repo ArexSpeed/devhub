@@ -1,0 +1,98 @@
+[
+  {
+    "eventid": 1,
+    "date": "12.05.2022 11:00",
+    "duration": 2,
+    "title": "React for newbie",
+    "tags": ["react", "javascript"],
+    "participants": [1, 2, 3] 
+  },
+  {
+    "eventid": 2,
+    "date": "12.05.2022 11:00",
+    "duration": 2,
+    "title": "Go to Next.js",
+    "tags": ["react", "javascript", "next"],
+    "participants": [1, 2, 3, 4, 5, 6, 7, 8] 
+  },
+  {
+    "eventid": 3,
+    "date": "12.05.2022 11:00",
+    "duration": 3,
+    "title": "How to type in TypeScript",
+    "tags": ["javascript", "typescript"],
+    "participants": [1, 2, 3, 4, 5, 6, 7] 
+  },
+  {
+    "eventid": 4,
+    "date": "12.05.2022 11:00",
+    "duration": 4,
+    "title": "Style your CSS perfect",
+    "tags": ["html", "css"],
+    "participants": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+  },
+  {
+    "eventid": 5,
+    "date": "12.05.2022 11:00",
+    "duration": 2,
+    "title": "All about deploying your appp",
+    "tags": ["react", "javascript", "firebase"],
+    "participants": [1, 2, 3, 4, 5, 6, 7, 8] 
+  },
+  {
+    "eventid": 6,
+    "date": "12.05.2022 11:00",
+    "duration": 2,
+    "title": "Tech for tomorrow",
+    "tags": ["react", "javascript", "next"],
+    "participants": [1, 2, 3] 
+  },
+  {
+    "eventid": 7,
+    "date": "12.05.2022 11:00",
+    "duration": 2,
+    "title": "Backend app with Node js",
+    "tags": ["node", "javascript"],
+    "participants": [1, 2, 3, 4, 5, 6] 
+  },
+  {
+    "eventid": 8,
+    "date": "12.05.2022 11:00",
+    "duration": 5,
+    "title": "NoSQL with MongoDB",
+    "tags": ["node", "javascript", "mongo", "sql"],
+    "participants": [1, 2] 
+  },
+  {
+    "eventid": 9,
+    "date": "12.05.2022 11:00",
+    "duration": 1,
+    "title": "Start your first app",
+    "tags": ["html", "css", "javascript"],
+    "participants": [1, 2, 3, 4, 5] 
+  },
+  {
+    "eventid": 10,
+    "date": "12.05.2022 11:00",
+    "duration": 3,
+    "title": "What to do with Python",
+    "tags": ["python"],
+    "participants": [1, 2, 3, 4, 5, 6, 7] 
+  },
+  {
+    "eventid": 11,
+    "date": "12.05.2022 11:00",
+    "duration": 4,
+    "title": "Drupal for everyone",
+    "tags": ["drupal", "php", "mysql"],
+    "participants": [1, 2, 3] 
+  },
+  {
+    "eventid": 12,
+    "date": "12.05.2022 11:00",
+    "duration": 2,
+    "title": "Java first look",
+    "tags": ["java"],
+    "participants": [1, 2, 3, 4, 5] 
+  }
+]
