@@ -9,6 +9,7 @@ const ComminityPage = () => {
   const [activeButton, setActiveButton] = useState('All Developers');
   const [developerPosition, setDeveloperPosition] = useState('');
   const [searchValue, setSearchValue] = useState('');
+  const [selectSkill, setSelectSkill] = useState([]);
 
   return (
     <div className="community">
@@ -39,7 +40,7 @@ const ComminityPage = () => {
       </section>
       <p>Find developer by skills</p>
       <section className="community__tags">
-        <SkillsTags />
+        <SkillsTags selectSkill={selectSkill} setSelectSkill={setSelectSkill} />
       </section>
       <section className="community__buttons">
         <button
