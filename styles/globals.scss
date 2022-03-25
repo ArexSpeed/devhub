@@ -17,6 +17,16 @@ a {
 
 * {
   box-sizing: border-box;
+  &::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: $primary-white;
+  } 
+  &::-webkit-scrollbar-thumb {
+    background-color: $secondary-blue;
+    outline: none;
+  }
 }
 
 .container{
@@ -30,7 +40,7 @@ a {
 .main{
   display: flex;
   background: $secondary-white;
-  width: 100%;
+  max-width: calc(100% - 256px);
   min-height: calc(100vh - 56px);
   margin-left: 256px;
   margin-top: 56px;

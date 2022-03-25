@@ -75,6 +75,10 @@
       background: $secondary-blue;
       color: $primary-white;
     }
+    &-unfollow {
+      background: $secondary-white;
+      color: $secondary-blue;
+    }
   }
   &__social {
     display: flex;

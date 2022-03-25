@@ -1,31 +1,26 @@
-import { DrupalIcon, JavaScriptIcon, ReactIcon } from './Icons/SkillsIcons';
+import { useState } from 'react';
+import SkillsIconSwitcher from './IconSwitcher/SkillsIconSwitcher';
 
-const skills = [
-  {
-    id: 1,
-    name: 'React',
-    icon: <ReactIcon className="icon-large primary-blue" />
-  },
-  {
-    id: 2,
-    name: 'JavaScript',
-    icon: <JavaScriptIcon className="icon-large primary-blue" />
-  },
-  {
-    id: 3,
-    name: 'Drupal',
-    icon: <DrupalIcon className="icon-large primary-blue" />
-  }
-];
+// eslint-disable-next-line prettier/prettier
+const skills = ["html", "css", "sass", "react", "javascript", "typescript", "tailwind", "node", "next", "angular", "csharp", "cplus", "php", "drupal", "java", "python", "postgres", "mongo", "wordpress", "net"]
 
 const SkillsTags = () => {
+  const [selectSkill, setSelectSkill] = useState('react');
   return (
     <div className="skillstags">
-      {skills.map((skill) => (
-        <div key={skill.id} className="skillstags__box">
-          <div>{skill.icon}</div>
-          <span>{skill.name}</span>
-        </div>
+      {skills.map((skill, i) => (
+        <button
+          key={i}
+          className={`skillstags__button ${selectSkill === skill ? 'active' : ''}`}
+          onClick={() => setSelectSkill(skill)}>
+          <div>
+            <SkillsIconSwitcher
+              name={skill}
+              className={`icon-large ${selectSkill === skill ? 'primary-white' : 'primary-blue'}`}
+            />
+          </div>
+          <span>{skill}</span>
+        </button>
       ))}
     </div>
   );

@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import FlagIconSwitcher from './IconSwitcher/FlagIconSwitcher';
 import SkillsIconSwitcher from './IconSwitcher/SkillsIconSwitcher';
 import SocialIconSwitcher from './IconSwitcher/SocialIconSwitcher';
 
 const DevCard = ({ id, name, position, skills, langs, socials }) => {
+  const [follow, setFollow] = useState(false);
   return (
     <div className="devcard">
       <article className="devcard__top">
@@ -28,7 +30,13 @@ const DevCard = ({ id, name, position, skills, langs, socials }) => {
         <Link href={`/profile/${id}`} passHref>
           <button className="devcard__button devcard__button-profile">Profile</button>
         </Link>
-        <button className="devcard__button devcard__button-follow">Follow</button>
+        <button
+          className={`devcard__button ${
+            follow ? 'devcard__button-unfollow' : 'devcard__button-follow'
+          } `}
+          onClick={() => setFollow(!follow)}>
+          {follow ? 'Unfollow' : 'Follow'}
+        </button>
       </article>
       <article className="devcard__social">
         {socials.map((social, i) => (

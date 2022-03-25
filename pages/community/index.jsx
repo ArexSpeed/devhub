@@ -6,7 +6,7 @@ import DevCard from 'components/DevCard';
 import users from 'data/users.json';
 
 const ComminityPage = () => {
-  const [activeButton, setActiveButton] = useState();
+  const [activeButton, setActiveButton] = useState('All Developers');
   const [developerPosition, setDeveloperPosition] = useState('');
   const [searchValue, setSearchValue] = useState('');
 
@@ -65,6 +65,7 @@ const ComminityPage = () => {
       <section className="community__profiles">
         {users
           .filter((user) => user.position.includes(developerPosition))
+          .filter((user) => user.name.includes(searchValue))
           .map((user) => (
             <DevCard
               key={user.userid}
