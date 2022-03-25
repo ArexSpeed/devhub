@@ -24,15 +24,13 @@
     "password": "",
     "imageUrl": "",
     "position": "Fullstack Developer",
-    "languages": ["pl", "en", "ger"],
-    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "languages": ["pl", "en", "fr"],
+    "skills": ["html", "python", "csharp", "sass", "wordpress"],
     "social": [
       {"name": "website", "link": "https://ownwebsite.com"},
       {"name": "facebook", "link": "https://example.com"},
       {"name": "linkedin", "link": "https://example.com"},
-      {"name": "twitter", "link": "https://example.com"},
-      {"name": "github", "link": "https://example.com"},
-      {"name": "dribbble", "link": "https://example.com"}
+      {"name": "github", "link": "https://example.com"}
     ]
   },
   {
@@ -42,12 +40,10 @@
     "password": "",
     "imageUrl": "",
     "position": "Backend Developer",
-    "languages": ["pl", "en", "ger"],
-    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "languages": ["pl", "it", "en"],
+    "skills": ["java", "angular", "drupal", "php", "cplus"],
     "social": [
       {"name": "website", "link": "https://ownwebsite.com"},
-      {"name": "facebook", "link": "https://example.com"},
-      {"name": "linkedin", "link": "https://example.com"},
       {"name": "twitter", "link": "https://example.com"},
       {"name": "github", "link": "https://example.com"},
       {"name": "dribbble", "link": "https://example.com"}
@@ -60,13 +56,12 @@
     "password": "",
     "imageUrl": "",
     "position": "Frontend Developer",
-    "languages": ["pl", "en", "ger"],
-    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "languages": ["ua", "en", "pl"],
+    "skills": ["next", "tailwind", "postgres", "mongo", "net"],
     "social": [
       {"name": "website", "link": "https://ownwebsite.com"},
       {"name": "facebook", "link": "https://example.com"},
       {"name": "linkedin", "link": "https://example.com"},
-      {"name": "twitter", "link": "https://example.com"},
       {"name": "github", "link": "https://example.com"},
       {"name": "dribbble", "link": "https://example.com"}
     ]
@@ -78,14 +73,12 @@
     "password": "",
     "imageUrl": "",
     "position": "Fullstack Developer",
-    "languages": ["pl", "en", "ger"],
+    "languages": ["pl", "it", "fr"],
     "skills": ["react", "node", "typescript", "javascript", "css"],
     "social": [
       {"name": "website", "link": "https://ownwebsite.com"},
       {"name": "facebook", "link": "https://example.com"},
       {"name": "linkedin", "link": "https://example.com"},
-      {"name": "twitter", "link": "https://example.com"},
-      {"name": "github", "link": "https://example.com"},
       {"name": "dribbble", "link": "https://example.com"}
     ]
   },
@@ -96,13 +89,10 @@
     "password": "",
     "imageUrl": "",
     "position": "Backend Developer",
-    "languages": ["pl", "en", "ger"],
+    "languages": ["pl", "en", "ua"],
     "skills": ["react", "node", "typescript", "javascript", "css"],
     "social": [
-      {"name": "website", "link": "https://ownwebsite.com"},
-      {"name": "facebook", "link": "https://example.com"},
       {"name": "linkedin", "link": "https://example.com"},
-      {"name": "twitter", "link": "https://example.com"},
       {"name": "github", "link": "https://example.com"},
       {"name": "dribbble", "link": "https://example.com"}
     ]

@@ -66,7 +66,15 @@ const ComminityPage = () => {
         {users
           .filter((user) => user.position.includes(developerPosition))
           .map((user) => (
-            <DevCard key={user.userid} id={user.userid} name={user.name} position={user.position} />
+            <DevCard
+              key={user.userid}
+              id={user.userid}
+              name={user.name}
+              position={user.position}
+              skills={user.skills}
+              langs={user.languages}
+              socials={user.social}
+            />
           ))}
       </section>
     </div>

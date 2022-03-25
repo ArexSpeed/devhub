@@ -23,7 +23,7 @@ export const FacebookIcon = ({ className = 'icon-medium' }) => (
   </svg>
 );
 
-export const LikedinIcon = ({ className = 'icon-medium' }) => (
+export const LinkedinIcon = ({ className = 'icon-medium' }) => (
   <svg
     className={className}
     fill="currentColor"
