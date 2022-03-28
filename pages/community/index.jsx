@@ -1,15 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SearchIcon } from 'components/Icons/FontIcons';
 import SkillsTags from 'components/SkillsTags';
 import TitleSite from 'components/TitleSite';
 import DevCard from 'components/DevCard';
 import users from 'data/users.json';
+import follows from 'data/usersFollow.json';
 
 const ComminityPage = () => {
   const [activeButton, setActiveButton] = useState('All Developers');
   const [developerPosition, setDeveloperPosition] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState([]);
+  const [userFollows, setUserFollows] = useState({});
+  const userid = 1; //temporary user id
+
+  useEffect(() => {
+    const findFollow = follows.find((follow) => follow.userid === userid);
+    setUserFollows(findFollow);
+  }, []);
 
   return (
     <div className="community">
@@ -64,20 +72,62 @@ const ComminityPage = () => {
         </button>
       </section>
       <section className="community__profiles">
-        {users
-          .filter((user) => user.position.includes(developerPosition))
-          .filter((user) => user.name.includes(searchValue))
-          .map((user) => (
-            <DevCard
-              key={user.userid}
-              id={user.userid}
-              name={user.name}
-              position={user.position}
-              skills={user.skills}
-              langs={user.languages}
-              socials={user.social}
-            />
-          ))}
+        {activeButton === 'All Developers' && (
+          <>
+            {users
+              .filter((user) => user.position.includes(developerPosition))
+              .filter((user) => user.name.includes(searchValue))
+              .map((user) => (
+                <DevCard
+                  key={user.userid}
+                  id={user.userid}
+                  name={user.name}
+                  position={user.position}
+                  skills={user.skills}
+                  langs={user.languages}
+                  socials={user.social}
+                />
+              ))}
+          </>
+        )}
+        {activeButton === 'Followed' && (
+          <>
+            {users
+              .filter((user) => userFollows.followed.indexOf(user.userid) !== -1)
+              .filter((user) => user.position.includes(developerPosition))
+              .filter((user) => user.name.includes(searchValue))
+              .map((user) => (
+                <DevCard
+                  key={user.userid}
+                  id={user.userid}
+                  name={user.name}
+                  position={user.position}
+                  skills={user.skills}
+                  langs={user.languages}
+                  socials={user.social}
+                />
+              ))}
+          </>
+        )}
+        {activeButton === 'Followers' && (
+          <>
+            {users
+              .filter((user) => userFollows.followers.indexOf(user.userid) !== -1)
+              .filter((user) => user.position.includes(developerPosition))
+              .filter((user) => user.name.includes(searchValue))
+              .map((user) => (
+                <DevCard
+                  key={user.userid}
+                  id={user.userid}
+                  name={user.name}
+                  position={user.position}
+                  skills={user.skills}
+                  langs={user.languages}
+                  socials={user.social}
+                />
+              ))}
+          </>
+        )}
       </section>
     </div>
   );
