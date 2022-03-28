@@ -59,7 +59,7 @@ const Navigation = () => {
         </li>
         <li className="nav__item">
           <Link href="/profile" passHref>
-            <a className="nav__link">
+            <a className={router.pathname === '/profile' ? 'nav__link active' : 'nav__link'}>
               <ProfileIcon className="icon-medium primary-blue" />
               <span>Profile</span>
             </a>

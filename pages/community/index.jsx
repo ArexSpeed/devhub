@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { SearchIcon } from 'components/Icons/FontIcons';
 import SkillsTags from 'components/SkillsTags';
-import TitleSite from 'components/TitleSite';
+import TitleBox from 'components/TitleBox';
 import DevCard from 'components/DevCard';
 import users from 'data/users.json';
 import follows from 'data/usersFollow.json';
@@ -22,7 +22,7 @@ const ComminityPage = () => {
   return (
     <div className="community">
       <section className="community__title">
-        <TitleSite title="Developers Community" />
+        <TitleBox title="Developers Community" />
       </section>
       <section className="community__searchcontainer">
         <div className="community__searchbox">
