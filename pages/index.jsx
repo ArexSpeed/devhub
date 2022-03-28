@@ -1,7 +1,17 @@
-import { signOut, useSession } from 'next-auth/client';
+import LoginForm from 'components/Forms/LoginForm';
+import RegisterForm from 'components/Forms/RegisterForm';
+import { useSession } from 'next-auth/client';
 
 export default function Home() {
   const [session] = useSession();
 
-  return session ? <button onClick={signOut}>Logout</button> : <div>You are not logged</div>;
+  return session ? (
+    <div className="home">Hello, {session.user.name}</div>
+  ) : (
+    <div className="home">
+      <LoginForm />
+      <p>Register below if you do not have an account</p>
+      <RegisterForm />
+    </div>
+  );
 }
