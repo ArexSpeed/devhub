@@ -1,0 +1,105 @@
+[
+  {
+    "quizid": "1",
+    "quizname": "React",
+    "level": "Junior",
+    "questions": [
+      {
+        "questionid": "1",
+        "question": "What language is using in React?",
+        "answers": [
+          {
+            "content": "JavaScript",
+            "correct": true
+          },
+          {
+            "content": "PHP",
+            "correct": false
+          },
+          {
+            "content": "Python",
+            "correct": false
+          },
+          {
+            "content": "C++",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "2",
+        "question": "What company is creator of React?",
+        "answers": [
+          {
+            "content": "Google",
+            "correct": false
+          },
+          {
+            "content": "Meta",
+            "correct": true
+          },
+          {
+            "content": "IBM",
+            "correct": false
+          },
+          {
+            "content": "Amazon",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "quizid": "2",
+    "quizname": "React",
+    "level": "Middle",
+    "questions": [
+      {
+        "questionid": "1",
+        "question": "Which library is using for state managment?",
+        "answers": [
+          {
+            "content": "Redux",
+            "correct": true
+          },
+          {
+            "content": "Mongo",
+            "correct": false
+          },
+          {
+            "content": "React Router",
+            "correct": false
+          },
+          {
+            "content": "Swiper",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "2",
+        "question": "Which component do you use for waiting to data load?",
+        "answers": [
+          {
+            "content": "Spinner",
+            "correct": false
+          },
+          {
+            "content": "Suspanse",
+            "correct": true
+          },
+          {
+            "content": "Wait",
+            "correct": false
+          },
+          {
+            "content": "Loader",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  }
+
+]

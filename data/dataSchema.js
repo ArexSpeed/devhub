@@ -65,3 +65,49 @@ const projects = [
     likes: [1, 2, 3] // users id who likes this project and count it
   }
 ];
+
+const quiz = [
+  {
+    quizid: '1', //id generating by Mongo
+    quizname: 'React', //name of technology about quiz
+    level: 'Junior', //level Junior | Middle | Senior
+    questions: [
+      //array with all question from one quiz (10 questions)
+      {
+        questionid: '1', //id qusetion adding by hand (1-10)
+        question: 'What language is using in React?',
+        answers: [
+          // array with all answers for question (correct and not)
+          {
+            content: 'JavaScript',
+            correct: true
+          },
+          {
+            content: 'PHP',
+            correct: false
+          },
+          {
+            content: 'Python',
+            correct: false
+          },
+          {
+            content: 'C++',
+            correct: false
+          }
+        ]
+      }
+    ]
+  }
+];
+
+const quizScore = [
+  {
+    scoreid: '1', // id adding by Mongo
+    quizid: '1', //id of quiz which user completed
+    quizname: 'React', //name of quiz which user completed
+    quizlevel: 'Junior', //level of quiz which user completed
+    userid: '1', //get user id after submit quiz (from session)
+    username: 'Arek Cichocki', //get username after submit quiz (from session)
+    score: 90 // add score after finish quiz
+  }
+];

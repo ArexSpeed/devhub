@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 // eslint-disable-next-line prettier/prettier
-import { BlogIcon, CommunityIcon, EventIcon, HomeIcon, LogoutIcon, ProfileIcon, ProjectIcon, TestIcon } from 'components/Icons/FontIcons';
+import { BlogIcon, CommunityIcon, EventIcon, HomeIcon, LogoutIcon, ProfileIcon, ProjectIcon, QuizIcon } from 'components/Icons/FontIcons';
 
 const Navigation = () => {
   const router = useRouter();
@@ -49,10 +49,10 @@ const Navigation = () => {
           </Link>
         </li>
         <li className="nav__item">
-          <Link href="/test" passHref>
-            <a className={router.pathname === '/test' ? 'nav__link active' : 'nav__link'}>
-              <TestIcon className="icon-medium primary-blue" />
-              <span>Test</span>
+          <Link href="/quiz" passHref>
+            <a className={router.pathname === '/quiz' ? 'nav__link active' : 'nav__link'}>
+              <QuizIcon className="icon-medium primary-blue" />
+              <span>Quiz</span>
             </a>
           </Link>
         </li>

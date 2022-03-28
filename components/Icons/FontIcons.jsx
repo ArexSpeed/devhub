@@ -120,7 +120,7 @@ export const ProjectIcon = ({ className = 'icon-medium' }) => (
   </svg>
 );
 
-export const TestIcon = ({ className = 'icon-medium' }) => (
+export const QuizIcon = ({ className = 'icon-medium' }) => (
   <svg
     className={className}
     fill="currentColor"

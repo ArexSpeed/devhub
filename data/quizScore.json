@@ -1,0 +1,20 @@
+[
+  {
+    "scoreid": "1",
+    "quizid": "1",
+    "quizname": "React",
+    "quizlevel": "Junior",
+    "userid": "1",
+    "username": "Arek Cichocki",
+    "score": 90
+  },
+  {
+    "scoreid": "2",
+    "quizid": "2",
+    "quizname": "React",
+    "quizlevel": "Middle",
+    "userid": "4",
+    "username": "Dmytro Zaichenko",
+    "score": 90
+  }
+]
