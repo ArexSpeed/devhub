@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight } from './Icons/FontIcons';
+import { ChevronRight, Heart, Comment } from './Icons/FontIcons';
 
 export default function BlogCard(props) {
   return (
@@ -15,8 +15,9 @@ export default function BlogCard(props) {
           </div>
           <div className="blog__card-bottom">
             <div className="blog__card-social">
-              {props.likes.length}
-              {props.comments.length}
+              <Heart /> <span className="blog__card-social-length dot">{props.likes.length}</span>
+              <Comment />{' '}
+              <span className="blog__card-social-length dot">{props.comments.length}</span>
             </div>
             <div className="blog__card-more">
               <ChevronRight className="icon-medium" /> Read more
