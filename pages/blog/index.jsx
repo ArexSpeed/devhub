@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { SearchIcon } from 'components/Icons/FontIcons';
 import SkillsTags from 'components/SkillsTags';
 import posts from 'data/posts';
-import TitleSite from 'components/TitleSite';
+import TitleBox from 'components/TitleBox';
 import BlogCard from 'components/BlogCard';
 
 export default function BlogPage() {
@@ -12,7 +12,7 @@ export default function BlogPage() {
   return (
     <div>
       <section className="blog__title">
-        <TitleSite title="Blog" />
+        <TitleBox title="Blog" />
       </section>
       <section className="blog__container">
         <div className="blog__searchbox">
