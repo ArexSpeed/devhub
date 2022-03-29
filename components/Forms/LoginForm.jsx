@@ -4,14 +4,14 @@ import { useSession } from 'next-auth/client';
 import { signIn } from 'next-auth/client';
 
 const LoginForm = () => {
-  const [session, loading] = useSession();
+  const [session] = useSession();
   const loginForm = useRef();
   const [error, setError] = useState();
   const [formProcessing, setFormProcessing] = useState(false);
   const router = useRouter();
 
   if (session) {
-    router.push('/');
+    router.push('/community');
   }
 
   const handleSubmit = async (e) => {
@@ -20,6 +20,7 @@ const LoginForm = () => {
     setError(null);
     setFormProcessing(true);
     const form = new FormData(loginForm.current);
+    console.log(form.get('email'));
     const { ok } = await signIn('credentials', {
       redirect: false,
       email: form.get('email'),

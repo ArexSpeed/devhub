@@ -6,7 +6,9 @@ export default function Home() {
   const [session] = useSession();
 
   return session ? (
-    <div className="home">Hello, {session.user.name}</div>
+    <div className="home">
+      Hello, {session.user.name}, {session.user.id}
+    </div>
   ) : (
     <div className="home">
       <LoginForm />

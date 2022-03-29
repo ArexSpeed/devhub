@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import Link from 'next/link';
 import { signOut } from 'next-auth/client';
 import { useRouter } from 'next/router';
@@ -67,8 +68,9 @@ const Navigation = () => {
         </li>
       </ul>
       <ul className="nav__list">
-        <li className="nav__item">
-          <Link href="/" passHref onClick={signOut}>
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+        <li className="nav__item" onClick={signOut}>
+          <Link href="/" passHref>
             <a className="nav__link">
               <LogoutIcon className="icon-medium primary-blue" />
               <span>Logout</span>

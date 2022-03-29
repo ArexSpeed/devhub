@@ -4,8 +4,10 @@ import avatar from 'assets/avatar.jpg';
 import { BookmarkIcon, BookmarkOutlineIcon, NotificationIcon } from 'components/Icons/FontIcons';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useSession } from 'next-auth/client';
 
 const Header = () => {
+  const [session] = useSession();
   const [bookmarkHover, setBookmarkHover] = useState(false);
   return (
     <header className="header">
@@ -31,7 +33,7 @@ const Header = () => {
           </a>
         </Link>
         <div className="header__actions-user">
-          <span>Arek Cichocki</span>
+          <span>{session ? session.user.name : ''}</span>
           <Image src={avatar} width={40} height={40} objectFit="contain" alt="" />
         </div>
       </div>
