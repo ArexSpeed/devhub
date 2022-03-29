@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { signOut } from 'next-auth/client';
 import { useRouter } from 'next/router';
 // eslint-disable-next-line prettier/prettier
 import { BlogIcon, CommunityIcon, EventIcon, HomeIcon, LogoutIcon, ProfileIcon, ProjectIcon, QuizIcon } from 'components/Icons/FontIcons';
@@ -58,7 +59,7 @@ const Navigation = () => {
         </li>
         <li className="nav__item">
           <Link href="/profile" passHref>
-            <a className="nav__link">
+            <a className={router.pathname === '/profile' ? 'nav__link active' : 'nav__link'}>
               <ProfileIcon className="icon-medium primary-blue" />
               <span>Profile</span>
             </a>
@@ -67,7 +68,7 @@ const Navigation = () => {
       </ul>
       <ul className="nav__list">
         <li className="nav__item">
-          <Link href="/" passHref>
+          <Link href="/" passHref onClick={signOut}>
             <a className="nav__link">
               <LogoutIcon className="icon-medium primary-blue" />
               <span>Logout</span>

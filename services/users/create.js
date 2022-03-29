@@ -6,10 +6,8 @@ const schema = Joi.object({
   email: Joi.string().email().required(),
   name: Joi.string().required(),
   password: Joi.string().required(),
-  imageUrl: Joi.string(),
-  position: Joi.string().required(),
-  languages: Joi.array().items(Joi.string()),
-  skills: Joi.array().items(Joi.string())
+  position: Joi.string().required()
+  //languages: Joi.array().items(Joi.string()),
 });
 
 const checkUserExist = async (email) => {
@@ -26,7 +24,7 @@ const create = async (payload) => {
   console.log(payload, 'payload in services/create');
   const { db } = await connectToDatabase();
   // eslint-disable-next-line prettier/prettier
-  const { email, name, password, imageUrl, position, languages, skills } = await schema.validateAsync(payload);
+  const { email, name, password, position } = await schema.validateAsync(payload);
   await checkUserExist(email);
 
   const passwordSalt = crypto.randomBytes(16).toString('hex');
@@ -36,12 +34,12 @@ const create = async (payload) => {
   const user = await db.collection('users').insertOne({
     email,
     name,
-    imageUrl,
+    imageUrl: '',
     passwordSalt,
     passwordHash,
     position,
-    languages,
-    skills,
+    languages: [],
+    skills: [],
     socials: [{}]
   });
 

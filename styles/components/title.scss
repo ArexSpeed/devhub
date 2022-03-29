@@ -1,0 +1,14 @@
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  &__heading {
+    font-size: 2rem;
+  }
+  &__button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background: $primary-green;
+  }
+}
