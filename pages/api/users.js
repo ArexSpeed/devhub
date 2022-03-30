@@ -7,11 +7,7 @@ export default async (req, res) => {
 
   switch (req.method) {
     case 'GET': {
-      const data = await db
-        .collection('users')
-        .find({ user: req.query.user })
-        .sort({ _id: 1 })
-        .toArray();
+      const data = await db.collection('users').find().sort({ _id: 1 }).toArray();
       res.json(data);
 
       break;

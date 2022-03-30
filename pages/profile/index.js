@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react';
-import users from 'data/users.json';
+import { useSession } from 'next-auth/client';
+import axios from 'axios';
 import TitleBox from 'components/TitleBox';
 import ProfileCard from 'components/ProfileCard';
 import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
 
 const ProfilePage = () => {
+  const [session] = useSession();
   const [user, setUser] = useState({});
-  const userid = 1; //temporary user id
 
-  useEffect(() => {
-    const findUser = users.find((user) => user.userid === userid);
-    setUser(findUser);
-  }, []);
+  useEffect(async () => {
+    if (session) {
+      const user = await axios.get(`/api/user?id=${session.user.id}`);
+      setUser(user.data);
+    }
+  }, [session]);
   return (
     <div className="profile">
       <TitleBox button="Edit profile" href="/profile/edit" />

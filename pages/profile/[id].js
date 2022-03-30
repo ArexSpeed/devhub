@@ -1,26 +1,35 @@
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
-import users from 'data/users.json';
 import ProfileCard from 'components/ProfileCard';
 import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
+import { getUser, getUsers } from 'services/users/getUser';
 
-const Profile = () => {
-  const router = useRouter();
-  const [user, setUser] = useState({});
+export async function getStaticPaths() {
+  const users = await getUsers();
+  console.log(users, 'users');
+  const paths = users.map((user) => ({
+    params: { id: user._id.toString() }
+  }));
 
-  useEffect(() => {
-    const findUser = users.find((user) => user.userid === +router.query.id);
-    setUser(findUser);
-  }, []);
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const user = await getUser(params.id);
+  console.log(user, 'user staric props');
+  return { props: { userProp: JSON.stringify(user) } };
+}
+
+const Profile = ({ userProp }) => {
+  const user = JSON.parse(userProp);
   return (
     <div className="profile">
       <ProfileCard
-        name={user.name}
-        position={user.position}
-        langs={user.languages}
-        socials={user.social}
+        name={user?.name}
+        position={user?.position}
+        langs={user?.languages}
+        socials={user?.social}
       />
       <p>Skills</p>
+      <p>{user?._id}</p>
       <div className="skillstags">
         {user?.skills?.map((skill, i) => (
           <button key={i} className="skillstags__button">

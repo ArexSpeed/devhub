@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "crypto": "^1.0.1",
     "joi": "^17.6.0",
     "mongodb": "^4.4.1",
