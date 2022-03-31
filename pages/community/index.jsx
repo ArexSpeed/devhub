@@ -3,10 +3,11 @@ import { SearchIcon } from 'components/Icons/FontIcons';
 import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
 import DevCard from 'components/DevCard';
-import users from 'data/users.json';
 import follows from 'data/usersFollow.json';
+import axios from 'axios';
 
 const ComminityPage = () => {
+  const [users, setUsers] = useState([]);
   const [activeButton, setActiveButton] = useState('All Developers');
   const [developerPosition, setDeveloperPosition] = useState('');
   const [searchValue, setSearchValue] = useState('');
@@ -17,6 +18,10 @@ const ComminityPage = () => {
   useEffect(() => {
     const findFollow = follows.find((follow) => follow.userid === userid);
     setUserFollows(findFollow);
+  }, []);
+  useEffect(async () => {
+    const data = await axios.get('/api/users');
+    setUsers(data.data);
   }, []);
 
   return (
@@ -79,13 +84,14 @@ const ComminityPage = () => {
               .filter((user) => user.name.includes(searchValue))
               .map((user) => (
                 <DevCard
-                  key={user.userid}
-                  id={user.userid}
+                  key={user._id}
+                  id={user._id}
                   name={user.name}
+                  image={user.imageUrl}
                   position={user.position}
                   skills={user.skills}
                   langs={user.languages}
-                  socials={user.social}
+                  socials={user.socials}
                 />
               ))}
           </>

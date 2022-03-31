@@ -11,8 +11,8 @@ const ProfilePage = () => {
 
   useEffect(async () => {
     if (session) {
-      const user = await axios.get(`/api/user?id=${session.user.id}`);
-      setUser(user.data);
+      const data = await axios.get(`/api/user?id=${session.user.id}`);
+      setUser(data.data);
     }
   }, [session]);
   return (
