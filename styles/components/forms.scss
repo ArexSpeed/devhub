@@ -29,6 +29,13 @@
     flex-direction: column;
     margin-bottom: 10px;
     z-index: 0;
+    &-social {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      align-items: center;
+      gap: 8px;
+    }
   }
   &__label {
     margin-bottom: 2px;
@@ -46,12 +53,19 @@
   }
   &__textarea {
     width: 100%;
+    min-height: 150px;
     font-size: 16px;
     padding: 0 8px;
     border: 1px solid $secondary-white;
     border-radius: 0.25rem;
     outline: none;
     z-index: 0;
+  }
+  &__row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
   }
   &__button {
     width: 100%;
@@ -66,6 +80,19 @@
     &:hover {
       background-color: $secondary-blue;
       transition: all 0.3s ease-in-out;
+    }
+    &-flag {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4px;
+      margin-right: 4px;
+      cursor: pointer;
+      background: $primary-white;
+      border: 1px solid $secondary-white;
+      &.checked {
+        background: $primary-green;
+      }
     }
   }
 }
