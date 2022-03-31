@@ -81,7 +81,11 @@ const ComminityPage = () => {
           <>
             {users
               .filter((user) => user.position.includes(developerPosition))
-              .filter((user) => user.name.includes(searchValue))
+              .filter((user) => user.name.toLowerCase().includes(searchValue.toLowerCase()))
+              .filter((user) => {
+                if (selectSkill[0] !== '') return user.skills.indexOf(selectSkill[0]) !== -1;
+                else return user;
+              })
               .map((user) => (
                 <DevCard
                   key={user._id}

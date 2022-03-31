@@ -4,14 +4,8 @@ import SkillsIconSwitcher from './IconSwitcher/SkillsIconSwitcher';
 const skills = ["html", "css", "sass", "react", "javascript", "typescript", "tailwind", "node", "next", "angular", "csharp", "cplus", "php", "drupal", "java", "python", "postgres", "mongo", "wordpress", "net"]
 
 const SkillsTags = ({ selectSkill, setSelectSkill }) => {
-  const addSkill = (newSkill) => {
-    const findSkills = selectSkill.find((skill) => skill === newSkill);
-    if (findSkills) {
-      const filterSkills = selectSkill.filter((skill) => skill !== findSkills);
-      setSelectSkill(filterSkills);
-    } else {
-      setSelectSkill((prev) => [...prev, newSkill]);
-    }
+  const toggleSkill = (skill) => {
+    selectSkill[0] === skill ? setSelectSkill(['']) : setSelectSkill([skill]);
   };
 
   return (
@@ -19,15 +13,13 @@ const SkillsTags = ({ selectSkill, setSelectSkill }) => {
       {skills.map((skill, i) => (
         <button
           key={i}
-          className={`skillstags__button ${
-            selectSkill.find((item) => item === skill) ? 'active' : ''
-          }`}
-          onClick={() => addSkill(skill)}>
+          className={`skillstags__button ${selectSkill[0] === skill ? 'active' : ''}`}
+          onClick={() => toggleSkill(skill)}>
           <div>
             <SkillsIconSwitcher
               name={skill}
               className={`icon-large ${
-                selectSkill.find((item) => item === skill) ? 'primary-white' : 'primary-blue'
+                selectSkill[0] === skill ? 'primary-white' : 'primary-blue'
               }`}
             />
           </div>

@@ -24,12 +24,13 @@ const Profile = ({ userProp }) => {
     <div className="profile">
       <ProfileCard
         name={user?.name}
+        imageUrl={user?.imageUrl}
         position={user?.position}
         langs={user?.languages}
-        socials={user?.social}
+        socials={user?.socials}
+        about={user?.about}
       />
       <p>Skills</p>
-      <p>{user?._id}</p>
       <div className="skillstags">
         {user?.skills?.map((skill, i) => (
           <button key={i} className="skillstags__button">
