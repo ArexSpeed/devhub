@@ -23,6 +23,12 @@
     height: 150px;
     border-radius: 50%;
     background: $primary-blue;
+    & img {
+      object-fit: cover;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
   }
   &__socials {
     display: flex;

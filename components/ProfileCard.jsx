@@ -2,12 +2,14 @@ import Link from 'next/link';
 import FlagIconSwitcher from './IconSwitcher/FlagIconSwitcher';
 import SocialIconSwitcher from './IconSwitcher/SocialIconSwitcher';
 
-const ProfileCard = ({ name, position, langs, socials, about }) => {
+const ProfileCard = ({ name, imageUrl, position, langs, socials, about }) => {
   return (
     <section className="profileCard">
       <article className="profileCard__details">
         <div className="profileCard__media">
-          <div className="profileCard__image"></div>
+          <div className="profileCard__image">
+            <img src={imageUrl} alt="" />
+          </div>
           <div className="profileCard__socials">
             {socials
               ?.filter((social) => social.link.length > 0)

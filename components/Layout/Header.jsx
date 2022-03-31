@@ -1,14 +1,23 @@
 import Image from 'next/image';
 import logo from 'assets/logo.png';
-import avatar from 'assets/avatar.jpg';
 import { BookmarkIcon, BookmarkOutlineIcon, NotificationIcon } from 'components/Icons/FontIcons';
 import Link from 'next/link';
-import { useState } from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/client';
 
 const Header = () => {
   const [session] = useSession();
   const [bookmarkHover, setBookmarkHover] = useState(false);
+  const [user, setUser] = useState({});
+
+  useEffect(async () => {
+    if (session) {
+      const user = await axios.get(`/api/user?id=${session.user.id}`);
+      setUser(user.data);
+    }
+  }, [session]);
+
   return (
     <header className="header">
       <div className="header__logo">
@@ -33,8 +42,10 @@ const Header = () => {
           </a>
         </Link>
         <div className="header__actions-user">
-          <span>{session ? session.user.name : ''}</span>
-          <Image src={avatar} width={40} height={40} objectFit="contain" alt="" />
+          <span>{session ? user.name : ''}</span>
+          <div className="header__image">
+            <img src={session ? user.imageUrl : ''} alt="" />
+          </div>
         </div>
       </div>
     </header>

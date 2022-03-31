@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { useSession } from 'next-auth/client';
 import { useRouter } from 'next/router';
+import { uploadImage } from 'services/uploadImage';
 import FlagIconSwitcher from 'components/IconSwitcher/FlagIconSwitcher';
 import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
 // eslint-disable-next-line prettier/prettier
@@ -11,11 +12,12 @@ const langsArray = ['pl', 'en', 'ger', 'fr', 'ua', 'it'];
 const skillsArray = ["html", "css", "sass", "react", "javascript", "typescript", "tailwind", "node", "next", "angular", "csharp", "cplus", "php", "drupal", "java", "python", "postgres", "mongo", "wordpress", "net"]
 
 const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about, socials }) => {
-  const [session] = useSession();
+  const [session, loading] = useSession();
   const router = useRouter();
   const profileForm = useRef();
   const [error, setError] = useState();
   const [formProcessing, setFormProcessing] = useState(false);
+  const [imagePreview, setImagePreview] = useState('');
   const [checkedLangs, setCheckedLangs] = useState([]);
   const [checkedSkills, setCheckedSkills] = useState([]);
   const [socialLinks, setSocialLinks] = useState({
@@ -27,9 +29,14 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
     dribbble: ''
   });
 
+  if (!session && !loading) {
+    router.push('/');
+  }
+
   useEffect(() => {
     if (languages) setCheckedLangs(languages);
     if (skills) setCheckedSkills(skills);
+    if (imageUrl) setImagePreview(imageUrl);
   }, [languages]);
 
   //filter social links by find to get link to every user social then possible change in useState
@@ -82,9 +89,10 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
     });
   };
 
-  // if (!session) {
-  //   router.push('/');
-  // }
+  const handleImagePreview = (e) => {
+    const url = window.URL.createObjectURL(e.target.files[0]);
+    setImagePreview(url);
+  };
   async function handleSubmit(e) {
     e.preventDefault();
     if (formProcessing) return;
@@ -102,13 +110,18 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
     const payload = {
       name: form.get('name'),
       email: form.get('email'),
-      imageUrl: form.get('imageUrl'),
       position: form.get('position'),
       languages: checkedLangs,
       skills: checkedSkills,
       socials: socialPayload,
       about: form.get('about')
     };
+
+    if (form.get('imageUrl')) {
+      const picture = form.get('imageUrl');
+      const file = await uploadImage(picture);
+      payload.imageUrl = file.secure_url;
+    }
 
     const response = await fetch(`/api/users?id=${session.user.id}`, {
       method: 'PUT',
@@ -127,12 +140,32 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
       setError(payload.error);
     }
   }
+
+  if (loading) {
+    return <div className="form">Loading...</div>;
+  }
+
   return (
     <div className="form">
       <section className="form__form">
         <div className="form__header">Edit your profile</div>
         <form onSubmit={handleSubmit} ref={profileForm}>
           {error && <div className="form__error">{error}</div>}
+          <div className="form__image">
+            <img src={imagePreview} alt="" />
+          </div>
+          <div className="form__field">
+            <label htmlFor="imageUrl" className="form__label">
+              Image
+            </label>
+            <input
+              className="form__upload"
+              type="file"
+              name="imageUrl"
+              id="imageUrl"
+              onChange={(e) => handleImagePreview(e)}
+            />
+          </div>
           <div className="form__field">
             <label htmlFor="name" className="form__label">
               Full name
@@ -156,19 +189,6 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
               name="email"
               placeholder="Enter your email"
               defaultValue={email}
-              required
-            />
-          </div>
-          <div className="form__field">
-            <label htmlFor="imageUrl" className="form__label">
-              Image
-            </label>
-            <input
-              className="form__input"
-              type="text"
-              name="imageUrl"
-              placeholder="Upload image"
-              defaultValue={imageUrl}
               required
             />
           </div>

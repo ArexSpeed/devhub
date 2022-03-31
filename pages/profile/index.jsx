@@ -20,6 +20,7 @@ const ProfilePage = () => {
       <TitleBox button="Edit profile" href="/profile/edit" />
       <ProfileCard
         name={user.name}
+        imageUrl={user.imageUrl}
         position={user.position}
         langs={user.languages}
         socials={user.socials}
