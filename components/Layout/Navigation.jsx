@@ -7,6 +7,7 @@ import { BlogIcon, CommunityIcon, EventIcon, HomeIcon, LogoutIcon, ProfileIcon, 
 
 const Navigation = () => {
   const router = useRouter();
+
   return (
     <nav className="nav">
       <ul className="nav__list">
@@ -69,7 +70,13 @@ const Navigation = () => {
       </ul>
       <ul className="nav__list">
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
-        <li className="nav__item" onClick={signOut}>
+        <li
+          className="nav__item"
+          onClick={() =>
+            signOut({
+              callbackUrl: `/`
+            })
+          }>
           <Link href="/" passHref>
             <a className="nav__link">
               <LogoutIcon className="icon-medium primary-blue" />

@@ -110,6 +110,7 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
     const payload = {
       name: form.get('name'),
       email: form.get('email'),
+      imageUrl: imagePreview,
       position: form.get('position'),
       languages: checkedLangs,
       skills: checkedSkills,
@@ -117,7 +118,7 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
       about: form.get('about')
     };
 
-    if (form.get('imageUrl')) {
+    if (form.get('imageUrl').name !== '') {
       const picture = form.get('imageUrl');
       const file = await uploadImage(picture);
       payload.imageUrl = file.secure_url;
