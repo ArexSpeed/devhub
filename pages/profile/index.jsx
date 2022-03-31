@@ -22,7 +22,8 @@ const ProfilePage = () => {
         name={user.name}
         position={user.position}
         langs={user.languages}
-        socials={user.social}
+        socials={user.socials}
+        about={user.about}
       />
       <p>Skills</p>
       <div className="skillstags">

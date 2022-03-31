@@ -18,13 +18,42 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
   const [formProcessing, setFormProcessing] = useState(false);
   const [checkedLangs, setCheckedLangs] = useState([]);
   const [checkedSkills, setCheckedSkills] = useState([]);
-  const [socialsLink, setSocialLink] = useState([]);
+  const [socialLinks, setSocialLinks] = useState({
+    website: '',
+    facebook: '',
+    linkedin: '',
+    twitter: '',
+    github: '',
+    dribbble: ''
+  });
 
   useEffect(() => {
     if (languages) setCheckedLangs(languages);
     if (skills) setCheckedSkills(skills);
-    if (socials) setSocialLink(socials);
   }, [languages]);
+
+  //filter social links by find to get link to every user social then possible change in useState
+  const filterSocial = (name) => {
+    const findEl = socials.find((social) => social.name === name);
+    if (findEl) {
+      return findEl.link;
+    } else {
+      return '';
+    }
+  };
+
+  useEffect(() => {
+    if (socials) {
+      setSocialLinks({
+        website: filterSocial('website'),
+        facebook: filterSocial('facebook'),
+        linkedin: filterSocial('linkedin'),
+        twitter: filterSocial('twitter'),
+        github: filterSocial('github'),
+        dribbble: filterSocial('dribbble')
+      });
+    }
+  }, [socials]);
 
   const checkLang = (item) => {
     const findLang = checkedLangs.find((lang) => lang === item);
@@ -46,6 +75,13 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
     }
   };
 
+  const changeSocialValue = (e) => {
+    setSocialLinks({
+      ...socialLinks,
+      [e.target.name]: e.target.value
+    });
+  };
+
   // if (!session) {
   //   router.push('/');
   // }
@@ -55,6 +91,14 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
     setError(null);
     setFormProcessing(true);
     const form = new FormData(profileForm.current);
+    const socialPayload = [
+      { name: 'website', link: socialLinks.website },
+      { name: 'facebook', link: socialLinks.facebook },
+      { name: 'linkedin', link: socialLinks.linkedin },
+      { name: 'twitter', link: socialLinks.twitter },
+      { name: 'github', link: socialLinks.github },
+      { name: 'dribbble', link: socialLinks.dribbble }
+    ];
     const payload = {
       name: form.get('name'),
       email: form.get('email'),
@@ -62,7 +106,7 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
       position: form.get('position'),
       languages: checkedLangs,
       skills: checkedSkills,
-      socials: socialsLink,
+      socials: socialPayload,
       about: form.get('about')
     };
 
@@ -204,34 +248,61 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
               <WebsiteIcon className="icon-small primary-blue" />
               <input
                 className="form__input"
-                name="social-website"
+                name="website"
                 placeholder="Your website link"
+                value={socialLinks.website}
+                onChange={(e) => changeSocialValue(e)}
               />
             </div>
             <div className="form__field-social">
               <FacebookIcon className="icon-small primary-blue" />
               <input
                 className="form__input"
-                name="social-fb"
+                name="facebook"
                 placeholder="Facebook link"
-                //defaultValue={socialsLink[1].link}
+                value={socialLinks.facebook}
+                onChange={(e) => changeSocialValue(e)}
               />
             </div>
             <div className="form__field-social">
               <LinkedinIcon className="icon-small primary-blue" />
-              <input className="form__input" name="social-linkedin" placeholder="Linkedin link" />
+              <input
+                className="form__input"
+                name="linkedin"
+                placeholder="Linkedin link"
+                value={socialLinks.linkedin}
+                onChange={(e) => changeSocialValue(e)}
+              />
             </div>
             <div className="form__field-social">
               <TwitterIcon className="icon-small primary-blue" />
-              <input className="form__input" name="social-twitter" placeholder="Twitter link" />
+              <input
+                className="form__input"
+                name="twitter"
+                placeholder="Twitter link"
+                value={socialLinks.twitter}
+                onChange={(e) => changeSocialValue(e)}
+              />
             </div>
             <div className="form__field-social">
               <GithubIcon className="icon-small primary-blue" />
-              <input className="form__input" name="social-github" placeholder="Github link" />
+              <input
+                className="form__input"
+                name="github"
+                placeholder="Github link"
+                value={socialLinks.github}
+                onChange={(e) => changeSocialValue(e)}
+              />
             </div>
             <div className="form__field-social">
               <DribbbleIcon className="icon-small primary-blue" />
-              <input className="form__input" name="social-dribble" placeholder="Dribbble link" />
+              <input
+                className="form__input"
+                name="dribbble"
+                placeholder="Dribbble link"
+                value={socialLinks.dribbble}
+                onChange={(e) => changeSocialValue(e)}
+              />
             </div>
           </div>
           <button type="submit" className="form__button">
