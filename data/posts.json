@@ -1,6 +1,6 @@
 [
   {
-    "postid": 1,
+    "postid": "1",
     "userid": 1,
     "username": "Arek Cichocki",
     "userimage": "",
@@ -14,7 +14,7 @@
     "comments": []
   },
   {
-    "postid": 2,
+    "postid": "2",
     "userid": 2,
     "username": "Sebastian Wuczkowski",
     "userimage": "",

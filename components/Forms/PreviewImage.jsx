@@ -31,7 +31,7 @@ export const PreviewImage = () => {
   return (
     <div>
       <div className="form__header">Image</div>
-      <input type="file" onChange={(e) => onSelectFile(e)} />
+      <input className="form__input" type="file" onChange={(e) => onSelectFile(e)} />
       <div className="add__image-preview">
         <div className="add__img">
           {selectedFile && <img src={preview} className="add__img" alt="" />}

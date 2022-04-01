@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { ChevronRight, Heart, Comment } from './Icons/FontIcons';
 
@@ -19,9 +20,12 @@ export default function BlogCard(props) {
               <Comment />{' '}
               <span className="blog__card-social-length dot">{props.comments.length}</span>
             </div>
-            <div className="blog__card-more">
-              <ChevronRight className="icon-medium" /> Read more
-            </div>
+            <Link href={`/blog/${props.postid}`} passHref>
+              <div className="blog__card-more">
+                <ChevronRight className="icon-medium" />
+                <button className="blog__button">Read more</button>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
