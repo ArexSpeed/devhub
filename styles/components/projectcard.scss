@@ -1,0 +1,88 @@
+.projectcard {
+  display: flex;
+  flex-direction: column;
+  background-color: $primary-white;
+  width: 100%;
+  padding: 16px;
+  border-radius: 0.5rem;
+  &__heading {
+    display: flex;
+  }
+  &__image {
+    flex: 1 1;
+    height: 70px;
+    max-width: 70px;
+    border-radius: 70px;
+    background: #0072af;
+  }
+  &__title {
+    padding-left: 1rem;
+  }
+
+  &__skills {
+    margin-bottom: 4px;
+  }
+
+  &__userimage {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    gap: 8px;
+
+    &-image {
+      height: 24px;
+      max-width: 24px;
+      border-radius: 70px;
+      background: #0072af;
+      display: flex;
+      flex: row;
+      align-items: center;
+      padding-left: 25px;
+    }
+  }
+  &__likes {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    &-votes {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 11px;
+      left: 12px;
+      height: 14px;
+      width: 14px;
+      background-color: $primary-green;
+      border-radius: 50%;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    width: 133px;
+    height: 32px;
+    background-color: $primary-green;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+
+    &__btn-wrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.icon-medium--center {
+  display: flex;
+  align-items: center;
+}
+.margin-skills {
+  margin: 5px;
+}
