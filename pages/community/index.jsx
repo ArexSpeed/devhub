@@ -3,20 +3,25 @@ import { SearchIcon } from 'components/Icons/FontIcons';
 import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
 import DevCard from 'components/DevCard';
-import users from 'data/users.json';
 import follows from 'data/usersFollow.json';
+import axios from 'axios';
 
-const ComminityPage = () => {
+const CommunityPage = () => {
+  const [users, setUsers] = useState([]);
   const [activeButton, setActiveButton] = useState('All Developers');
   const [developerPosition, setDeveloperPosition] = useState('');
   const [searchValue, setSearchValue] = useState('');
-  const [selectSkill, setSelectSkill] = useState([]);
+  const [selectSkill, setSelectSkill] = useState(['']);
   const [userFollows, setUserFollows] = useState({});
   const userid = 1; //temporary user id
 
   useEffect(() => {
     const findFollow = follows.find((follow) => follow.userid === userid);
     setUserFollows(findFollow);
+  }, []);
+  useEffect(async () => {
+    const data = await axios.get('/api/users');
+    setUsers(data.data);
   }, []);
 
   return (
@@ -76,16 +81,21 @@ const ComminityPage = () => {
           <>
             {users
               .filter((user) => user.position.includes(developerPosition))
-              .filter((user) => user.name.includes(searchValue))
+              .filter((user) => user.name.toLowerCase().includes(searchValue.toLowerCase()))
+              .filter((user) => {
+                if (selectSkill[0] !== '') return user.skills.indexOf(selectSkill[0]) !== -1;
+                else return user;
+              })
               .map((user) => (
                 <DevCard
-                  key={user.userid}
-                  id={user.userid}
+                  key={user._id}
+                  id={user._id}
                   name={user.name}
+                  image={user.imageUrl}
                   position={user.position}
                   skills={user.skills}
                   langs={user.languages}
-                  socials={user.social}
+                  socials={user.socials}
                 />
               ))}
           </>
@@ -133,4 +143,4 @@ const ComminityPage = () => {
   );
 };
 
-export default ComminityPage;
+export default CommunityPage;

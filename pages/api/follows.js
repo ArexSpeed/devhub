@@ -1,5 +1,5 @@
 import { connectToDatabase } from 'util/mongodb';
-import create from 'services/users/create';
+import { createFollow } from 'services/users/follows';
 import { ObjectId } from 'mongodb';
 
 export default async (req, res) => {
@@ -7,7 +7,12 @@ export default async (req, res) => {
 
   switch (req.method) {
     case 'GET': {
-      const data = await db.collection('users').find().sort({ _id: 1 }).toArray();
+      const userid = req.query.userid;
+      const data = await db
+        .collection('follows')
+        .find({ userid: userid })
+        .sort({ _id: 1 })
+        .toArray();
       res.json(data);
 
       break;
@@ -16,7 +21,7 @@ export default async (req, res) => {
       try {
         const payload = req.body;
         console.log(payload, 'body');
-        const data = await create(payload);
+        const data = await createFollow(payload);
         res.status(200).json({ status: 'created', data });
       } catch (error) {
         res.status(422).json({ status: 'not_created', error });

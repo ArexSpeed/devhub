@@ -31,16 +31,27 @@ const create = async (payload) => {
   const passwordHash = crypto
     .pbkdf2Sync(password, passwordSalt, 1000, 64, `sha512`)
     .toString(`hex`);
+  // eslint-disable-next-line prettier/prettier
+  const blankImage ='https://res.cloudinary.com/dbpsxmtcb/image/upload/v1648748926/umcedkder4e0nxragcdg.png';
+  const blankSocial = [
+    { name: 'website', link: '' },
+    { name: 'facebook', link: '' },
+    { name: 'linkedin', link: '' },
+    { name: 'twitter', link: '' },
+    { name: 'github', link: '' },
+    { name: 'dribbble', link: '' }
+  ];
   const user = await db.collection('users').insertOne({
     email,
     name,
-    imageUrl: '',
+    imageUrl: blankImage,
     passwordSalt,
     passwordHash,
     position,
     languages: [],
     skills: [],
-    socials: [{}]
+    about: '',
+    socials: blankSocial
   });
 
   return user;

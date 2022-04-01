@@ -1,24 +1,30 @@
-import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import users from 'data/users.json';
+import { useSession } from 'next-auth/client';
+import axios from 'axios';
+import TitleBox from 'components/TitleBox';
 import ProfileCard from 'components/ProfileCard';
 import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
 
-const Profile = () => {
-  const router = useRouter();
+const ProfilePage = () => {
+  const [session] = useSession();
   const [user, setUser] = useState({});
 
-  useEffect(() => {
-    const findUser = users.find((user) => user.userid === +router.query.id);
-    setUser(findUser);
-  }, []);
+  useEffect(async () => {
+    if (session) {
+      const data = await axios.get(`/api/user?id=${session.user.id}`);
+      setUser(data.data);
+    }
+  }, [session]);
   return (
     <div className="profile">
+      <TitleBox button="Edit profile" href="/profile/edit" />
       <ProfileCard
         name={user.name}
+        imageUrl={user.imageUrl}
         position={user.position}
         langs={user.languages}
-        socials={user.social}
+        socials={user.socials}
+        about={user.about}
       />
       <p>Skills</p>
       <div className="skillstags">
@@ -35,4 +41,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfilePage;
