@@ -1,5 +1,6 @@
 import data from 'data/quiz.json';
 import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
+import Link from 'next/link';
 
 const Quizes = () => {
   console.log(data);
@@ -10,16 +11,22 @@ const Quizes = () => {
       </div>
       <div className="quiz__all-quizes--quizes">
         {data.map((quiz) => (
-          <div key={quiz.quizid} className="quiz__all-quizes--card">
+          <div key={quiz.quizid} className={`quiz__all-quizes--card ${quiz.level.toLowerCase()}`}>
             <SkillsIconSwitcher
               name={quiz.quizname.toLowerCase()}
               className="icon-large primary-blue"
             />
-            <span>
-              {quiz.quizname} - {quiz.level}
-            </span>
+
+            <div className="quiz__all-quizes--card--name-level">
+              <span>{quiz.quizname}</span>
+              <span>{quiz.level}</span>
+            </div>
+
             <span>{quiz.questions.length} questions</span>
-            <button>Start</button>
+
+            <Link href={`/quiz/${quiz.quizid}`} passHref>
+              <a>Start</a>
+            </Link>
           </div>
         ))}
       </div>

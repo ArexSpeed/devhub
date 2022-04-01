@@ -19,25 +19,29 @@
       gap: 1rem;
     }
     &--card {
+      gap: 8px;
+      padding: 8px;
       width: 136px;
-      height: 166px;
       background: #ffffff;
-      border: 1px solid #95e616;
       box-sizing: border-box;
       border-radius: 8px;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
+      &--name-level {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
       .quizScore {
         width: 40px;
         height: 40px;
       }
     }
 
-    &--card button {
-      width: 72px;
-      height: 24px;
+    &--card a{
+      padding: 4px 20px;
       background: #17abdb;
       border-radius: 4px;
       border: none;
@@ -48,13 +52,13 @@
       font-size: 14px;
     }
 
-    &--card button:hover {
+    &--card a:hover {
       cursor: pointer;
       background: #1284aa;
     }
   }
 
-  &__all-quizes{
+  &__all-quizes {
     &--title {
       font-weight: 400;
       font-size: 20px;
@@ -67,20 +71,24 @@
       gap: 1rem;
     }
     &--card {
+      gap: 8px;
+      padding: 8px;
       width: 136px;
-      height: 166px;
       background: #ffffff;
-      border: 1px solid #95e616;
       box-sizing: border-box;
       border-radius: 8px;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
+      &--name-level {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
     }
-    &--card button {
-      width: 72px;
-      height: 24px;
+    &--card a {
+      padding: 4px 20px;
       background: #17abdb;
       border-radius: 4px;
       border: none;
@@ -91,9 +99,21 @@
       font-size: 14px;
     }
 
-    &--card button:hover {
+    &--card a:hover {
       cursor: pointer;
       background: #1284aa;
     }
   }
+}
+
+.junior {
+  border: 1px solid #95e616;
+}
+
+.middle {
+  border: 1px solid #0072af;
+}
+
+.senior {
+  border: 1px solid #ff0606;
 }

@@ -2,6 +2,7 @@ import data from 'data/quizScore.json';
 import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import Link from 'next/link';
 
 const FinishedQuizes = () => {
   console.log(data);
@@ -12,14 +13,19 @@ const FinishedQuizes = () => {
       </div>
       <div className="quiz__finished-quizes--results">
         {data.map((result) => (
-          <div key={result.scoreid} className="quiz__finished-quizes--card">
+          <div
+            key={result.scoreid}
+            className={`quiz__finished-quizes--card ${result.quizlevel.toLowerCase()} `}>
             <SkillsIconSwitcher
               name={result.quizname.toLowerCase()}
               className="icon-large primary-blue"
             />
-            <span>
-              {result.quizname} - {result.quizlevel}
-            </span>
+
+            <div className="quiz__finished-quizes--card--name-level">
+              <span>{result.quizname}</span>
+              <span>{result.quizlevel}</span>
+            </div>
+
             <div className="quizScore">
               <CircularProgressbar
                 strokeWidth={10}
@@ -36,7 +42,9 @@ const FinishedQuizes = () => {
                 }}
               />
             </div>
-            <button>Repeat</button>
+            <Link href={`/quiz/${data.quizid}`} passHref>
+              <a>Repeat</a>
+            </Link>
           </div>
         ))}
       </div>

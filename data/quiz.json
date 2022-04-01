@@ -206,7 +206,7 @@
   {
     "quizid": "5",
     "quizname": "CSS",
-    "level": "Black Mage",
+    "level": "Senior",
     "questions": [
       {
         "questionid": "1",
@@ -512,7 +512,7 @@
   {
     "quizid": "11",
     "quizname": "Next",
-    "level": "God",
+    "level": "Middle",
     "questions": [
       {
         "questionid": "1",
@@ -716,7 +716,7 @@
   {
     "quizid": "15",
     "quizname": "Drupal",
-    "level": "No way",
+    "level": "Junior",
     "questions": [
       {
         "questionid": "1",
@@ -919,7 +919,7 @@
   },
   {
     "quizid": "19",
-    "quizname": "wordpress",
+    "quizname": "WordPress",
     "level": "Junior",
     "questions": [
       {

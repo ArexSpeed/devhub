@@ -9,6 +9,7 @@ const Quiz = () => {
         <TitleBox title="Test your skills" />
         <span>Here you can check your skills out</span>
       </section>
+
       {/* Finished quizes (component) */}
       <FinishedQuizes />
 
