@@ -66,9 +66,11 @@ export default function add() {
               required
             />
           </div>
-
+          {/* ========Image========= */}
           <PreviewImage />
-          <button>Submit</button>
+          <div className="blog__buttons">
+            <button className="form__button">Submit</button>
+          </div>
         </div>
       </section>
     </div>

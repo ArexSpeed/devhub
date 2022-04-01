@@ -13,15 +13,22 @@ export default function BlogPage() {
     <div>
       <section className="blog__title">
         <TitleBox title="Blog" />
+        <a href="blog/add">
+          <div className="blog__add-button">
+            <button className="form__button" type="button">
+              Add new article
+            </button>
+          </div>
+        </a>
       </section>
       <section className="blog__container">
-        <div className="blog__searchbox">
-          <div className="blog__searchbox-icon">
+        <div className="community__searchbox">
+          <div className="community__searchbox-icon">
             <SearchIcon className="icon-medium secondary-blue" />
             <input
               type="text"
               className="community__searchbox-input"
-              placeholder="Search Developer by name"
+              placeholder="Search Post by name"
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
@@ -33,10 +40,10 @@ export default function BlogPage() {
         </section>
         <div className="blog__content">
           <div className="blog__filters">
-            <button>Latests</button>
-            <button>Design</button>
-            <button>Frontend</button>
-            <button>Backend</button>
+            <button className="blog__button">Latests</button>
+            <button className="blog__button">Design</button>
+            <button className="blog__button">Frontend</button>
+            <button className="blog__button">Backend</button>
           </div>
           <div className="blog__cards">
             {posts.map((post) => (
