@@ -1,0 +1,119 @@
+.quiz {
+  &__title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 42px;
+  }
+
+  &__finished-quizes {
+    margin-bottom: 31px;
+    &--title {
+      font-weight: 400;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+    &--results {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 1rem;
+    }
+    &--card {
+      gap: 8px;
+      padding: 8px;
+      width: 136px;
+      background: #ffffff;
+      box-sizing: border-box;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      &--name-level {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+      .quizScore {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &--card a{
+      padding: 4px 20px;
+      background: #17abdb;
+      border-radius: 4px;
+      border: none;
+
+      color: #ffffff;
+
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    &--card a:hover {
+      cursor: pointer;
+      background: #1284aa;
+    }
+  }
+
+  &__all-quizes {
+    &--title {
+      font-weight: 400;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+    &--quizes {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 1rem;
+    }
+    &--card {
+      gap: 8px;
+      padding: 8px;
+      width: 136px;
+      background: #ffffff;
+      box-sizing: border-box;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      &--name-level {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    &--card a {
+      padding: 4px 20px;
+      background: #17abdb;
+      border-radius: 4px;
+      border: none;
+
+      color: #ffffff;
+
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    &--card a:hover {
+      cursor: pointer;
+      background: #1284aa;
+    }
+  }
+}
+
+.junior {
+  border: 1px solid #95e616;
+}
+
+.middle {
+  border: 1px solid #0072af;
+}
+
+.senior {
+  border: 1px solid #ff0606;
+}
