@@ -7,20 +7,46 @@
   border-radius: 0.5rem;
   &__heading {
     display: flex;
+    align-items: center;
+    gap: 16px;
   }
   &__image {
-    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $primary-blue;
+    width: 70px;
     height: 70px;
-    max-width: 70px;
-    border-radius: 70px;
-    background: #0072af;
+    border-radius: 50%;
+    & img {
+      object-fit: cover;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
   }
   &__title {
-    padding-left: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 8px;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      border-radius: 4px;
+      bottom: 0;
+      background-color: $primary-green;
+    }
   }
 
   &__skills {
-    margin-bottom: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
   }
 
   &__userimage {
@@ -31,58 +57,59 @@
     gap: 8px;
 
     &-image {
-      height: 24px;
-      max-width: 24px;
-      border-radius: 70px;
-      background: #0072af;
+      background: $primary-blue;
       display: flex;
-      flex: row;
+      justify-content: center;
       align-items: center;
-      padding-left: 25px;
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      & img {
+        object-fit: cover;
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+      }
     }
   }
-  &__likes {
-    position: relative;
+  &__likes{
     display: flex;
     justify-content: space-between;
-
-    &-votes {
+    width: 100%;
+    &-btn {
+      background: transparent;
+      border-radius: 50%;
+      position: relative;
+      border: none;
+      cursor: pointer;
+    }
+    &-count {
       position: absolute;
       display: flex;
-      align-items: center;
       justify-content: center;
-      top: 11px;
-      left: 12px;
-      height: 14px;
-      width: 14px;
+      align-items: center;
       background-color: $primary-green;
+      bottom: 0;
+      right: 0;
+      width: 16px;
+      height: 16px;
+      font-size: 12px;
       border-radius: 50%;
     }
   }
 
-  &__btn {
+  &__link {
     display: flex;
     align-items: center;
-    width: 133px;
-    height: 32px;
+    padding: 4px 8px;
+    gap: 4px;
     background-color: $primary-green;
     border-radius: 8px;
     border: none;
-    font-size: 16px;
-    font-weight: 400;
     cursor: pointer;
-
-    &__btn-wrapper {
-      display: flex;
-      align-items: center;
+    &:hover {
+      background-color: $secondary-green;
+      transition: all 0.3s ease-in-out;
     }
   }
-}
-
-.icon-medium--center {
-  display: flex;
-  align-items: center;
-}
-.margin-skills {
-  margin: 5px;
 }
