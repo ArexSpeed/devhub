@@ -1,11 +1,46 @@
 import { useState } from 'react';
+//import { useSession } from 'next-auth/client';
 import Link from 'next/link';
+//import axios from 'axios';
 import FlagIconSwitcher from './IconSwitcher/FlagIconSwitcher';
 import SkillsIconSwitcher from './IconSwitcher/SkillsIconSwitcher';
 import SocialIconSwitcher from './IconSwitcher/SocialIconSwitcher';
 
 const DevCard = ({ id, name, image, position, skills, langs, socials }) => {
+  //const [session] = useSession();
   const [follow, setFollow] = useState(false);
+  //const [follows, setFollows] = useState([]);
+
+  // useEffect(() => {
+  //   const foll = axios.get(`/api/follows?userid=${session.user.id}`);
+  //   if (foll) {
+  //     setFollows(foll.data);
+  //   }
+  //   setFollows([]);
+  // }, [session]);
+
+  // const addFollow = async (newFollowId) => {
+  //   setFollows((prev) => [...prev, newFollowId]);
+  //   const payload = {
+  //     userid: session.user.id,
+  //     followed: follows
+  //   };
+
+  //   const response = await fetch(`/api/follows`, {
+  //     method: 'POST',
+  //     body: JSON.stringify(payload),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   });
+
+  //   if (response.ok) {
+  //     setFollow(true);
+  //   } else {
+  //     const payload = await response.json();
+  //   }
+  // };
+
   return (
     <div className="devcard">
       <article className="devcard__top">

@@ -6,12 +6,12 @@ import DevCard from 'components/DevCard';
 import follows from 'data/usersFollow.json';
 import axios from 'axios';
 
-const ComminityPage = () => {
+const CommunityPage = () => {
   const [users, setUsers] = useState([]);
   const [activeButton, setActiveButton] = useState('All Developers');
   const [developerPosition, setDeveloperPosition] = useState('');
   const [searchValue, setSearchValue] = useState('');
-  const [selectSkill, setSelectSkill] = useState([]);
+  const [selectSkill, setSelectSkill] = useState(['']);
   const [userFollows, setUserFollows] = useState({});
   const userid = 1; //temporary user id
 
@@ -143,4 +143,4 @@ const ComminityPage = () => {
   );
 };
 
-export default ComminityPage;
+export default CommunityPage;
