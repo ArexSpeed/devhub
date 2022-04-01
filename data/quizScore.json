@@ -15,6 +15,15 @@
     "quizlevel": "Middle",
     "userid": "4",
     "username": "Dmytro Zaichenko",
-    "score": 90
+    "score": 70
+  },
+  {
+    "scoreid": "3",
+    "quizid": "3",
+    "quizname": "Python",
+    "quizlevel": "Senior",
+    "userid": "3",
+    "username": "Bartek ",
+    "score": 55
   }
 ]
