@@ -1,9 +1,14 @@
 import { useState, useRef } from 'react';
+import { useSession } from 'next-auth/client';
+import { useRouter } from 'next/router';
+import { uploadImage } from 'services/uploadImage';
 
 const BlogAdd = () => {
+  const [session, loading] = useSession();
+  const router = useRouter();
   const blogForm = useRef();
   const [error, setError] = useState();
-  //const [formProcessing, setFormProcessing] = useState(false);
+  const [formProcessing, setFormProcessing] = useState(false);
   const [imagePreview, setImagePreview] = useState('');
 
   const handleImagePreview = (e) => {
@@ -11,9 +16,51 @@ const BlogAdd = () => {
     setImagePreview(url);
   };
 
-  const handleSubmit = () => {
-    console.log('submit');
-  };
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (formProcessing) return;
+    setError(null);
+    setFormProcessing(true);
+    const form = new FormData(blogForm.current);
+    const payload = {
+      userid: session.user.id,
+      username: session.user.name,
+      userimage: session.user.image,
+      image: imagePreview,
+      title: form.get('title'),
+      category: form.get('category'),
+      excerpt: form.get('excerpt'),
+      content: form.get('content')
+    };
+
+    if (form.get('image').name !== '') {
+      const picture = form.get('image');
+      const file = await uploadImage(picture);
+      payload.image = file.secure_url;
+    }
+
+    const response = await fetch(`/api/posts`, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      setFormProcessing(false);
+      router.push('/blog');
+    } else {
+      const payload = await response.json();
+      setFormProcessing(false);
+      setError(payload.error);
+    }
+  }
+
+  if (loading) {
+    return <div className="form">Loading...</div>;
+  }
+
   return (
     <div className="center">
       <div className="form">
@@ -52,9 +99,9 @@ const BlogAdd = () => {
               Category
             </label>
             <select className="form__selector" name="category">
-              <option value="Frontend Developer">Frontend Developer</option>
-              <option value="Backend Developer">Backend Developer</option>
-              <option value="Fullstack Developer">Fullstack Developer</option>
+              <option value="Frontend">Frontend</option>
+              <option value="Backend">Backend</option>
+              <option value="Design">Design</option>
             </select>
           </div>
           <div className="form__field">

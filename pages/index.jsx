@@ -7,7 +7,7 @@ export default function Home() {
 
   return session ? (
     <div className="home">
-      Hello, {session.user.name}, {session.user.id}
+      Hello, {session.user.name}, {session.user.id}, {session.user.image}
     </div>
   ) : (
     <div className="home">

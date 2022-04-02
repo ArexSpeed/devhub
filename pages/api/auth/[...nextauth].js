@@ -43,7 +43,7 @@ export default NextAuth({
       if (user) {
         token.name = user?.name;
         token.id = user?.id;
-        token.image = user?.imageUrl;
+        token.image = user?.image;
       }
 
       return token;
