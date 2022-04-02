@@ -1,34 +1,46 @@
 import Link from 'next/link';
-import React from 'react';
-import { ChevronRight, Heart, Comment } from './Icons/FontIcons';
+import { ChevronRight, HeartIcon, CommentIcon } from './Icons/FontIcons';
 
-export default function BlogCard(props) {
+const BlogCard = ({ postid, title, excerpt, userimage, username, likes, comments }) => {
   return (
-    <div>
-      <div className="blog__card">
-        <div className="blog__card-top"></div>
-        <div className="blog__card-content">
-          <div className="blog__card-title">{props.title}</div>
-          <div className="blog__card-text">{props.excerpt}</div>
-          <div className="blog__card-author">
-            <span className="dot"></span>
-            {props.username}
+    <div className="blogcard">
+      <section className="blogcard__image">
+        <img
+          src="https://res.cloudinary.com/dbpsxmtcb/image/upload/v1648750351/iwtdp37s91oqth8wliev.jpg"
+          alt=""
+        />
+      </section>
+      <section className="blogcard__content">
+        <div className="blogcard__title">{title}</div>
+        <div className="blogcard__excerpt">{excerpt}</div>
+        <article className="blogcard__author">
+          <div className="blogcard__author-image">
+            <img src={userimage} alt="" />
           </div>
-          <div className="blog__card-bottom">
-            <div className="blog__card-social">
-              <Heart /> <span className="blog__card-social-length dot">{props.likes.length}</span>
-              <Comment />{' '}
-              <span className="blog__card-social-length dot">{props.comments.length}</span>
-            </div>
-            <Link href={`/blog/${props.postid}`} passHref>
-              <div className="blog__card-more">
-                <ChevronRight className="icon-medium" />
-                <button className="blog__button">Read more</button>
-              </div>
-            </Link>
+          <p>{username}</p>
+        </article>
+        <article className="blogcard__bottom">
+          <div className="blogcard__social">
+            <button className="blogcard__social-btn">
+              <HeartIcon className="icon-medium primary-blue" />
+              <div className="blogcard__social-count">{likes.length}</div>
+            </button>
+            <button className="blogcard__social-btn">
+              <CommentIcon className="icon-medium primary-blue" />
+              <div className="blogcard__social-count">{comments.length}</div>
+            </button>
           </div>
-        </div>
-      </div>
+
+          <Link href={`/blog/${postid}`} passHref>
+            <a className="blogcard__link">
+              <ChevronRight className="icon-medium primary-blue" />
+              <span>Read more</span>
+            </a>
+          </Link>
+        </article>
+      </section>
     </div>
   );
-}
+};
+
+export default BlogCard;

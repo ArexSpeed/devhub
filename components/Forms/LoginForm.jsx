@@ -35,7 +35,7 @@ const LoginForm = () => {
     }
   };
   return (
-    <div className="form">
+    <div className="form sign">
       <div className="form__header">Login to your account</div>
       <form onSubmit={handleSubmit} ref={loginForm}>
         {error && <div className="form__error">{error}</div>}

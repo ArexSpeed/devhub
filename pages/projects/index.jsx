@@ -20,7 +20,6 @@ const ProjectPage = () => {
           href="/projects/add"
         />
       </section>
-
       <section className="projects__searchcontainer">
         <div className="projects__searchbox">
           <div className="projects__searchbox-icon">
