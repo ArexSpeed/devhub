@@ -222,7 +222,7 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
           </div>
         </div>
         <div className="form__field">
-          <label htmlFor="languages" className="form__label">
+          <label htmlFor="skills" className="form__label">
             Skills
           </label>
           <div className="skillstags" style={{ marginBottom: '16px' }}>

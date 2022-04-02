@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 
 const BlogAdd = () => {
-  const profileForm = useRef();
+  const blogForm = useRef();
   const [error, setError] = useState();
   //const [formProcessing, setFormProcessing] = useState(false);
   const [imagePreview, setImagePreview] = useState('');
@@ -18,20 +18,20 @@ const BlogAdd = () => {
     <div className="center">
       <div className="form">
         <div className="form__header">Add new post</div>
-        <form onSubmit={handleSubmit} ref={profileForm}>
+        <form onSubmit={handleSubmit} ref={blogForm}>
           {error && <div className="form__error">{error}</div>}
           <div className="form__image">
             <img src={imagePreview} alt="" />
           </div>
           <div className="form__field">
-            <label htmlFor="imageUrl" className="form__label">
+            <label htmlFor="image" className="form__label">
               Image
             </label>
             <input
               className="form__upload"
               type="file"
-              name="imageUrl"
-              id="imageUrl"
+              name="image"
+              id="image"
               onChange={(e) => handleImagePreview(e)}
             />
           </div>

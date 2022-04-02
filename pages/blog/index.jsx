@@ -8,6 +8,7 @@ import BlogCard from 'components/BlogCard';
 const BlogPage = () => {
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState([]);
+  const [postCategory, setPostCategory] = useState('');
   return (
     <div className="blog">
       <section className="blog__title">
@@ -32,24 +33,47 @@ const BlogPage = () => {
         <SkillsTags selectSkill={selectSkill} setSelectSkill={setSelectSkill} />
       </section>
       <section className="blog__filters">
-        <button className="blog__filters-button active">Latests</button>
-        <button className="blog__filters-button">Design</button>
-        <button className="blog__filters-button">Frontend</button>
-        <button className="blog__filters-button">Backend</button>
+        <button
+          className={`blog__filters-button ${postCategory === '' && 'active'}`}
+          onClick={() => setPostCategory('')}>
+          Latests
+        </button>
+        <button
+          className={`blog__filters-button ${postCategory === 'Design' && 'active'}`}
+          onClick={() => setPostCategory('Design')}>
+          Design
+        </button>
+        <button
+          className={`blog__filters-button ${postCategory === 'Frontend' && 'active'}`}
+          onClick={() => setPostCategory('Frontend')}>
+          Frontend
+        </button>
+        <button
+          className={`blog__filters-button ${postCategory === 'Backend' && 'active'}`}
+          onClick={() => setPostCategory('Backend')}>
+          Backend
+        </button>
       </section>
       <div className="blog__cards">
-        {posts.map((post) => (
-          <BlogCard
-            key={post.postid}
-            postid={post.postid}
-            title={post.title}
-            excerpt={post.excerpt}
-            userimage={post.userimage}
-            username={post.username}
-            likes={post.likes}
-            comments={post.comments}
-          />
-        ))}
+        {posts
+          .filter(
+            (post) =>
+              post.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+              post.username.toLowerCase().includes(searchValue.toLowerCase())
+          )
+          .filter((post) => post.category.includes(postCategory))
+          .map((post) => (
+            <BlogCard
+              key={post.postid}
+              postid={post.postid}
+              title={post.title}
+              excerpt={post.excerpt}
+              userimage={post.userimage}
+              username={post.username}
+              likes={post.likes}
+              comments={post.comments}
+            />
+          ))}
       </div>
     </div>
   );

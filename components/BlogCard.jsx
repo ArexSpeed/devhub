@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import Link from 'next/link';
-import { ChevronRight, HeartIcon, CommentIcon } from './Icons/FontIcons';
+import { ChevronRight, HeartIcon, CommentIcon, HeartOutlineIcon } from './Icons/FontIcons';
 
 const BlogCard = ({ postid, title, excerpt, userimage, username, likes, comments }) => {
+  const [like, setLike] = useState(false);
   return (
     <div className="blogcard">
       <section className="blogcard__image">
@@ -21,8 +23,12 @@ const BlogCard = ({ postid, title, excerpt, userimage, username, likes, comments
         </article>
         <article className="blogcard__bottom">
           <div className="blogcard__social">
-            <button className="blogcard__social-btn">
-              <HeartIcon className="icon-medium primary-blue" />
+            <button className="blogcard__social-btn" onClick={() => setLike(!like)}>
+              {like ? (
+                <HeartOutlineIcon className="icon-medium primary-blue" />
+              ) : (
+                <HeartIcon className="icon-medium primary-blue" />
+              )}
               <div className="blogcard__social-count">{likes.length}</div>
             </button>
             <button className="blogcard__social-btn">
