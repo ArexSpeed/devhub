@@ -2,15 +2,12 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { ChevronRight, HeartIcon, CommentIcon, HeartOutlineIcon } from './Icons/FontIcons';
 
-const BlogCard = ({ postid, title, excerpt, userimage, username, likes, comments }) => {
+const BlogCard = ({ postid, userimage, username, image, title, excerpt, likes, comments }) => {
   const [like, setLike] = useState(false);
   return (
     <div className="blogcard">
       <section className="blogcard__image">
-        <img
-          src="https://res.cloudinary.com/dbpsxmtcb/image/upload/v1648750351/iwtdp37s91oqth8wliev.jpg"
-          alt=""
-        />
+        <img src={image} alt="" />
       </section>
       <section className="blogcard__content">
         <div className="blogcard__title">{title}</div>

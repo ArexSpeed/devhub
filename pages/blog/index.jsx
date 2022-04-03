@@ -1,14 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SearchIcon } from 'components/Icons/FontIcons';
+import axios from 'axios';
 import SkillsTags from 'components/SkillsTags';
-import posts from 'data/posts.json';
 import TitleBox from 'components/TitleBox';
 import BlogCard from 'components/BlogCard';
 
 const BlogPage = () => {
+  const [posts, setPosts] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState([]);
   const [postCategory, setPostCategory] = useState('');
+
+  useEffect(async () => {
+    const data = await axios.get('/api/posts');
+    setPosts(data.data);
+  }, []);
   return (
     <div className="blog">
       <section className="blog__title">
@@ -64,12 +70,13 @@ const BlogPage = () => {
           .filter((post) => post.category.includes(postCategory))
           .map((post) => (
             <BlogCard
-              key={post.postid}
-              postid={post.postid}
-              title={post.title}
-              excerpt={post.excerpt}
+              key={post._id}
+              postid={post._id}
               userimage={post.userimage}
               username={post.username}
+              image={post.image}
+              title={post.title}
+              excerpt={post.excerpt}
               likes={post.likes}
               comments={post.comments}
             />
