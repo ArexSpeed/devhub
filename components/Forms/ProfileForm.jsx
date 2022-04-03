@@ -148,189 +148,187 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
 
   return (
     <div className="form">
-      <section className="form__form">
-        <div className="form__header">Edit your profile</div>
-        <form onSubmit={handleSubmit} ref={profileForm}>
-          {error && <div className="form__error">{error}</div>}
-          <div className="form__image">
-            <img src={imagePreview} alt="" />
+      <div className="form__header">Edit your profile</div>
+      <form onSubmit={handleSubmit} ref={profileForm}>
+        {error && <div className="form__error">{error}</div>}
+        <div className="form__image">
+          <img src={imagePreview} alt="" />
+        </div>
+        <div className="form__field">
+          <label htmlFor="imageUrl" className="form__label">
+            Image
+          </label>
+          <input
+            className="form__upload"
+            type="file"
+            name="imageUrl"
+            id="imageUrl"
+            onChange={(e) => handleImagePreview(e)}
+          />
+        </div>
+        <div className="form__field">
+          <label htmlFor="name" className="form__label">
+            Full name
+          </label>
+          <input
+            className="form__input"
+            type="text"
+            name="name"
+            placeholder="Enter your fullname"
+            defaultValue={name}
+            required
+          />
+        </div>
+        <div className="form__field">
+          <label htmlFor="email" className="form__label">
+            Email
+          </label>
+          <input
+            className="form__input"
+            type="text"
+            name="email"
+            placeholder="Enter your email"
+            defaultValue={email}
+            required
+          />
+        </div>
+        <div className="form__field">
+          <label htmlFor="position" className="form__label">
+            Position
+          </label>
+          <select className="form__selector" name="position" defaultValue={position}>
+            <option value={position}>{position}</option>
+            <option value="Frontend Developer">Frontend Developer</option>
+            <option value="Backend Developer">Backend Developer</option>
+            <option value="Fullstack Developer">Fullstack Developer</option>
+          </select>
+        </div>
+        <div className="form__field">
+          <label htmlFor="languages" className="form__label">
+            Languages
+          </label>
+          <div className="form__row">
+            {langsArray.map((lang, i) => (
+              <button
+                type="button"
+                key={i}
+                className={`form__button-flag ${
+                  checkedLangs.find((item) => item === lang) ? 'checked' : ''
+                }`}
+                onClick={() => checkLang(lang)}>
+                <FlagIconSwitcher country={lang} className="icon-medium" />
+              </button>
+            ))}
           </div>
-          <div className="form__field">
-            <label htmlFor="imageUrl" className="form__label">
-              Image
-            </label>
-            <input
-              className="form__upload"
-              type="file"
-              name="imageUrl"
-              id="imageUrl"
-              onChange={(e) => handleImagePreview(e)}
-            />
+        </div>
+        <div className="form__field">
+          <label htmlFor="skills" className="form__label">
+            Skills
+          </label>
+          <div className="skillstags" style={{ marginBottom: '16px' }}>
+            {skillsArray.map((skill, i) => (
+              <button
+                type="button"
+                key={i}
+                className={`skillstags__button ${
+                  checkedSkills.find((item) => item === skill) ? 'active' : ''
+                }`}
+                onClick={() => checkSkill(skill)}>
+                <div>
+                  <SkillsIconSwitcher
+                    name={skill}
+                    className={`icon-large ${
+                      checkedSkills.find((item) => item === skill)
+                        ? 'primary-white'
+                        : 'primary-blue'
+                    }`}
+                  />
+                </div>
+                <span>{skill}</span>
+              </button>
+            ))}
           </div>
-          <div className="form__field">
-            <label htmlFor="name" className="form__label">
-              Full name
-            </label>
+        </div>
+        <div className="form__field">
+          <label htmlFor="about" className="form__label">
+            About
+          </label>
+          <textarea
+            className="form__textarea"
+            name="about"
+            placeholder="Write a couple of sentence about you"
+            defaultValue={about}
+          />
+        </div>
+        <div className="form__field">
+          <label htmlFor="about" className="form__label">
+            Socials
+          </label>
+          <div className="form__field-social">
+            <WebsiteIcon className="icon-small primary-blue" />
             <input
               className="form__input"
-              type="text"
-              name="name"
-              placeholder="Enter your fullname"
-              defaultValue={name}
-              required
+              name="website"
+              placeholder="Your website link"
+              value={socialLinks.website}
+              onChange={(e) => changeSocialValue(e)}
             />
           </div>
-          <div className="form__field">
-            <label htmlFor="email" className="form__label">
-              Email
-            </label>
+          <div className="form__field-social">
+            <FacebookIcon className="icon-small primary-blue" />
             <input
               className="form__input"
-              type="text"
-              name="email"
-              placeholder="Enter your email"
-              defaultValue={email}
-              required
+              name="facebook"
+              placeholder="Facebook link"
+              value={socialLinks.facebook}
+              onChange={(e) => changeSocialValue(e)}
             />
           </div>
-          <div className="form__field">
-            <label htmlFor="position" className="form__label">
-              Position
-            </label>
-            <select className="form__selector" name="position" defaultValue={position}>
-              <option value={position}>{position}</option>
-              <option value="Frontend Developer">Frontend Developer</option>
-              <option value="Backend Developer">Backend Developer</option>
-              <option value="Fullstack Developer">Fullstack Developer</option>
-            </select>
-          </div>
-          <div className="form__field">
-            <label htmlFor="languages" className="form__label">
-              Languages
-            </label>
-            <div className="form__row">
-              {langsArray.map((lang, i) => (
-                <button
-                  type="button"
-                  key={i}
-                  className={`form__button-flag ${
-                    checkedLangs.find((item) => item === lang) ? 'checked' : ''
-                  }`}
-                  onClick={() => checkLang(lang)}>
-                  <FlagIconSwitcher country={lang} className="icon-medium" />
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="form__field">
-            <label htmlFor="languages" className="form__label">
-              Skills
-            </label>
-            <div className="skillstags" style={{ marginBottom: '16px' }}>
-              {skillsArray.map((skill, i) => (
-                <button
-                  type="button"
-                  key={i}
-                  className={`skillstags__button ${
-                    checkedSkills.find((item) => item === skill) ? 'active' : ''
-                  }`}
-                  onClick={() => checkSkill(skill)}>
-                  <div>
-                    <SkillsIconSwitcher
-                      name={skill}
-                      className={`icon-large ${
-                        checkedSkills.find((item) => item === skill)
-                          ? 'primary-white'
-                          : 'primary-blue'
-                      }`}
-                    />
-                  </div>
-                  <span>{skill}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="form__field">
-            <label htmlFor="about" className="form__label">
-              About
-            </label>
-            <textarea
-              className="form__textarea"
-              name="about"
-              placeholder="Write a couple of sentence about you"
-              defaultValue={about}
+          <div className="form__field-social">
+            <LinkedinIcon className="icon-small primary-blue" />
+            <input
+              className="form__input"
+              name="linkedin"
+              placeholder="Linkedin link"
+              value={socialLinks.linkedin}
+              onChange={(e) => changeSocialValue(e)}
             />
           </div>
-          <div className="form__field">
-            <label htmlFor="about" className="form__label">
-              Socials
-            </label>
-            <div className="form__field-social">
-              <WebsiteIcon className="icon-small primary-blue" />
-              <input
-                className="form__input"
-                name="website"
-                placeholder="Your website link"
-                value={socialLinks.website}
-                onChange={(e) => changeSocialValue(e)}
-              />
-            </div>
-            <div className="form__field-social">
-              <FacebookIcon className="icon-small primary-blue" />
-              <input
-                className="form__input"
-                name="facebook"
-                placeholder="Facebook link"
-                value={socialLinks.facebook}
-                onChange={(e) => changeSocialValue(e)}
-              />
-            </div>
-            <div className="form__field-social">
-              <LinkedinIcon className="icon-small primary-blue" />
-              <input
-                className="form__input"
-                name="linkedin"
-                placeholder="Linkedin link"
-                value={socialLinks.linkedin}
-                onChange={(e) => changeSocialValue(e)}
-              />
-            </div>
-            <div className="form__field-social">
-              <TwitterIcon className="icon-small primary-blue" />
-              <input
-                className="form__input"
-                name="twitter"
-                placeholder="Twitter link"
-                value={socialLinks.twitter}
-                onChange={(e) => changeSocialValue(e)}
-              />
-            </div>
-            <div className="form__field-social">
-              <GithubIcon className="icon-small primary-blue" />
-              <input
-                className="form__input"
-                name="github"
-                placeholder="Github link"
-                value={socialLinks.github}
-                onChange={(e) => changeSocialValue(e)}
-              />
-            </div>
-            <div className="form__field-social">
-              <DribbbleIcon className="icon-small primary-blue" />
-              <input
-                className="form__input"
-                name="dribbble"
-                placeholder="Dribbble link"
-                value={socialLinks.dribbble}
-                onChange={(e) => changeSocialValue(e)}
-              />
-            </div>
+          <div className="form__field-social">
+            <TwitterIcon className="icon-small primary-blue" />
+            <input
+              className="form__input"
+              name="twitter"
+              placeholder="Twitter link"
+              value={socialLinks.twitter}
+              onChange={(e) => changeSocialValue(e)}
+            />
           </div>
-          <button type="submit" className="form__button">
-            Submit
-          </button>
-        </form>
-      </section>
+          <div className="form__field-social">
+            <GithubIcon className="icon-small primary-blue" />
+            <input
+              className="form__input"
+              name="github"
+              placeholder="Github link"
+              value={socialLinks.github}
+              onChange={(e) => changeSocialValue(e)}
+            />
+          </div>
+          <div className="form__field-social">
+            <DribbbleIcon className="icon-small primary-blue" />
+            <input
+              className="form__input"
+              name="dribbble"
+              placeholder="Dribbble link"
+              value={socialLinks.dribbble}
+              onChange={(e) => changeSocialValue(e)}
+            />
+          </div>
+        </div>
+        <button type="submit" className="form__button">
+          Submit
+        </button>
+      </form>
     </div>
   );
 };

@@ -9,12 +9,11 @@ export default function Post() {
   useEffect(() => {
     const findPost = posts.find((post) => post.postid === router.query.postid);
     setPost(findPost);
-  });
+  }, []);
 
-  // eslint-disable-next-line prettier/prettier
-  return <PostCard 
-    title={post?.title} 
-    excerpt={post?.excerpt}
-    username={post?.username} 
-  />;
+  return (
+    <div className="blog">
+      <PostCard title={post?.title} excerpt={post?.excerpt} username={post?.username} />
+    </div>
+  );
 }

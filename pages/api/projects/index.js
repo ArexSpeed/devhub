@@ -1,6 +1,6 @@
 import { connectToDatabase } from 'util/mongodb';
 import createProject from 'services/projects/createProject';
-//import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/client';
 
 export default async (req, res) => {
   const { db } = await connectToDatabase();
@@ -15,10 +15,10 @@ export default async (req, res) => {
     case 'POST': {
       try {
         //add session when post page add will work
-        // const session = await getSession({ req });
-        // if (!session) {
-        //   return res.status(401).json({ error: 'not_authorized' });
-        // }
+        const session = await getSession({ req });
+        if (!session) {
+          return res.status(401).json({ error: 'not_authorized' });
+        }
         const payload = req.body;
         const data = await createProject(payload);
         res.status(200).json({ status: 'created', data });

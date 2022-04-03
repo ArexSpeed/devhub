@@ -6,7 +6,7 @@
     "username": "Arek Cichocki",
     "userimage": "",
     "logo": "",
-    "link": "",
+    "link": "https://arekcichocki.dev",
     "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur laborum modi dicta iste quidem est aliquam voluptates ad quod, impedit sunt atque quibusdam omnis doloremque obcaecati quas cum sed nemo.",
     "technology": ["react", "node", "mongo"],
     "likes": [1, 2, 3]
@@ -18,9 +18,9 @@
     "username": "Sebastian Wuczkowski",
     "userimage": "",
     "logo": "",
-    "link": "",
+    "link": "https://arekcichocki.dev",
     "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur laborum modi dicta iste quidem est aliquam voluptates ad quod, impedit sunt atque quibusdam omnis doloremque obcaecati quas cum sed nemo.",
-    "technology": ["react", "node", "mongo"],
+    "technology": ["react", "typescript", "mongo"],
     "likes": [1,2,3,4]
   },
   {
@@ -32,7 +32,7 @@
     "logo": "",
     "link": "",
     "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur laborum modi dicta iste quidem est aliquam voluptates ad quod, impedit sunt atque quibusdam omnis doloremque obcaecati quas cum sed nemo.",
-    "technology": ["react", "node", "mongo"],
+    "technology": ["next", "node", "mongo"],
     "likes": [1,2,3,5,7]
   },
   {
