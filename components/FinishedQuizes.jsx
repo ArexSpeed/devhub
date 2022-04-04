@@ -42,7 +42,7 @@ const FinishedQuizes = () => {
                 }}
               />
             </div>
-            <Link href={`/quiz/${data.quizid}`} passHref>
+            <Link href={`/quiz/${result.quizid}`} passHref>
               <a>Repeat</a>
             </Link>
           </div>
