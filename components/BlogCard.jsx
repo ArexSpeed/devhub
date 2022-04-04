@@ -11,7 +11,9 @@ const BlogCard = ({ postid, userimage, username, image, title, excerpt, likes, c
       </section>
       <section className="blogcard__content">
         <div className="blogcard__title">{title}</div>
-        <div className="blogcard__excerpt">{excerpt}</div>
+        <div className="blogcard__excerpt">
+          {excerpt.length < 150 ? excerpt : excerpt.substr(0, 150) + '...'}
+        </div>
         <article className="blogcard__author">
           <div className="blogcard__author-image">
             <img src={userimage} alt="" />

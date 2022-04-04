@@ -1,12 +1,13 @@
 import React from 'react';
 import { CommentIcon, HeartIcon } from './Icons/FontIcons';
 
-export default function PostCard({ title, excerpt, username }) {
+// eslint-disable-next-line prettier/prettier
+export default function PostCard({ image, title, excerpt, content, userimage, username }) {
   return (
     <div className="postcard">
       <section className="postcard__top">
         <article className="postcard__image">
-          <img src="" alt="" />
+          <img src={image} alt="" />
         </article>
         <article className="postcard__description">
           <div className="postcard__info">
@@ -17,13 +18,13 @@ export default function PostCard({ title, excerpt, username }) {
               </button>
               <button className="blogcard__social-btn">
                 <CommentIcon className="icon-medium primary-blue" />
-                <div className="blogcard__social-count">3</div>
+                <div className="blogcard__social-count">4</div>
               </button>
             </article>
             <article className="postcard__author">
               <p>{username}</p>
               <div className="blogcard__author-image">
-                <img src="" alt="" />
+                <img src={userimage} alt="" />
               </div>
             </article>
           </div>
@@ -31,7 +32,7 @@ export default function PostCard({ title, excerpt, username }) {
           <p className="postcard__excerpt">{excerpt}</p>
         </article>
       </section>
-      <section className="postcard__content">{excerpt}</section>
+      <section className="postcard__content">{content}</section>
     </div>
   );
 }

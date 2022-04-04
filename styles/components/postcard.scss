@@ -15,6 +15,12 @@
     height: 256px;
     border-radius: 1rem;
     background: $secondary-blue;
+    & img {
+      object-fit: cover;
+      width: 256px;
+      height: 256px;
+      border-radius: 1rem;
+    }
   }
   &__description {
     flex: 1;
