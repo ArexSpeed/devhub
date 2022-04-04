@@ -5,4 +5,108 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  background: $primary-white;
+  &__hello {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    padding: 2rem 1rem;
+    background: $primary-white;
+    border-radius: 400px 0 0 200px;
+    border-left: 5px solid $secondary-blue;
+  }
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    padding: 2rem 0;
+    background: $secondary-white;
+    &.top {
+      border-radius: 200px 400px 0 400px;
+      border-left: 5px solid $secondary-blue;
+      border-right: 5px solid $primary-green;
+    }
+    &.bottom {
+      border-radius: 400px 0 400px 200px;
+      border-left: 5px solid $secondary-blue;
+      border-right: 5px solid $primary-green;
+    }
+  }
+  &__left {
+    flex: 1;
+    &.top {
+      padding-left: 100px;
+    }
+    & h1 {
+      font-size: 52px;
+    }
+    &-name {
+      color: $primary-blue;
+    }
+    & h2 {
+      color: $secondary-black;
+    }
+  }
+  &__right {
+    flex: 1;
+    width: 100%;
+    &.top {
+      padding-left: 100px;
+    }
+    &-img {
+      width: 400px;
+      height: 400px;
+    }
+  }
+  &__nav {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+    padding: 2rem 0;
+    &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      gap: 0.5rem;
+      background: $primary-white;
+      box-shadow: 0 0 128px 0 rgba(0,0,0,.1),
+      0 32px 64px -48px rgba(0,0,0,.5);
+      transition: all 0.3s ease-in-out;
+      & span {
+        font-weight: bold;
+      }
+      &:hover {
+        background: $secondary-blue;
+        transition: all 0.3s ease-in-out;
+        & svg {
+          color: $primary-white;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+  &__button {
+    padding: 4px 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid $secondary-blue;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      color: $primary-blue;
+      border-bottom: 2px solid $primary-green;
+    }
+  }
 }

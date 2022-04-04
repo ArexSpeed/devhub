@@ -63,7 +63,7 @@ const ProjectAdd = () => {
   }
 
   return (
-    <div className="center">
+    <div className="events center">
       <div className="form">
         <div className="form__header">Add new event</div>
         <form onSubmit={handleSubmit} ref={eventForm}>

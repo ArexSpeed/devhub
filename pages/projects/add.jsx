@@ -77,7 +77,7 @@ const ProjectAdd = () => {
   }
 
   return (
-    <div className="center">
+    <div className="projects center">
       <div className="form">
         <div className="form__header">Add new project</div>
         <form onSubmit={handleSubmit} ref={projectForm}>

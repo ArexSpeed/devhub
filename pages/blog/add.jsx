@@ -62,7 +62,7 @@ const BlogAdd = () => {
   }
 
   return (
-    <div className="center">
+    <div className="blog center">
       <div className="form">
         <div className="form__header">Add new post</div>
         <form onSubmit={handleSubmit} ref={blogForm}>
