@@ -147,7 +147,7 @@ const ProfileForm = ({ name, email, imageUrl, position, languages, skills, about
   }
 
   return (
-    <div className="form">
+    <div className="community form">
       <div className="form__header">Edit your profile</div>
       <form onSubmit={handleSubmit} ref={profileForm}>
         {error && <div className="form__error">{error}</div>}

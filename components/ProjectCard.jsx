@@ -5,7 +5,7 @@ import { WebsiteIcon } from './Icons/SocialIcons';
 import { HeartIcon, HeartOutlineIcon } from './Icons/FontIcons';
 
 // eslint-disable-next-line prettier/prettier
-const ProjectCard = ({ projectid, title, userid, username, userimage, logo, link, description, technology, likes }) => {
+const ProjectCard = ({ title, username, userimage, logo, link, description, technology, likes }) => {
   const [like, setLike] = useState(false);
   return (
     <div className="projectcard">
@@ -15,7 +15,7 @@ const ProjectCard = ({ projectid, title, userid, username, userimage, logo, link
         </div>
         <div className="projectcard__title">{title}</div>
       </div>
-      <p>{description}</p>
+      <p>{description.substr(0, 200)}</p>
       <article className="projectcard__skills">
         {technology.map((skill, i) => (
           <SkillsIconSwitcher key={i} name={skill} className="icon-medium primary-blue" />
