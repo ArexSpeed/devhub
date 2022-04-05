@@ -14,7 +14,7 @@ const ProfileEdit = () => {
     }
   }, [session]);
   return (
-    <div className="center">
+    <div className="profile center">
       <ProfileForm
         name={user.name}
         email={user.email}

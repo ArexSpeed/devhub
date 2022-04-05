@@ -6,10 +6,13 @@ import { useSession } from 'next-auth/client';
 import picture from 'assets/picture.svg';
 import Link from 'next/link';
 // eslint-disable-next-line prettier/prettier
-import { BlogIcon, CommunityIcon, EventIcon, ProjectIcon, QuizIcon } from 'components/Icons/FontIcons';
+import { BlogIcon, ChevronDoubleDown, CommunityIcon, EventIcon, ProjectIcon, QuizIcon } from 'components/Icons/FontIcons';
 import UsersAnimations from 'components/Animation/UsersAnimations';
 import PostsAnimations from 'components/Animation/PostsAnimations';
+import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
 
+// eslint-disable-next-line prettier/prettier
+const skills = ["html", "css", "sass", "react", "javascript", "typescript", "tailwind", "node", "next", "angular", "csharp", "cplus", "php", "drupal", "java", "python", "postgres", "mongo", "wordpress", "net"]
 
 export default function Home() {
   const [session] = useSession();
@@ -85,6 +88,12 @@ export default function Home() {
             Welcome to the <span className="home__left-name">CapDev Community</span>
           </h1>
           <h2>Find perfect developer for your project!</h2>
+          <Link href="#community" passHref>
+            <a className="home__left-button">
+              <ChevronDoubleDown className="icon-medium primary-white" />
+              <span>Discover</span>
+            </a>
+          </Link>
         </div>
         <div className="home__right">
           {login ? (
@@ -110,7 +119,7 @@ export default function Home() {
           )}
         </div>
       </section>
-      <section className="home__container bottom">
+      <section className="home__container bottom" id="community">
         <div className="home__right top">
           <UsersAnimations />
         </div>
@@ -119,6 +128,12 @@ export default function Home() {
             The best experts in <span className="home__left-name">{experts[expertName]}</span>
           </h1>
           <h2>Our developers know incredible technologies!</h2>
+          <Link href="/community" passHref>
+            <a className="home__left-button">
+              <CommunityIcon className="icon-medium primary-white" />
+              <span>Community</span>
+            </a>
+          </Link>
         </div>
       </section>
       <section className="home__container top">
@@ -127,10 +142,29 @@ export default function Home() {
             Amazing <span className="home__left-name">Content</span> from our Authors.
           </h1>
           <h2>Improve your knowledge in our blog!</h2>
+          <Link href="/blog" passHref>
+            <a className="home__left-button">
+              <BlogIcon className="icon-medium primary-white" />
+              <span>Blog</span>
+            </a>
+          </Link>
         </div>
         <div className="home__right top">
           <PostsAnimations />
         </div>
+      </section>
+      <section className="home__container center">
+        <h1>
+          Our <span className="home__left-name">Developers</span> have over{' '}
+          <span className="home__left-name">50 skills</span> and techologies.
+        </h1>
+        <article className="home__skills">
+          {skills.map((skill, i) => (
+            <div key={i} className="home__skills-box">
+              <SkillsIconSwitcher name={skill} className="icon-big primary-blue" />
+            </div>
+          ))}
+        </article>
       </section>
     </div>
   );

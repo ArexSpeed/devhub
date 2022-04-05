@@ -6,7 +6,7 @@
 }
 .animations .card{
   background: #fff;
-  width: 350px;
+  width: 400px;
   display: flex;
   align-items: center;
   opacity: 0;
@@ -16,13 +16,14 @@
   animation: animate 15s linear infinite;
   animation-delay: 0s;
   &.horizontal {
+    width: 350px;
     animation: animate-horizontal 15s linear infinite;
     animation-delay: 0s;
   }
 }
-.animations:hover .card{
-  animation-play-state: paused;
-}
+// .animations:hover .card{
+//   animation-play-state: paused;
+// }
 .animations .card:first-child {
   animation-delay: -3s;
 }
@@ -41,27 +42,27 @@
 @keyframes animate {
   0%{
     opacity: 0;
-    transform: translateY(80%) scale(0.5);
+    transform: translateY(80%) scale(0.4);
   }
   5%, 20%{
     opacity: 0.4;
-    transform: translateY(80%) scale(0.7);
+    transform: translateY(80%) scale(0.6);
   }
   25%, 40%{
     opacity: 1;
-    transform: translateY(0%) scale(1);
+    transform: translateY(0%) scale(0.8);
     z-index: 99;
   }
   45%, 65%{
     opacity: 0.4;
-    transform: translateY(-80%) scale(0.7);
+    transform: translateY(-80%) scale(0.6);
   }
   65%, 70% {
     opacity: 0;
   }
   70%, 100%{
     opacity: 0;
-    transform: translateY(-80%) scale(0.5);
+    transform: translateY(-80%) scale(0.4);
   }
 }
 
