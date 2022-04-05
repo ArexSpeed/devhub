@@ -9,18 +9,22 @@
         "question": "What language is using in React?",
         "answers": [
           {
+            "id": "1",
             "content": "JavaScript",
             "correct": true
           },
           {
+            "id": "2",
             "content": "PHP",
             "correct": false
           },
           {
+            "id": "3",
             "content": "Python",
             "correct": false
           },
           {
+            "id": "4",
             "content": "C++",
             "correct": false
           }
@@ -31,20 +35,102 @@
         "question": "What company is creator of React?",
         "answers": [
           {
+            "id": "1",
             "content": "Google",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Meta",
             "correct": true
           },
           {
+            "id": "3",
             "content": "IBM",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Amazon",
             "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "3",
+        "question": "What is React?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "JavaScript library",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "Framework",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "Language",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "Program",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "4",
+        "question": "What can you buils in React?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Desctop programs",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Montage a movie",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "User interfaces",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "Write a server",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "5",
+        "question": "What is the main concept in React?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Functions",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Classes",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "I don`t know",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "Components and Props",
+            "correct": true
           }
         ]
       }
@@ -95,6 +181,72 @@
           },
           {
             "content": "Loader",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "3",
+        "question": "What web framework is used in Python?",
+        "answers": [
+          {
+            "content": "React",
+            "correct": false
+          },
+          {
+            "content": "CherryPy",
+            "correct": false
+          },
+          {
+            "content": "Flask",
+            "correct": false
+          },
+          {
+            "content": "Django",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "4",
+        "question": "What is Python?",
+        "answers": [
+          {
+            "content": "Programming language",
+            "correct": true
+          },
+          {
+            "content": "Framework",
+            "correct": false
+          },
+          {
+            "content": "A programme",
+            "correct": false
+          },
+          {
+            "content": "Preprocessor",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "5",
+        "question": "What are the key features of Python?",
+        "answers": [
+          {
+            "content": "I don`t know",
+            "correct": false
+          },
+          {
+            "content": "I don`t care",
+            "correct": false
+          },
+          {
+            "content": "Interpreted, dynamically typed, object orientated programming, functions are first-class objects, use in many spheres",
+            "correct": true
+          },
+          {
+            "content": "What is Python...",
             "correct": false
           }
         ]
