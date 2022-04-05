@@ -1,5 +1,6 @@
 import { getPosts, getPost } from 'services/posts/getPosts';
 import PostCard from 'components/PostCard';
+import Layout from 'components/Layout';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -19,15 +20,17 @@ export async function getStaticProps({ params }) {
 export default function Post({ postProp }) {
   const post = JSON.parse(postProp);
   return (
-    <div className="blog">
-      <PostCard
-        image={post?.image}
-        title={post?.title}
-        excerpt={post?.excerpt}
-        content={post?.content}
-        username={post?.username}
-        userimage={post?.userimage}
-      />
-    </div>
+    <Layout>
+      <div className="blog">
+        <PostCard
+          image={post?.image}
+          title={post?.title}
+          excerpt={post?.excerpt}
+          content={post?.content}
+          username={post?.username}
+          userimage={post?.userimage}
+        />
+      </div>
+    </Layout>
   );
 }

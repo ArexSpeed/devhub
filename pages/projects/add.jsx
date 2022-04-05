@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/client';
 import { useRouter } from 'next/router';
 import { uploadImage } from 'services/uploadImage';
 import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
+import Layout from 'components/Layout';
 
 // eslint-disable-next-line prettier/prettier
 const skillsArray = ["html", "css", "sass", "react", "javascript", "typescript", "tailwind", "node", "next", "angular", "csharp", "cplus", "php", "drupal", "java", "python", "postgres", "mongo", "wordpress", "net"]
@@ -77,94 +78,96 @@ const ProjectAdd = () => {
   }
 
   return (
-    <div className="projects center">
-      <div className="form">
-        <div className="form__header">Add new project</div>
-        <form onSubmit={handleSubmit} ref={projectForm}>
-          {error && <div className="form__error">{error}</div>}
-          <div className="form__image">
-            <img src={imagePreview} alt="" />
-          </div>
-          <div className="form__field">
-            <label htmlFor="logo" className="form__label">
-              Logo
-            </label>
-            <input
-              className="form__upload"
-              type="file"
-              name="logo"
-              id="logo"
-              onChange={(e) => handleImagePreview(e)}
-            />
-          </div>
-          <div className="form__field">
-            <label htmlFor="title" className="form__label">
-              Title
-            </label>
-            <input
-              className="form__input"
-              type="text"
-              name="title"
-              placeholder="Enter your project name"
-              required
-            />
-          </div>
-          <div className="form__field">
-            <label htmlFor="link" className="form__label">
-              Link
-            </label>
-            <input
-              className="form__input"
-              type="text"
-              name="link"
-              placeholder="Link to your project"
-              required
-            />
-          </div>
-          <div className="form__field">
-            <label htmlFor="description" className="form__label">
-              Description
-            </label>
-            <textarea
-              className="form__textarea"
-              name="description"
-              placeholder="Write a couple words about this project"
-            />
-          </div>
-          <div className="form__field">
-            <label htmlFor="technology" className="form__label">
-              Technology
-            </label>
-            <div className="skillstags" style={{ marginBottom: '16px' }}>
-              {skillsArray.map((skill, i) => (
-                <button
-                  type="button"
-                  key={i}
-                  className={`skillstags__button ${
-                    checkedSkills.find((item) => item === skill) ? 'active' : ''
-                  }`}
-                  onClick={() => checkSkill(skill)}>
-                  <div>
-                    <SkillsIconSwitcher
-                      name={skill}
-                      className={`icon-large ${
-                        checkedSkills.find((item) => item === skill)
-                          ? 'primary-white'
-                          : 'primary-blue'
-                      }`}
-                    />
-                  </div>
-                  <span>{skill}</span>
-                </button>
-              ))}
+    <Layout>
+      <div className="projects center">
+        <div className="form">
+          <div className="form__header">Add new project</div>
+          <form onSubmit={handleSubmit} ref={projectForm}>
+            {error && <div className="form__error">{error}</div>}
+            <div className="form__image">
+              <img src={imagePreview} alt="" />
             </div>
-          </div>
-          <button type="submit" className="form__button">
-            Submit
-          </button>
-        </form>
+            <div className="form__field">
+              <label htmlFor="logo" className="form__label">
+                Logo
+              </label>
+              <input
+                className="form__upload"
+                type="file"
+                name="logo"
+                id="logo"
+                onChange={(e) => handleImagePreview(e)}
+              />
+            </div>
+            <div className="form__field">
+              <label htmlFor="title" className="form__label">
+                Title
+              </label>
+              <input
+                className="form__input"
+                type="text"
+                name="title"
+                placeholder="Enter your project name"
+                required
+              />
+            </div>
+            <div className="form__field">
+              <label htmlFor="link" className="form__label">
+                Link
+              </label>
+              <input
+                className="form__input"
+                type="text"
+                name="link"
+                placeholder="Link to your project"
+                required
+              />
+            </div>
+            <div className="form__field">
+              <label htmlFor="description" className="form__label">
+                Description
+              </label>
+              <textarea
+                className="form__textarea"
+                name="description"
+                placeholder="Write a couple words about this project"
+              />
+            </div>
+            <div className="form__field">
+              <label htmlFor="technology" className="form__label">
+                Technology
+              </label>
+              <div className="skillstags" style={{ marginBottom: '16px' }}>
+                {skillsArray.map((skill, i) => (
+                  <button
+                    type="button"
+                    key={i}
+                    className={`skillstags__button ${
+                      checkedSkills.find((item) => item === skill) ? 'active' : ''
+                    }`}
+                    onClick={() => checkSkill(skill)}>
+                    <div>
+                      <SkillsIconSwitcher
+                        name={skill}
+                        className={`icon-large ${
+                          checkedSkills.find((item) => item === skill)
+                            ? 'primary-white'
+                            : 'primary-blue'
+                        }`}
+                      />
+                    </div>
+                    <span>{skill}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+            <button type="submit" className="form__button">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

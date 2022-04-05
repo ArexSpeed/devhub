@@ -10,6 +10,7 @@ import { BlogIcon, ChevronDoubleDown, CommunityIcon, EventIcon, ProjectIcon, Qui
 import UsersAnimations from 'components/Animation/UsersAnimations';
 import PostsAnimations from 'components/Animation/PostsAnimations';
 import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
+import Layout from 'components/Layout';
 
 // eslint-disable-next-line prettier/prettier
 const skills = ["html", "css", "sass", "react", "javascript", "typescript", "tailwind", "node", "next", "angular", "csharp", "cplus", "php", "drupal", "java", "python", "postgres", "mongo", "wordpress", "net"]
@@ -34,52 +35,53 @@ export default function Home() {
   }, [expertName]);
 
   return session ? (
-    <div className="home">
-      {console.log(expertName, 'start render')}
-      <section className="home__hello">
-        <div className="home__left">
-          <h1>
-            Hello, <span className="home__left-name">{session.user.name}</span>
-          </h1>
-          <h2>Check your community and get some dev news!</h2>
-        </div>
-        <div className="home__right">
-          <Image src={picture} alt="Hello" objectFit="contain" />
-        </div>
-      </section>
-      <section className="home__nav">
-        <Link href="/community" passHref>
-          <a className="home__nav-item">
-            <CommunityIcon className="icon-huge primary-blue" />
-            <span>Community</span>
-          </a>
-        </Link>
-        <Link href="/blog" passHref>
-          <a className="home__nav-item">
-            <BlogIcon className="icon-huge primary-blue" />
-            <span>Blog</span>
-          </a>
-        </Link>
-        <Link href="/events" passHref>
-          <a className="home__nav-item">
-            <EventIcon className="icon-huge primary-blue" />
-            <span>Events</span>
-          </a>
-        </Link>
-        <Link href="/projects" passHref>
-          <a className="home__nav-item">
-            <ProjectIcon className="icon-huge primary-blue" />
-            <span>Projects</span>
-          </a>
-        </Link>
-        <Link href="/quiz" passHref>
-          <a className="home__nav-item">
-            <QuizIcon className="icon-huge primary-blue" />
-            <span>Quiz</span>
-          </a>
-        </Link>
-      </section>
-    </div>
+    <Layout>
+      <div className="home">
+        <section className="home__hello">
+          <div className="home__left">
+            <h1>
+              Hello, <span className="home__left-name">{session.user.name}</span>
+            </h1>
+            <h2>Check your community and get some dev news!</h2>
+          </div>
+          <div className="home__right">
+            <Image src={picture} alt="Hello" objectFit="contain" />
+          </div>
+        </section>
+        <section className="home__nav">
+          <Link href="/community" passHref>
+            <a className="home__nav-item">
+              <CommunityIcon className="icon-huge primary-blue" />
+              <span>Community</span>
+            </a>
+          </Link>
+          <Link href="/blog" passHref>
+            <a className="home__nav-item">
+              <BlogIcon className="icon-huge primary-blue" />
+              <span>Blog</span>
+            </a>
+          </Link>
+          <Link href="/events" passHref>
+            <a className="home__nav-item">
+              <EventIcon className="icon-huge primary-blue" />
+              <span>Events</span>
+            </a>
+          </Link>
+          <Link href="/projects" passHref>
+            <a className="home__nav-item">
+              <ProjectIcon className="icon-huge primary-blue" />
+              <span>Projects</span>
+            </a>
+          </Link>
+          <Link href="/quiz" passHref>
+            <a className="home__nav-item">
+              <QuizIcon className="icon-huge primary-blue" />
+              <span>Quiz</span>
+            </a>
+          </Link>
+        </section>
+      </div>
+    </Layout>
   ) : (
     <div className="home">
       <section className="home__container top">
