@@ -13,9 +13,8 @@ const BlogPage = () => {
   const [postCategory, setPostCategory] = useState('');
 
   useEffect(async () => {
-    const posty = await axios.get('/api/posts');
-    console.log(posty, 'posty');
-    setPosts(posty.data);
+    const getPosts = await axios.get('/api/posts');
+    setPosts(getPosts.data);
   }, []);
   return (
     <Layout>

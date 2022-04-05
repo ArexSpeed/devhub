@@ -13,7 +13,6 @@ const schema = Joi.object({
 });
 
 const createProject = async (payload) => {
-  console.log(payload, 'payload in services/create');
   const { db } = await connectToDatabase();
   // eslint-disable-next-line prettier/prettier
   const { title, userid, username, userimage, logo, link, description, technology } = await schema.validateAsync(payload);
@@ -26,7 +25,8 @@ const createProject = async (payload) => {
     logo,
     link,
     description,
-    technology
+    technology,
+    likes: []
   });
 
   return event;

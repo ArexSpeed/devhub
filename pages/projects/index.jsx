@@ -1,16 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/client';
 import { SearchIcon } from 'components/Icons/FontIcons';
 import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
-import projects from 'data/projects.json';
+//import projects from 'data/projects.json';
 import ProjectCard from 'components/ProjectCard';
 import Layout from 'components/Layout';
+import axios from 'axios';
 
 const ProjectPage = () => {
+  const [session] = useSession();
   const [activeButton, setActiveButton] = useState('All projects');
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState(['']);
-  const userid = 2; //temporary user id
+  const [projects, setProjects] = useState([]);
+
+  useEffect(async () => {
+    const getProjects = await axios.get('/api/projects');
+    setProjects(getProjects.data);
+  }, []);
 
   return (
     <Layout>
@@ -99,7 +107,7 @@ const ProjectPage = () => {
           {activeButton === 'Your projects' && (
             <>
               {projects
-                .filter((project) => project.userid === userid)
+                .filter((project) => project.userid === session.user.id)
                 .filter((project) =>
                   project.title.toLowerCase().includes(searchValue.toLowerCase())
                 )
