@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Questions = ({ question, scores, setScores }) => {
+const Question = ({ question, scores, setScores }) => {
   const [answerChecked, setAnswerChecked] = useState();
 
   // const [questionid, setQuestionid] = useState(question.questionid);
@@ -33,4 +33,4 @@ const Questions = ({ question, scores, setScores }) => {
   );
 };
 
-export default Questions;
+export default Question;
