@@ -1,7 +1,16 @@
 import { useState } from 'react';
 
-const Questions = ({ question }) => {
+const Questions = ({ question, scores, setScores }) => {
   const [answerChecked, setAnswerChecked] = useState();
+
+  // const [questionid, setQuestionid] = useState(question.questionid);
+
+  const addScore = (answerid, correct) => {
+    setAnswerChecked(answerid);
+    const filteredScore = scores.filter((score) => score.questionid !== question.questionid);
+    const clickedAnswer = { questionid: question.questionid, point: correct ? 1 : 0 };
+    setScores([...filteredScore, clickedAnswer]);
+  };
 
   console.log(question);
   return (
@@ -14,8 +23,8 @@ const Questions = ({ question }) => {
         {question.answers.map((answer, i) => (
           <button
             key={i}
-            className={`quizPage__questions--answer ${answerChecked === i && 'active'}`}
-            onClick={() => setAnswerChecked(i)}>
+            className={`quizPage__questions--answer ${answerChecked === answer.id && 'active'}`}
+            onClick={() => addScore(answer.id, answer.correct, question.questionid)}>
             <span>{answer.content}</span>
           </button>
         ))}

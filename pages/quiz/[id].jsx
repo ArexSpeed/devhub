@@ -8,11 +8,40 @@ const IdQuizPage = () => {
   const router = useRouter();
   const [quiz, setQuiz] = useState({});
 
+  const [scores, setScores] = useState([
+    {
+      questionid: '1',
+      point: 0
+    },
+    {
+      questionid: '2',
+      point: 0
+    },
+    {
+      questionid: '3',
+      point: 0
+    },
+    {
+      questionid: '4',
+      point: 0
+    },
+    {
+      questionid: '5',
+      point: 0
+    }
+  ]);
+
   useEffect(() => {
     const getQuiz = quizes.find((quiz) => quiz.quizid === router.query.id);
     console.log(getQuiz);
     setQuiz(getQuiz);
   }, [router]);
+
+  const sendScores = () => {
+    const scoresReduce = scores.reduce((prev, curr) => prev + curr.point, 0);
+    console.log('wynik ', scoresReduce);
+    router.push(`/quiz/finish?level=${quiz.level}&name=${quiz.quizname}&score=${scoresReduce}`);
+  };
 
   return (
     <div className="quizPage">
@@ -32,11 +61,13 @@ const IdQuizPage = () => {
         {quiz?.questions?.map((question) => (
           <Question
             key={question.questionid}
-            question={question ? question : 'question not found'}
+            question={question ? question : 'questions not found'}
+            scores={scores}
+            setScores={setScores}
           />
         ))}
         <div className="quizPage__container--btn">
-          <button>Finish test</button>
+          <button onClick={sendScores}>Finish test</button>
         </div>
       </div>
     </div>
