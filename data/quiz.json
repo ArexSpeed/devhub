@@ -146,18 +146,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -168,18 +172,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -190,18 +198,22 @@
         "question": "What web framework is used in Python?",
         "answers": [
           {
+            "id": "1",
             "content": "React",
             "correct": false
           },
           {
+            "id": "2",
             "content": "CherryPy",
             "correct": false
           },
           {
+            "id": "3",
             "content": "Flask",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Django",
             "correct": true
           }
@@ -212,18 +224,22 @@
         "question": "What is Python?",
         "answers": [
           {
+            "id": "1",
             "content": "Programming language",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Framework",
             "correct": false
           },
           {
+            "id": "3",
             "content": "A programme",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Preprocessor",
             "correct": false
           }
@@ -234,18 +250,22 @@
         "question": "What are the key features of Python?",
         "answers": [
           {
+            "id": "1",
             "content": "I don`t know",
             "correct": false
           },
           {
+            "id": "2",
             "content": "I don`t care",
             "correct": false
           },
           {
+            "id": "3",
             "content": "Interpreted, dynamically typed, object orientated programming, functions are first-class objects, use in many spheres",
             "correct": true
           },
           {
+            "id": "4",
             "content": "What is Python...",
             "correct": false
           }
@@ -263,18 +283,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -285,18 +309,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -314,18 +342,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -336,18 +368,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -365,18 +401,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -387,18 +427,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -416,18 +460,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -438,18 +486,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -467,18 +519,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -489,18 +545,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -518,18 +578,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -540,18 +604,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -569,18 +637,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -591,18 +663,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -620,18 +696,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -642,18 +722,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -671,18 +755,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -693,18 +781,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -722,18 +814,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -744,18 +840,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -773,18 +873,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -795,18 +899,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -824,18 +932,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -846,18 +958,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -875,18 +991,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -897,18 +1017,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -926,18 +1050,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -948,18 +1076,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -977,18 +1109,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -999,18 +1135,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -1028,18 +1168,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -1050,18 +1194,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -1079,18 +1227,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -1101,18 +1253,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -1130,18 +1286,22 @@
         "question": "Which library is using for state managment?",
         "answers": [
           {
+            "id": "1",
             "content": "Redux",
             "correct": true
           },
           {
+            "id": "2",
             "content": "Mongo",
             "correct": false
           },
           {
+            "id": "3",
             "content": "React Router",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Swiper",
             "correct": false
           }
@@ -1152,18 +1312,22 @@
         "question": "Which component do you use for waiting to data load?",
         "answers": [
           {
+            "id": "1",
             "content": "Spinner",
             "correct": false
           },
           {
+            "id": "2",
             "content": "Suspanse",
             "correct": true
           },
           {
+            "id": "3",
             "content": "Wait",
             "correct": false
           },
           {
+            "id": "4",
             "content": "Loader",
             "correct": false
           }
@@ -1171,5 +1335,4 @@
       }
     ]
   }
-
 ]
