@@ -8,7 +8,6 @@ const schema = Joi.object({
 });
 
 const authorizeUser = async (payload) => {
-  console.log('authorizeUser in services');
   const { db } = await connectToDatabase();
   const { email, password } = await schema.validateAsync(payload);
 

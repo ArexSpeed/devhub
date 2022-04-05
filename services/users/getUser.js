@@ -8,7 +8,6 @@ export const getUser = async (id) => {
     .find({ _id: ObjectId(id) })
     .sort({ _id: 1 })
     .toArray();
-  console.log(user, 'user getUser');
 
   return user[0];
 };

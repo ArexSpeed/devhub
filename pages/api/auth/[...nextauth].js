@@ -16,14 +16,14 @@ export default NextAuth({
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
-        console.log('async authorize dziala');
-        console.log(credentials, 'credentials');
+        //console.log('async authorize dziala');
+        //console.log(credentials, 'credentials');
         // Add logic here to look up the user from the credentials supplied
         const user = await authorizeUser({
           email: credentials.email,
           password: credentials.password
         });
-        console.log(user, 'user in async');
+        //console.log(user, 'user in async');
 
         if (user) {
           // Any object returned will be saved in `user` property of the JWT
