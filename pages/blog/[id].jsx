@@ -8,13 +8,13 @@ export async function getStaticPaths() {
     params: { id: post._id.toString() }
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
   const post = await getPost(params.id);
   console.log(post, 'getpost');
-  return { props: { postProp: JSON.stringify(post) } };
+  return { revalidate: 30, props: { postProp: JSON.stringify(post) } };
 }
 
 export default function Post({ postProp }) {

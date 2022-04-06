@@ -14,12 +14,12 @@ export async function getStaticPaths() {
     params: { id: user._id.toString() }
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
   const user = await getUser(params.id);
-  return { props: { userProp: JSON.stringify(user) } };
+  return { revalidate: 30, props: { userProp: JSON.stringify(user) } };
 }
 
 const Profile = ({ userProp }) => {
