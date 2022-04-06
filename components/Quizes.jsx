@@ -3,7 +3,7 @@ import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
 import Link from 'next/link';
 
 const Quizes = () => {
-  console.log(data);
+  //console.log(data);
   return (
     <div className="quiz__all-quizes">
       <div className="quiz__all-quizes--title">

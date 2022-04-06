@@ -40,7 +40,7 @@ const IdQuizPage = () => {
 
   const sendScores = () => {
     const scoresReduce = scores.reduce((prev, curr) => prev + curr.point, 0);
-    console.log('wynik ', scoresReduce);
+    //console.log('wynik ', scoresReduce);
     router.push(`/quiz/finish?level=${quiz.level}&name=${quiz.quizname}&score=${scoresReduce}`);
   };
 
