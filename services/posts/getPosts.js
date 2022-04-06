@@ -8,7 +8,7 @@ export const getPost = async (id) => {
     .find({ _id: ObjectId(id) })
     .sort({ _id: 1 })
     .toArray();
-  console.log(post, 'post getPost');
+  //console.log(post, 'post getPost');
 
   return post[0];
 };

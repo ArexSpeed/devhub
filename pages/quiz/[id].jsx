@@ -34,7 +34,7 @@ const IdQuizPage = () => {
 
   useEffect(() => {
     const getQuiz = quizes.find((quiz) => quiz.quizid === router.query.id);
-    console.log(getQuiz);
+    //console.log(getQuiz);
     setQuiz(getQuiz);
   }, [router]);
 
