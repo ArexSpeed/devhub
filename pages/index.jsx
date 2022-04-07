@@ -133,7 +133,7 @@ export default function Home() {
           <Link href="/community" passHref>
             <a className="home__left-button">
               <CommunityIcon className="icon-medium primary-white" />
-              <span>Community</span>
+              <span>Go to Community</span>
             </a>
           </Link>
         </div>
@@ -147,7 +147,7 @@ export default function Home() {
           <Link href="/blog" passHref>
             <a className="home__left-button">
               <BlogIcon className="icon-medium primary-white" />
-              <span>Blog</span>
+              <span>Go to Blog</span>
             </a>
           </Link>
         </div>

@@ -6,7 +6,7 @@ import Layout from 'components/Layout';
 
 const FinishQuizPage = () => {
   const router = useRouter();
-  console.log(router);
+  //console.log(router);
 
   const value = router.query.score * 10;
 

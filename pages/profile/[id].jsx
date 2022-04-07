@@ -10,26 +10,23 @@ import axios from 'axios';
 
 export async function getStaticPaths() {
   const users = await getUsers();
-  console.log(users, 'users');
   const paths = users.map((user) => ({
     params: { id: user._id.toString() }
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
   const user = await getUser(params.id);
-  console.log(user, 'user staric props');
-  return { props: { userProp: JSON.stringify(user) } };
+  return { revalidate: 30, props: { userProp: JSON.stringify(user) } };
 }
 
 const Profile = ({ userProp }) => {
   const router = useRouter();
+  const user = JSON.parse(userProp);
   const [projects, setProjects] = useState([]);
   const [posts, setPosts] = useState([]);
-
-  console.log(router, 'router');
 
   useEffect(async () => {
     if (router) {
@@ -39,9 +36,9 @@ const Profile = ({ userProp }) => {
       setPosts(userPosts.data);
     }
   }, [router]);
-  const user = JSON.parse(userProp);
   return (
     <Layout>
+      {console.log(projects)}
       <div className="profile">
         <ProfileCard
           name={user?.name}

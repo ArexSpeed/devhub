@@ -11,7 +11,6 @@ const schema = Joi.object({
 });
 
 const checkUserExist = async (email) => {
-  console.log('check exists');
   const { db } = await connectToDatabase();
   const existingUserEmail = await db.collection('users').findOne({ email: email });
   console.log(existingUserEmail, 'exist email');
@@ -21,7 +20,6 @@ const checkUserExist = async (email) => {
 };
 
 const create = async (payload) => {
-  console.log(payload, 'payload in services/create');
   const { db } = await connectToDatabase();
   // eslint-disable-next-line prettier/prettier
   const { email, name, password, position } = await schema.validateAsync(payload);

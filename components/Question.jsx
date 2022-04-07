@@ -12,7 +12,7 @@ const Question = ({ question, scores, setScores }) => {
     setScores([...filteredScore, clickedAnswer]);
   };
 
-  console.log(question);
+  //console.log(question);
   return (
     <div className="quizPage__questions">
       <div key={question.questionid} className="quizPage__questions--question">

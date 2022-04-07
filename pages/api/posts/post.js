@@ -1,6 +1,5 @@
 import { connectToDatabase } from 'util/mongodb';
 import createPost from 'services/posts/createPost';
-import deletePost from 'services/posts/deletePost';
 //import { getSession } from 'next-auth/client';
 import { ObjectId } from 'mongodb';
 
@@ -31,20 +30,20 @@ export default async (req, res) => {
       }
       break;
     }
-    case 'DELETE': {
-      //add session when post page add will work
-      // const session = await getSession({ req });
-      // if (!session) {
-      //   return res.status(401).json({ error: 'not_authorized' });
-      // }
-      try {
-        const post = await deletePost();
-        res.status(200).json({ status: 'deleted', post });
-      } catch (error) {
-        res.status(422).json({ status: 'not_deleted', error });
-      }
-      break;
-    }
+    // case 'DELETE': {
+    //   //add session when post page add will work
+    //   // const session = await getSession({ req });
+    //   // if (!session) {
+    //   //   return res.status(401).json({ error: 'not_authorized' });
+    //   // }
+    //   try {
+    //     const post = await deletePost();
+    //     res.status(200).json({ status: 'deleted', post });
+    //   } catch (error) {
+    //     res.status(422).json({ status: 'not_deleted', error });
+    //   }
+    //   break;
+    // }
 
     default:
       res.status(400);

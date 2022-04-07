@@ -5,10 +5,10 @@ import DevCard from 'components/DevCard';
 const UsersAnimations = () => {
   return (
     <div className="animations">
-      {users.map((user) => (
-        <div key={user.id} className="card">
+      {users.map((user, i) => (
+        <div key={i} className="card">
           <DevCard
-            id={user.id}
+            id={user.userid}
             name={user.name}
             image={user.imageUrl}
             position={user.position}

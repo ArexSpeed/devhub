@@ -14,7 +14,6 @@ const schema = Joi.object({
 });
 
 const createPost = async (payload) => {
-  console.log(payload, 'payload in services/create');
   const { db } = await connectToDatabase();
   // eslint-disable-next-line prettier/prettier
   const { userid, username, userimage, image, category, title, excerpt, content } = await schema.validateAsync(payload);

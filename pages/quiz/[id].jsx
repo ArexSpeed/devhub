@@ -34,13 +34,13 @@ const IdQuizPage = () => {
 
   useEffect(() => {
     const getQuiz = quizes.find((quiz) => quiz.quizid === router.query.id);
-    console.log(getQuiz);
+    //console.log(getQuiz);
     setQuiz(getQuiz);
   }, [router]);
 
   const sendScores = () => {
     const scoresReduce = scores.reduce((prev, curr) => prev + curr.point, 0);
-    console.log('wynik ', scoresReduce);
+    //console.log('wynik ', scoresReduce);
     router.push(`/quiz/finish?level=${quiz.level}&name=${quiz.quizname}&score=${scoresReduce}`);
   };
 
