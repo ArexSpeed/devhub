@@ -1,11 +1,18 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { ChevronRight, HeartIcon, CommentIcon, HeartOutlineIcon } from './Icons/FontIcons';
+import { motion } from 'framer-motion';
 
 const BlogCard = ({ postid, userimage, username, image, title, excerpt, likes, comments }) => {
   const [like, setLike] = useState(false);
   return (
-    <div className="blogcard">
+    <motion.div
+      className="blogcard"
+      layout
+      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0 }}
+      exit={{ opacity: 0, scale: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}>
       <section className="blogcard__image">
         <img src={image} alt="" />
       </section>
@@ -44,7 +51,7 @@ const BlogCard = ({ postid, userimage, username, image, title, excerpt, likes, c
           </Link>
         </article>
       </section>
-    </div>
+    </motion.div>
   );
 };
 

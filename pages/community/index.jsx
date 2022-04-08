@@ -6,6 +6,7 @@ import DevCard from 'components/DevCard';
 import follows from 'data/usersFollow.json';
 import axios from 'axios';
 import Layout from 'components/Layout';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const CommunityPage = () => {
   const [users, setUsers] = useState([]);
@@ -80,12 +81,12 @@ const CommunityPage = () => {
             Followers
           </button>
         </section>
-        <section className="community__profiles">
+        <motion.div className="community__profiles" layout>
           {activeButton === 'All Developers' && (
-            <>
+            <AnimatePresence>
               {users
-                .filter((user) => user.position.includes(developerPosition))
                 .filter((user) => user.name.toLowerCase().includes(searchValue.toLowerCase()))
+                .filter((user) => user.position.includes(developerPosition))
                 .filter((user) => {
                   if (selectSkill[0] !== '') return user.skills.indexOf(selectSkill[0]) !== -1;
                   else return user;
@@ -102,7 +103,7 @@ const CommunityPage = () => {
                     socials={user.socials}
                   />
                 ))}
-            </>
+            </AnimatePresence>
           )}
           {activeButton === 'Followed' && (
             <>
@@ -142,7 +143,7 @@ const CommunityPage = () => {
                 ))}
             </>
           )}
-        </section>
+        </motion.div>
       </div>
     </Layout>
   );

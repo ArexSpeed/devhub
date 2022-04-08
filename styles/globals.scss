@@ -19,13 +19,15 @@ a {
 * {
   box-sizing: border-box;
   &::-webkit-scrollbar {
-    width: 0.25rem;
+    width: 0.5rem;
+    border-radius: 6px;
   }
   &::-webkit-scrollbar-track {
     background: $primary-white;
   } 
   &::-webkit-scrollbar-thumb {
     background-color: $secondary-blue;
+    border-radius: 6px;
     outline: none;
   }
 }

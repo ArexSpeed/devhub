@@ -5,6 +5,7 @@ import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
 import BlogCard from 'components/BlogCard';
 import Layout from 'components/Layout';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
@@ -62,28 +63,30 @@ const BlogPage = () => {
             Backend
           </button>
         </section>
-        <div className="blog__cards">
-          {posts
-            .filter(
-              (post) =>
-                post.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-                post.username.toLowerCase().includes(searchValue.toLowerCase())
-            )
-            .filter((post) => post.category.includes(postCategory))
-            .map((post) => (
-              <BlogCard
-                key={post._id}
-                postid={post._id}
-                userimage={post.userimage}
-                username={post.username}
-                image={post.image}
-                title={post.title}
-                excerpt={post.excerpt}
-                likes={post.likes}
-                comments={post.comments}
-              />
-            ))}
-        </div>
+        <motion.div layout className="blog__cards">
+          <AnimatePresence>
+            {posts
+              .filter(
+                (post) =>
+                  post.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+                  post.username.toLowerCase().includes(searchValue.toLowerCase())
+              )
+              .filter((post) => post.category.includes(postCategory))
+              .map((post) => (
+                <BlogCard
+                  key={post._id}
+                  postid={post._id}
+                  userimage={post.userimage}
+                  username={post.username}
+                  image={post.image}
+                  title={post.title}
+                  excerpt={post.excerpt}
+                  likes={post.likes}
+                  comments={post.comments}
+                />
+              ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </Layout>
   );

@@ -3,10 +3,10 @@ import { useSession } from 'next-auth/client';
 import { SearchIcon } from 'components/Icons/FontIcons';
 import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
-//import projects from 'data/projects.json';
 import ProjectCard from 'components/ProjectCard';
 import Layout from 'components/Layout';
 import axios from 'axios';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const ProjectPage = () => {
   const [session] = useSession();
@@ -72,9 +72,9 @@ const ProjectPage = () => {
           </button>
         </section>
 
-        <section className="projects__profiles">
+        <motion.section layout className="projects__profiles">
           {activeButton === 'All projects' && (
-            <>
+            <AnimatePresence>
               {projects
                 .filter((project) =>
                   project.title.toLowerCase().includes(searchValue.toLowerCase())
@@ -99,13 +99,13 @@ const ProjectPage = () => {
                     likes={project.likes}
                   />
                 ))}
-            </>
+            </AnimatePresence>
           )}
 
           {/* //Your projects */}
 
           {activeButton === 'Your projects' && (
-            <>
+            <AnimatePresence>
               {projects
                 .filter((project) => project.userid === session.user.id)
                 .filter((project) =>
@@ -126,11 +126,11 @@ const ProjectPage = () => {
                     likes={project.likes}
                   />
                 ))}
-            </>
+            </AnimatePresence>
           )}
           {/* Favorite */}
           {activeButton === 'Favorite' && (
-            <>
+            <AnimatePresence>
               {projects
                 .filter((project) =>
                   project.title.toLowerCase().includes(searchValue.toLowerCase())
@@ -150,9 +150,9 @@ const ProjectPage = () => {
                     likes={project.likes}
                   />
                 ))}
-            </>
+            </AnimatePresence>
           )}
-        </section>
+        </motion.section>
       </div>
     </Layout>
   );

@@ -1,0 +1,395 @@
+[
+  {
+    "userid": 1,
+    "name": "Arek Cichocki",
+    "email": "arek@mail'com",
+    "password": "",
+    "imageUrl": "https://res.cloudinary.com/dbpsxmtcb/image/upload/v1648752817/bnpamkhxn2e5j82ire8v.jpg",
+    "position": "Frontend Developer",
+    "languages": ["pl", "en", "ger"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "socials": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
+  },
+  {
+    "userid": 2,
+    "name": "Sebastian Wuczkowski",
+    "email": "seba@mail'com",
+    "password": "",
+    "imageUrl": "https://res.cloudinary.com/dbpsxmtcb/image/upload/v1649140265/rrqmurem4g2rp8irroc5.jpg",
+    "position": "Fullstack Developer",
+    "languages": ["pl", "en", "fr"],
+    "skills": ["html", "python", "csharp", "sass", "wordpress"],
+    "socials": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"}
+    ]
+  },
+  {
+    "userid": 3,
+    "name": "Bartosz Bielecki",
+    "email": "bartosz@mail'com",
+    "password": "",
+    "imageUrl": "https://res.cloudinary.com/dbpsxmtcb/image/upload/v1649140381/m6gr8xkmdjs4daosgjay.jpg",
+    "position": "Backend Developer",
+    "languages": ["pl", "it", "en"],
+    "skills": ["java", "angular", "drupal", "php", "cplus"],
+    "socials": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "twitter", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
+  },
+  {
+    "userid": 4,
+    "name": "Dmytro Zaichenko",
+    "email": "dima@mail'com",
+    "password": "",
+    "imageUrl": "https://res.cloudinary.com/dbpsxmtcb/image/upload/v1649140323/y1odyas66bkok6jnqf8a.jpg",
+    "position": "Frontend Developer",
+    "languages": ["ua", "en", "pl"],
+    "skills": ["next", "tailwind", "postgres", "mongo", "net"],
+    "socials": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "github", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
+  },
+  {
+    "userid": 5,
+    "name": "Marcin Domagała",
+    "email": "marcin@mail'com",
+    "password": "",
+    "imageUrl": "https://res.cloudinary.com/dbpsxmtcb/image/upload/v1649140301/ll4aqymrhmolbn6fhcdz.jpg",
+    "position": "Fullstack Developer",
+    "languages": ["pl", "it", "fr"],
+    "skills": ["react", "node", "typescript", "javascript", "css"],
+    "socials": [
+      {"name": "website", "link": "https://ownwebsite.com"},
+      {"name": "facebook", "link": "https://example.com"},
+      {"name": "linkedin", "link": "https://example.com"},
+      {"name": "dribbble", "link": "https://example.com"}
+    ]
+  },
+  {
+    "userid": 6,
+    "name": "Wojciech Czarnecki",
+    "email": "wojtek@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Backend Developer",
+    "languages": [
+      "pl",
+      "en",
+      "ua"
+    ],
+    "skills": [
+      "react",
+      "node",
+      "typescript",
+      "javascript",
+      "css"
+    ],
+    "socials": [
+      {
+        "name": "linkedin",
+        "link": "https://example.com"
+      },
+      {
+        "name": "github",
+        "link": "https://example.com"
+      },
+      {
+        "name": "dribbble",
+        "link": "https://example.com"
+      }
+    ]
+  },
+  {
+    "userid": 7,
+    "name": "Adam Małysz",
+    "email": "adam@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Fullstack Developer",
+    "languages": [
+      "pl",
+      "en",
+      "ger"
+    ],
+    "skills": [
+      "react",
+      "node",
+      "typescript",
+      "javascript",
+      "css"
+    ],
+    "socials": [
+      {
+        "name": "website",
+        "link": "https://ownwebsite.com"
+      },
+      {
+        "name": "facebook",
+        "link": "https://example.com"
+      },
+      {
+        "name": "linkedin",
+        "link": "https://example.com"
+      },
+      {
+        "name": "twitter",
+        "link": "https://example.com"
+      },
+      {
+        "name": "github",
+        "link": "https://example.com"
+      },
+      {
+        "name": "dribbble",
+        "link": "https://example.com"
+      }
+    ]
+  },
+  {
+    "userid": 8,
+    "name": "Bill Gates",
+    "email": "bill@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Frontend Developer",
+    "languages": [
+      "pl",
+      "en",
+      "ger"
+    ],
+    "skills": [
+      "react",
+      "node",
+      "typescript",
+      "javascript",
+      "css"
+    ],
+    "socials": [
+      {
+        "name": "website",
+        "link": "https://ownwebsite.com"
+      },
+      {
+        "name": "facebook",
+        "link": "https://example.com"
+      },
+      {
+        "name": "linkedin",
+        "link": "https://example.com"
+      },
+      {
+        "name": "twitter",
+        "link": "https://example.com"
+      },
+      {
+        "name": "github",
+        "link": "https://example.com"
+      },
+      {
+        "name": "dribbble",
+        "link": "https://example.com"
+      }
+    ]
+  },
+  {
+    "userid": 9,
+    "name": "Mark Zuckerberg",
+    "email": "mark@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Backend Developer",
+    "languages": [
+      "pl",
+      "en",
+      "ger"
+    ],
+    "skills": [
+      "react",
+      "node",
+      "typescript",
+      "javascript",
+      "css"
+    ],
+    "socials": [
+      {
+        "name": "website",
+        "link": "https://ownwebsite.com"
+      },
+      {
+        "name": "facebook",
+        "link": "https://example.com"
+      },
+      {
+        "name": "linkedin",
+        "link": "https://example.com"
+      },
+      {
+        "name": "twitter",
+        "link": "https://example.com"
+      },
+      {
+        "name": "github",
+        "link": "https://example.com"
+      },
+      {
+        "name": "dribbble",
+        "link": "https://example.com"
+      }
+    ]
+  },
+  {
+    "userid": 10,
+    "name": "Robert Lewandowski",
+    "email": "lewy@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Frontend Developer",
+    "languages": [
+      "pl",
+      "en",
+      "ger"
+    ],
+    "skills": [
+      "react",
+      "node",
+      "typescript",
+      "javascript",
+      "css"
+    ],
+    "socials": [
+      {
+        "name": "website",
+        "link": "https://ownwebsite.com"
+      },
+      {
+        "name": "facebook",
+        "link": "https://example.com"
+      },
+      {
+        "name": "linkedin",
+        "link": "https://example.com"
+      },
+      {
+        "name": "twitter",
+        "link": "https://example.com"
+      },
+      {
+        "name": "github",
+        "link": "https://example.com"
+      },
+      {
+        "name": "dribbble",
+        "link": "https://example.com"
+      }
+    ]
+  },
+  {
+    "userid": 11,
+    "name": "Steve Jobs",
+    "email": "steve@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Backend Developer",
+    "languages": [
+      "pl",
+      "en",
+      "ger"
+    ],
+    "skills": [
+      "react",
+      "node",
+      "typescript",
+      "javascript",
+      "css"
+    ],
+    "socials": [
+      {
+        "name": "website",
+        "link": "https://ownwebsite.com"
+      },
+      {
+        "name": "facebook",
+        "link": "https://example.com"
+      },
+      {
+        "name": "linkedin",
+        "link": "https://example.com"
+      },
+      {
+        "name": "twitter",
+        "link": "https://example.com"
+      },
+      {
+        "name": "github",
+        "link": "https://example.com"
+      },
+      {
+        "name": "dribbble",
+        "link": "https://example.com"
+      }
+    ]
+  },
+  {
+    "userid": 12,
+    "name": "Michael Jordan",
+    "email": "michael@mail'com",
+    "password": "",
+    "imageUrl": "",
+    "position": "Fullstack Developer",
+    "languages": [
+      "pl",
+      "en",
+      "ger"
+    ],
+    "skills": [
+      "react",
+      "node",
+      "typescript",
+      "javascript",
+      "css"
+    ],
+    "socials": [
+      {
+        "name": "website",
+        "link": "https://ownwebsite.com"
+      },
+      {
+        "name": "facebook",
+        "link": "https://example.com"
+      },
+      {
+        "name": "linkedin",
+        "link": "https://example.com"
+      },
+      {
+        "name": "twitter",
+        "link": "https://example.com"
+      },
+      {
+        "name": "github",
+        "link": "https://example.com"
+      },
+      {
+        "name": "dribbble",
+        "link": "https://example.com"
+      }
+    ]
+  } 
+]
