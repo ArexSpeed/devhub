@@ -1,10 +1,16 @@
 import Link from 'next/link';
 import FlagIconSwitcher from './IconSwitcher/FlagIconSwitcher';
 import SocialIconSwitcher from './IconSwitcher/SocialIconSwitcher';
+import { motion } from 'framer-motion';
 
 const ProfileCard = ({ name, imageUrl, position, langs, socials, about }) => {
   return (
-    <section className="profileCard">
+    <motion.div
+      className="profileCard"
+      initial={{ x: '100%' }}
+      animate={{ x: '0' }}
+      exit={{ opacity: 0, scale: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}>
       <article className="profileCard__details">
         <div className="profileCard__media">
           <div className="profileCard__image">
@@ -39,7 +45,7 @@ const ProfileCard = ({ name, imageUrl, position, langs, socials, about }) => {
         <p className="profileCard__about-title">About me</p>
         <div className="profileCard__about-description">{about}</div>
       </article>
-    </section>
+    </motion.div>
   );
 };
 

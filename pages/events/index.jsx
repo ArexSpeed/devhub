@@ -5,11 +5,12 @@ import SkillsTags from 'components/SkillsTags';
 import EventCard from 'components/EventCard';
 import events from 'data/events.json';
 import Layout from 'components/Layout';
+import { motion } from 'framer-motion';
 
 const EventsPage = () => {
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState([]);
-  const [activeButton, setActiveButton] = useState('');
+  const [activeButton, setActiveButton] = useState('Incoming');
 
   return (
     <Layout>
@@ -36,23 +37,35 @@ const EventsPage = () => {
           <SkillsTags selectSkill={selectSkill} setSelectSkill={setSelectSkill} />
         </section>
         <section className="events__buttons">
-          <button
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.1 }}
             className={
               activeButton === 'Incoming' ? 'community__button active' : 'community__button'
             }
             onClick={() => setActiveButton('Incoming')}>
             Incoming
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
             className={activeButton === 'Like' ? 'community__button active' : 'community__button'}
             onClick={() => setActiveButton('Like')}>
             You might like
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.3 }}
             className={activeButton === 'Saved' ? 'community__button active' : 'community__button'}
             onClick={() => setActiveButton('Saved')}>
             Saved
-          </button>
+          </motion.button>
         </section>
         <section className="events__cards">
           {events

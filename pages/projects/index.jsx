@@ -49,27 +49,39 @@ const ProjectPage = () => {
           <SkillsTags selectSkill={selectSkill} setSelectSkill={setSelectSkill} />
         </section>
         <section className="community__buttons">
-          <button
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.1 }}
             className={
               activeButton === 'All projects' ? 'community__button active' : 'community__button'
             }
             onClick={() => setActiveButton('All projects')}>
             All projects
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
             className={
               activeButton === 'Your projects' ? 'community__button active' : 'community__button'
             }
             onClick={() => setActiveButton('Your projects')}>
             Your projects
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.3 }}
             className={
               activeButton === 'Favorite' ? 'community__button active' : 'community__button'
             }
             onClick={() => setActiveButton('Favorite')}>
             Favorite
-          </button>
+          </motion.button>
         </section>
 
         <motion.section layout className="projects__profiles">

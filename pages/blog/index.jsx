@@ -42,26 +42,42 @@ const BlogPage = () => {
           <SkillsTags selectSkill={selectSkill} setSelectSkill={setSelectSkill} />
         </section>
         <section className="blog__filters">
-          <button
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.1 }}
             className={`blog__filters-button ${postCategory === '' && 'active'}`}
             onClick={() => setPostCategory('')}>
             Latests
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
             className={`blog__filters-button ${postCategory === 'Design' && 'active'}`}
             onClick={() => setPostCategory('Design')}>
             Design
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.3 }}
             className={`blog__filters-button ${postCategory === 'Frontend' && 'active'}`}
             onClick={() => setPostCategory('Frontend')}>
             Frontend
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.4 }}
             className={`blog__filters-button ${postCategory === 'Backend' && 'active'}`}
             onClick={() => setPostCategory('Backend')}>
             Backend
-          </button>
+          </motion.button>
         </section>
         <motion.div layout className="blog__cards">
           <AnimatePresence>
