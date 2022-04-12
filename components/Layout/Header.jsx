@@ -30,15 +30,15 @@ const Header = () => {
             onMouseEnter={() => setBookmarkHover(true)}
             onMouseLeave={() => setBookmarkHover(false)}>
             {!bookmarkHover ? (
-              <BookmarkIcon className="header__actions-icon icon-medium primary-blue" />
+              <BookmarkIcon className="header__actions-icon icon-medium secondary-blue" />
             ) : (
-              <BookmarkOutlineIcon className="header__actions-icon icon-medium primary-blue" />
+              <BookmarkOutlineIcon className="header__actions-icon icon-medium secondary-blue" />
             )}
           </a>
         </Link>
         <Link href="/notifications" passHref>
           <a>
-            <NotificationIcon className="header__actions-icon icon-medium primary-blue" />
+            <NotificationIcon className="header__actions-icon icon-medium secondary-blue" />
           </a>
         </Link>
         <div className="header__actions-user">

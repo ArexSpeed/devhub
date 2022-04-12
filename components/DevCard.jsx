@@ -61,13 +61,13 @@ const DevCard = ({ id, name, image, position, skills, langs, socials }) => {
             ))}
           </div>
           <div className="devcard__details--name">{name}</div>
-          <div className="devcard__details--title">{position}</div>
+          <div className="devcard__details--position">{position}</div>
         </div>
       </article>
       <div className="devcard__smalltext">Skills</div>
       <article className="devcard__skills">
         {skills.map((skill, i) => (
-          <SkillsIconSwitcher key={i} name={skill} className="icon-medium primary-blue" />
+          <SkillsIconSwitcher key={i} name={skill} className="icon-medium secondary-blue" />
         ))}
       </article>
       <article className="devcard__buttons">
@@ -90,7 +90,7 @@ const DevCard = ({ id, name, image, position, skills, langs, socials }) => {
               <a>
                 <SocialIconSwitcher
                   name={social.name}
-                  className="icon-small primary-blue hover-secondary-blue"
+                  className="icon-small secondary-blue hover-primary-blue"
                 />
               </a>
             </Link>

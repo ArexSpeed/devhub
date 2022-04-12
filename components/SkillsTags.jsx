@@ -24,7 +24,7 @@ const SkillsTags = ({ selectSkill, setSelectSkill }) => {
             <SkillsIconSwitcher
               name={skill}
               className={`icon-large ${
-                selectSkill[0] === skill ? 'primary-white' : 'primary-blue'
+                selectSkill[0] === skill ? 'primary-white' : 'secondary-blue'
               }`}
             />
           </div>

@@ -4,18 +4,18 @@
   justify-content: flex-start;
   align-items: center;
   max-width: 100%;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem;
   overflow-x: scroll;
   &::-webkit-scrollbar {
     height: 6px;
     border-radius: 0.5rem;
   }
   &::-webkit-scrollbar-track {
-    background: $primary-white;
+    background: var(--primary-bg-color);
     border-radius: 0.5rem;
   } 
   &::-webkit-scrollbar-thumb {
-    background-color: $secondary-blue;
+    background-color: var(--primary-blue);
     border-radius: 0.5rem;
     outline: none;
   }
@@ -25,13 +25,18 @@
     align-items: center;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    background: $primary-white;
+    background: var(--primary-bg-color);
+    color: inherit;
+    font-family: inherit;
     margin-right: 0.5rem;
     border: none;
     outline: none;
     cursor: pointer;
+    &:hover {
+      outline: 1px solid var(--secondary-blue);
+    }
     &.active {
-      background: $secondary-blue;
+      background: var(--secondary-blue);
     }
     & span {
       font-size: 12px;

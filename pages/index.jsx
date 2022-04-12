@@ -163,7 +163,7 @@ export default function Home() {
         <article className="home__skills">
           {skills.map((skill, i) => (
             <div key={i} className="home__skills-box">
-              <SkillsIconSwitcher name={skill} className="icon-big primary-blue" />
+              <SkillsIconSwitcher name={skill} className="icon-big secondary-blue" />
             </div>
           ))}
         </article>

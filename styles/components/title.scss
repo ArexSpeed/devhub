@@ -10,9 +10,10 @@
   &__button {
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
-    background: $primary-green;
+    background: var(--primary-green);
+    color: var(--primary-text-color);
     &:hover {
-      background: $secondary-green;
+      background: var(--secondary-green);
       transition: all 0.3s ease-in-out;
     }
   }

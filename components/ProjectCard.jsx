@@ -25,7 +25,7 @@ const ProjectCard = ({ title, username, userimage, logo, link, description, tech
       <p>{description.substr(0, 200)}</p>
       <article className="projectcard__skills">
         {technology.map((skill, i) => (
-          <SkillsIconSwitcher key={i} name={skill} className="icon-medium primary-blue" />
+          <SkillsIconSwitcher key={i} name={skill} className="icon-medium secondary-blue" />
         ))}
       </article>
 
