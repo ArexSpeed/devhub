@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import TitleBox from 'components/TitleBox';
-import { SearchIcon } from 'components/Icons/FontIcons';
 import SkillsTags from 'components/SkillsTags';
 import EventCard from 'components/EventCard';
 import events from 'data/events.json';
 import Layout from 'components/Layout';
 import { motion } from 'framer-motion';
+import SearchBox from 'components/SearchBox';
 
 const EventsPage = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -18,33 +18,24 @@ const EventsPage = () => {
         <section className="events__title">
           <TitleBox title="Events" button="Add new event" href="/events/add" />
         </section>
-        <section className="projects__searchcontainer">
-          <div className="projects__searchbox">
-            <div className="projects__searchbox-icon">
-              <SearchIcon className="icon-medium secondary-blue" />
-            </div>
-            <input
-              type="text"
-              className="projects__searchbox-input"
-              placeholder="Search Developer by name"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-          </div>
+        <section className="searchbox__container">
+          <SearchBox
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            placeholder="Find event by title"
+          />
         </section>
         <p>Find event by tags</p>
         <section className="events__tags">
           <SkillsTags selectSkill={selectSkill} setSelectSkill={setSelectSkill} />
         </section>
-        <section className="events__buttons">
+        <section className="filters">
           <motion.button
             animate={{ opacity: 1, scale: 1 }}
             initial={{ opacity: 0, scale: 0 }}
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.1 }}
-            className={
-              activeButton === 'Incoming' ? 'community__button active' : 'community__button'
-            }
+            className={activeButton === 'Incoming' ? 'filters__button active' : 'filters__button'}
             onClick={() => setActiveButton('Incoming')}>
             Incoming
           </motion.button>
@@ -53,7 +44,7 @@ const EventsPage = () => {
             initial={{ opacity: 0, scale: 0 }}
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
-            className={activeButton === 'Like' ? 'community__button active' : 'community__button'}
+            className={activeButton === 'Like' ? 'filters__button active' : 'filters__button'}
             onClick={() => setActiveButton('Like')}>
             You might like
           </motion.button>
@@ -62,7 +53,7 @@ const EventsPage = () => {
             initial={{ opacity: 0, scale: 0 }}
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.3 }}
-            className={activeButton === 'Saved' ? 'community__button active' : 'community__button'}
+            className={activeButton === 'Saved' ? 'filters__button active' : 'filters__button'}
             onClick={() => setActiveButton('Saved')}>
             Saved
           </motion.button>

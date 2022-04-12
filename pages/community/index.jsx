@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { SearchIcon } from 'components/Icons/FontIcons';
 import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
 import DevCard from 'components/DevCard';
@@ -7,6 +6,7 @@ import follows from 'data/usersFollow.json';
 import axios from 'axios';
 import Layout from 'components/Layout';
 import { motion, AnimatePresence } from 'framer-motion';
+import SearchBox from 'components/SearchBox';
 
 const CommunityPage = () => {
   const [users, setUsers] = useState([]);
@@ -32,19 +32,12 @@ const CommunityPage = () => {
         <section className="community__title">
           <TitleBox title="Developers Community" />
         </section>
-        <section className="community__searchcontainer">
-          <div className="community__searchbox">
-            <div className="community__searchbox-icon">
-              <SearchIcon className="icon-medium secondary-blue" />
-            </div>
-            <input
-              type="text"
-              className="community__searchbox-input"
-              placeholder="Search Developer by name"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-          </div>
+        <section className="searchbox__container">
+          <SearchBox
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            placeholder="Find developer by name"
+          />
           <select
             className="community__selector"
             onChange={(e) => setDeveloperPosition(e.target.value)}>
@@ -58,14 +51,14 @@ const CommunityPage = () => {
         <section className="community__tags">
           <SkillsTags selectSkill={selectSkill} setSelectSkill={setSelectSkill} />
         </section>
-        <section className="community__buttons">
+        <section className="filters">
           <motion.button
             animate={{ opacity: 1, scale: 1 }}
             initial={{ opacity: 0, scale: 0 }}
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.1 }}
             className={
-              activeButton === 'All Developers' ? 'community__button active' : 'community__button'
+              activeButton === 'All Developers' ? 'filters__button active' : 'filters__button'
             }
             onClick={() => setActiveButton('All Developers')}>
             All Developers
@@ -75,9 +68,7 @@ const CommunityPage = () => {
             initial={{ opacity: 0, scale: 0 }}
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
-            className={
-              activeButton === 'Followed' ? 'community__button active' : 'community__button'
-            }
+            className={activeButton === 'Followed' ? 'filters__button active' : 'filters__button'}
             onClick={() => setActiveButton('Followed')}>
             Followed
           </motion.button>
@@ -86,9 +77,7 @@ const CommunityPage = () => {
             initial={{ opacity: 0, scale: 0 }}
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.3 }}
-            className={
-              activeButton === 'Followers' ? 'community__button active' : 'community__button'
-            }
+            className={activeButton === 'Followers' ? 'filters__button active' : 'filters__button'}
             onClick={() => setActiveButton('Followers')}>
             Followers
           </motion.button>

@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/client';
-import { SearchIcon } from 'components/Icons/FontIcons';
 import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
 import ProjectCard from 'components/ProjectCard';
 import Layout from 'components/Layout';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
+import SearchBox from 'components/SearchBox';
 
 const ProjectPage = () => {
   const [session] = useSession();
@@ -30,32 +30,25 @@ const ProjectPage = () => {
             href="/projects/add"
           />
         </section>
-        <section className="projects__searchcontainer">
-          <div className="projects__searchbox">
-            <div className="projects__searchbox-icon">
-              <SearchIcon className="icon-medium secondary-blue" />
-            </div>
-            <input
-              type="text"
-              className="projects__searchbox-input"
-              placeholder="Search project by name"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-          </div>
+        <section className="searchbox__container">
+          <SearchBox
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            placeholder="Find project by name"
+          />
         </section>
         <p>Find project by tags</p>
         <section className="projects__tags">
           <SkillsTags selectSkill={selectSkill} setSelectSkill={setSelectSkill} />
         </section>
-        <section className="community__buttons">
+        <section className="filters">
           <motion.button
             animate={{ opacity: 1, scale: 1 }}
             initial={{ opacity: 0, scale: 0 }}
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.1 }}
             className={
-              activeButton === 'All projects' ? 'community__button active' : 'community__button'
+              activeButton === 'All projects' ? 'filters__button active' : 'filters__button'
             }
             onClick={() => setActiveButton('All projects')}>
             All projects
@@ -66,7 +59,7 @@ const ProjectPage = () => {
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
             className={
-              activeButton === 'Your projects' ? 'community__button active' : 'community__button'
+              activeButton === 'Your projects' ? 'filters__button active' : 'filters__button'
             }
             onClick={() => setActiveButton('Your projects')}>
             Your projects
@@ -76,9 +69,7 @@ const ProjectPage = () => {
             initial={{ opacity: 0, scale: 0 }}
             exit={{ opacity: 0, scale: 0 }}
             transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.3 }}
-            className={
-              activeButton === 'Favorite' ? 'community__button active' : 'community__button'
-            }
+            className={activeButton === 'Favorite' ? 'filters__button active' : 'filters__button'}
             onClick={() => setActiveButton('Favorite')}>
             Favorite
           </motion.button>

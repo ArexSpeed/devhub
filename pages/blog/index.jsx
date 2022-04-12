@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { SearchIcon } from 'components/Icons/FontIcons';
 import axios from 'axios';
 import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
 import BlogCard from 'components/BlogCard';
 import Layout from 'components/Layout';
 import { motion, AnimatePresence } from 'framer-motion';
+import SearchBox from 'components/SearchBox';
 
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
@@ -23,19 +23,12 @@ const BlogPage = () => {
         <section className="blog__title">
           <TitleBox title="Blog" button="Add new article" href="/blog/add" />
         </section>
-        <section className="projects__searchcontainer">
-          <div className="projects__searchbox">
-            <div className="projects__searchbox-icon">
-              <SearchIcon className="icon-medium secondary-blue" />
-            </div>
-            <input
-              type="text"
-              className="projects__searchbox-input"
-              placeholder="Search article by title"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-          </div>
+        <section className="searchbox__container">
+          <SearchBox
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            placeholder="Find article by title"
+          />
         </section>
         <p>Find article by tags</p>
         <section className="community__tags">
