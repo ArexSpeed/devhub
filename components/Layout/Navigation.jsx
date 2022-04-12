@@ -1,12 +1,29 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+import { useRef } from 'react';
 import Link from 'next/link';
 import { signOut } from 'next-auth/client';
 import { useRouter } from 'next/router';
 // eslint-disable-next-line prettier/prettier
-import { BlogIcon, CommunityIcon, EventIcon, HomeIcon, LogoutIcon, ProfileIcon, ProjectIcon, QuizIcon } from 'components/Icons/FontIcons';
+import { BlogIcon, CommunityIcon, EventIcon, HomeIcon, LogoutIcon, ProfileIcon, ProjectIcon, QuizIcon, SunIcon, MoonIcon } from 'components/Icons/FontIcons';
 
 const Navigation = () => {
   const router = useRouter();
+  const toggleThemeRef = useRef();
+
+  const toggleTheme = () => {
+    toggleThemeRef.current.checked
+      ? document.documentElement.setAttribute('data-theme', 'dark')
+      : document.documentElement.setAttribute('data-theme', '');
+  };
+
+  // useEffect(() => {
+  //   if (currentTheme) {
+  //     document.documentElement.setAttribute('data-theme', currentTheme);
+  //     if (currentTheme === 'dark') {
+  //       toggleThemeRef.current.checked = true;
+  //     }
+  //   }
+  // }, []);
 
   return (
     <nav className="nav">
@@ -69,6 +86,14 @@ const Navigation = () => {
         </li>
       </ul>
       <ul className="nav__list">
+        <li className="nav__item">
+          <SunIcon className="icon-medium primary-blue" />
+          <label className="nav__switch">
+            <input type="checkbox" ref={toggleThemeRef} onChange={toggleTheme} />
+            <span className="slider round"></span>
+          </label>
+          <MoonIcon className="icon-medium primary-blue" />
+        </li>
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
         <li
           className="nav__item"

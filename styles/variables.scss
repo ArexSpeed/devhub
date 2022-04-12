@@ -2,7 +2,34 @@ $primary-white: #FFFFFF;
 $secondary-white: #F3F3F3;
 $primary-black: #000000;
 $secondary-black: #555555;
+$primary-dark: #111827;
+$dark-blue: #0072AF;
+$light-blue: #17ABDB;
+$dark-green: #78b90f;
+$light-green: #95E616;
 $primary-blue: #0072AF;
 $secondary-blue: #17ABDB;
-$primary-green: #95E616;
 $secondary-green: #78b90f;
+$primary-green: #95E616;
+
+:root {
+  --primary-bg-color: #{$primary-white};
+  --secondary-bg-color: #{$secondary-white};
+  --primary-text-color: #{$primary-black};
+  --secondary-text-color: #{$secondary-black};
+  --primary-blue: #{$dark-blue};
+  --secondary-blue: #{$light-blue};
+  --primary-green: #{$dark-green};
+  --secondary-green: #{$light-green};
+}
+
+[data-theme="dark"] {
+  --primary-bg-color: #{$primary-dark};
+  --secondary-bg-color: #{$primary-black};
+  --primary-text-color: #{$primary-white};
+  --secondary-text-color: #{$secondary-white};
+  --primary-blue: #{$light-blue};
+  --secondary-blue: #{$dark-blue};
+  --primary-green: #{$light-green};
+  --secondary-green: #{$dark-green};
+}

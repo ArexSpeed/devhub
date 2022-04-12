@@ -44,7 +44,8 @@ a {
 
 .main{
   display: flex;
-  background: $secondary-white;
+  background: var(--secondary-bg-color);
+  color: var(--primary-text-color);
   width: calc(100% - 256px);
   max-width: calc(100% - 256px);
   min-height: calc(100vh - 56px);
