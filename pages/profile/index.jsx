@@ -48,7 +48,7 @@ const ProfilePage = () => {
           ))}
         </div>
         <p>Projects</p>
-        <div className="profile__projects">
+        <div className="projects__cards">
           {projects
             ?.filter((project) => project.userid === session.user.id)
             ?.map((project) => (

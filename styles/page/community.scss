@@ -25,11 +25,11 @@
   &__profiles {
     display: grid;
     max-width: 100%;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); //screen-large
     column-gap: 1rem;
     padding: 1rem 0;
     @media screen and (min-width: $screen-2xl) {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(5, 1fr);
     }
     @media screen and (min-width: $screen-xl) {
       grid-template-columns: repeat(4, 1fr);

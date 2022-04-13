@@ -75,7 +75,7 @@ const ProjectPage = () => {
           </motion.button>
         </section>
 
-        <motion.section layout className="projects__profiles">
+        <motion.section layout className="projects__cards">
           {activeButton === 'All projects' && (
             <AnimatePresence>
               {projects

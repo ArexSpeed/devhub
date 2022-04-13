@@ -56,6 +56,11 @@ a {
     max-width: calc(100% - 64px);
     margin-left: 64px;
   }
+  @media screen and (max-width: $screen-small) {
+    width: calc(100% - 48px);
+    max-width: calc(100% - 48px);
+    margin-left: 48px;
+  }
 }
 
 .center {

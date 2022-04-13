@@ -41,7 +41,10 @@
   align-items: center;
 
   &__number {
-    font-size: 20px;
+    font-size: 1.25rem;
+    @media screen and (max-width: $screen-small) {
+      font-size: 1rem;
+    }
   }
 
   &__subtitle {
