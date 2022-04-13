@@ -12,6 +12,11 @@ $primary-blue: #0072AF;
 $secondary-blue: #17ABDB;
 $secondary-green: #78b90f;
 $primary-green: #95E616;
+$screen-small: 640px;
+$screen-medium: 768px;
+$screen-large: 1024px;
+$screen-xl: 1280px;
+$screen-2xl: 1536px;
 
 :root {
   --primary-bg-color: #{$primary-white};

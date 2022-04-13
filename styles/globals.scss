@@ -51,6 +51,11 @@ a {
   min-height: calc(100vh - 56px);
   margin-left: 256px;
   margin-top: 56px;
+  @media screen and (max-width: $screen-large) {
+    width: calc(100% - 64px);
+    max-width: calc(100% - 64px);
+    margin-left: 64px;
+  }
 }
 
 .center {

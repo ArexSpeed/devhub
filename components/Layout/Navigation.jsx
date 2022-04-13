@@ -87,12 +87,12 @@ const Navigation = () => {
       </ul>
       <ul className="nav__list">
         <li className="nav__item">
-          <SunIcon className="icon-medium secondary-blue" />
+          <SunIcon className="icon-medium secondary-blue nav__switch-icon" />
           <label className="nav__switch">
             <input type="checkbox" ref={toggleThemeRef} onChange={toggleTheme} />
             <span className="slider round"></span>
           </label>
-          <MoonIcon className="icon-medium secondary-blue" />
+          <MoonIcon className="icon-medium secondary-blue nav__switch-icon" />
         </li>
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
         <li
