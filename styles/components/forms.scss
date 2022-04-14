@@ -1,5 +1,6 @@
 .form {
   background: var(--primary-bg-color);
+  color: var(--primary-text-color);
   width: 100%;
   max-width: 700px;
   height: 100%;
@@ -8,7 +9,7 @@
   box-shadow: 0 0 128px 0 rgba(0,0,0,.1),
               0 32px 64px -48px rgba(0,0,0,.5);
   &.sign {
-    width: 450px;
+    max-width: 450px;
   }
   &__header {
     font-size: 24px;

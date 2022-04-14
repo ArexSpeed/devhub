@@ -42,8 +42,8 @@ const LoginForm = () => {
       initial={{ opacity: 0, scale: 0, translateY: 180 }}
       exit={{ opacity: 0, scale: 0, translateY: 180 }}
       transition={{ duration: 0.5, ease: 'easeInOut' }}>
-      <div className="form__header">Login to your account</div>
       <form onSubmit={handleSubmit} ref={loginForm}>
+        <div className="form__header">Login to your account</div>
         {error && <div className="form__error">{error}</div>}
         <div className="form__field">
           <label htmlFor="email" className="form__label">
