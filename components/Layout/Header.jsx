@@ -24,30 +24,38 @@ const Header = () => {
         <Image src={logo} width={40} height={40} alt="logo" />
         <span>CapDev</span>
       </div>
-      <div className="header__actions">
-        <Link href="/bookmarks" passHref>
-          <a
-            onMouseEnter={() => setBookmarkHover(true)}
-            onMouseLeave={() => setBookmarkHover(false)}>
-            {!bookmarkHover ? (
-              <BookmarkIcon className="header__actions-icon icon-medium secondary-blue" />
-            ) : (
-              <BookmarkOutlineIcon className="header__actions-icon icon-medium secondary-blue" />
-            )}
-          </a>
-        </Link>
-        <Link href="/notifications" passHref>
-          <a>
-            <NotificationIcon className="header__actions-icon icon-medium secondary-blue" />
-          </a>
-        </Link>
-        <div className="header__actions-user">
-          <span>{session ? user.name : ''}</span>
-          <div className="header__image">
-            <img src={session ? user.imageUrl : ''} alt="" />
+      {!session ? (
+        <div className="header__actions">
+          <Link href="/" passHref>
+            <a className="header__actions-login">Login</a>
+          </Link>
+        </div>
+      ) : (
+        <div className="header__actions">
+          <Link href="/bookmarks" passHref>
+            <a
+              onMouseEnter={() => setBookmarkHover(true)}
+              onMouseLeave={() => setBookmarkHover(false)}>
+              {!bookmarkHover ? (
+                <BookmarkIcon className="header__actions-icon icon-medium secondary-blue" />
+              ) : (
+                <BookmarkOutlineIcon className="header__actions-icon icon-medium secondary-blue" />
+              )}
+            </a>
+          </Link>
+          <Link href="/notifications" passHref>
+            <a>
+              <NotificationIcon className="header__actions-icon icon-medium secondary-blue" />
+            </a>
+          </Link>
+          <div className="header__actions-user">
+            <span>{session ? user.name : ''}</span>
+            <div className="header__image">
+              <img src={session ? user.imageUrl : ''} alt="" />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 };

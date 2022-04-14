@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useRef } from 'react';
+import { useSession } from 'next-auth/client';
 import Link from 'next/link';
 import { signOut } from 'next-auth/client';
 import { useRouter } from 'next/router';
@@ -7,6 +8,7 @@ import { useRouter } from 'next/router';
 import { BlogIcon, CommunityIcon, EventIcon, HomeIcon, LogoutIcon, ProfileIcon, ProjectIcon, QuizIcon, SunIcon, MoonIcon } from 'components/Icons/FontIcons';
 
 const Navigation = () => {
+  const [session] = useSession();
   const router = useRouter();
   const toggleThemeRef = useRef();
 
@@ -94,21 +96,23 @@ const Navigation = () => {
           </label>
           <MoonIcon className="icon-medium secondary-blue nav__switch-icon" />
         </li>
-        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
-        <li
-          className="nav__item"
-          onClick={() =>
-            signOut({
-              callbackUrl: `/`
-            })
-          }>
-          <Link href="/" passHref>
-            <a className="nav__link">
-              <LogoutIcon className="icon-medium secondary-blue" />
-              <span>Logout</span>
-            </a>
-          </Link>
-        </li>
+        {session && (
+          // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+          <li
+            className="nav__item"
+            onClick={() =>
+              signOut({
+                callbackUrl: `/`
+              })
+            }>
+            <Link href="/" passHref>
+              <a className="nav__link">
+                <LogoutIcon className="icon-medium secondary-blue" />
+                <span>Logout</span>
+              </a>
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

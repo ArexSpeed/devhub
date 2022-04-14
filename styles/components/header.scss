@@ -55,5 +55,11 @@
         }
       }
     }
+    &-login {
+      color: var(--primary-text-color);
+      &:hover {
+        color: var(--secondary-blue);
+      }
+    }
   }
 }

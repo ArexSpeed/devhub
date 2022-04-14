@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/client';
 import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
 import DevCard from 'components/DevCard';
@@ -9,6 +10,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SearchBox from 'components/SearchBox';
 
 const CommunityPage = () => {
+  // eslint-disable-next-line no-unused-vars
+  const [session, loading] = useSession();
   const [users, setUsers] = useState([]);
   const [activeButton, setActiveButton] = useState('All Developers');
   const [developerPosition, setDeveloperPosition] = useState('');
@@ -82,69 +85,75 @@ const CommunityPage = () => {
             Followers
           </motion.button>
         </section>
-        <motion.div className="community__profiles" layout>
-          {activeButton === 'All Developers' && (
-            <AnimatePresence>
-              {users
-                .filter((user) => user.name.toLowerCase().includes(searchValue.toLowerCase()))
-                .filter((user) => user.position.includes(developerPosition))
-                .filter((user) => {
-                  if (selectSkill[0] !== '') return user.skills.indexOf(selectSkill[0]) !== -1;
-                  else return user;
-                })
-                .map((user) => (
-                  <DevCard
-                    key={user._id}
-                    id={user._id}
-                    name={user.name}
-                    image={user.imageUrl}
-                    position={user.position}
-                    skills={user.skills}
-                    langs={user.languages}
-                    socials={user.socials}
-                  />
-                ))}
-            </AnimatePresence>
-          )}
-          {activeButton === 'Followed' && (
-            <>
-              {users
-                .filter((user) => userFollows.followed.indexOf(user.userid) !== -1)
-                .filter((user) => user.position.includes(developerPosition))
-                .filter((user) => user.name.includes(searchValue))
-                .map((user) => (
-                  <DevCard
-                    key={user.userid}
-                    id={user.userid}
-                    name={user.name}
-                    position={user.position}
-                    skills={user.skills}
-                    langs={user.languages}
-                    socials={user.social}
-                  />
-                ))}
-            </>
-          )}
-          {activeButton === 'Followers' && (
-            <>
-              {users
-                .filter((user) => userFollows.followers.indexOf(user.userid) !== -1)
-                .filter((user) => user.position.includes(developerPosition))
-                .filter((user) => user.name.includes(searchValue))
-                .map((user) => (
-                  <DevCard
-                    key={user.userid}
-                    id={user.userid}
-                    name={user.name}
-                    position={user.position}
-                    skills={user.skills}
-                    langs={user.languages}
-                    socials={user.social}
-                  />
-                ))}
-            </>
-          )}
-        </motion.div>
+        {loading ? (
+          <motion.div className="community__profiles" layout>
+            Loading community...
+          </motion.div>
+        ) : (
+          <motion.div className="community__profiles" layout>
+            {activeButton === 'All Developers' && (
+              <AnimatePresence>
+                {users
+                  .filter((user) => user.name.toLowerCase().includes(searchValue.toLowerCase()))
+                  .filter((user) => user.position.includes(developerPosition))
+                  .filter((user) => {
+                    if (selectSkill[0] !== '') return user.skills.indexOf(selectSkill[0]) !== -1;
+                    else return user;
+                  })
+                  .map((user) => (
+                    <DevCard
+                      key={user._id}
+                      id={user._id}
+                      name={user.name}
+                      image={user.imageUrl}
+                      position={user.position}
+                      skills={user.skills}
+                      langs={user.languages}
+                      socials={user.socials}
+                    />
+                  ))}
+              </AnimatePresence>
+            )}
+            {activeButton === 'Followed' && (
+              <>
+                {users
+                  .filter((user) => userFollows.followed.indexOf(user.userid) !== -1)
+                  .filter((user) => user.position.includes(developerPosition))
+                  .filter((user) => user.name.includes(searchValue))
+                  .map((user) => (
+                    <DevCard
+                      key={user.userid}
+                      id={user.userid}
+                      name={user.name}
+                      position={user.position}
+                      skills={user.skills}
+                      langs={user.languages}
+                      socials={user.social}
+                    />
+                  ))}
+              </>
+            )}
+            {activeButton === 'Followers' && (
+              <>
+                {users
+                  .filter((user) => userFollows.followers.indexOf(user.userid) !== -1)
+                  .filter((user) => user.position.includes(developerPosition))
+                  .filter((user) => user.name.includes(searchValue))
+                  .map((user) => (
+                    <DevCard
+                      key={user.userid}
+                      id={user.userid}
+                      name={user.name}
+                      position={user.position}
+                      skills={user.skills}
+                      langs={user.languages}
+                      socials={user.social}
+                    />
+                  ))}
+              </>
+            )}
+          </motion.div>
+        )}
       </div>
     </Layout>
   );

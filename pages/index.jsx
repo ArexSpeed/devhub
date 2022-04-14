@@ -16,7 +16,7 @@ import Layout from 'components/Layout';
 const skills = ["html", "css", "sass", "react", "javascript", "typescript", "tailwind", "node", "next", "angular", "csharp", "cplus", "php", "drupal", "java", "python", "postgres", "mongo", "wordpress", "net"]
 
 export default function Home() {
-  const [session] = useSession();
+  const [session, loading] = useSession();
   const [login, setLogin] = useState(true);
   const [expertName, setExpertName] = useState(0);
 
@@ -98,7 +98,11 @@ export default function Home() {
           </Link>
         </div>
         <div className="home__right">
-          {login ? (
+          {loading ? (
+            <div className="form sign center">
+              <div className="spinner"></div>
+            </div>
+          ) : login ? (
             <>
               <LoginForm />
               <div className="form sign" style={{ marginTop: '16px' }}>

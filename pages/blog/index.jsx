@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/client';
 import axios from 'axios';
 import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
@@ -8,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SearchBox from 'components/SearchBox';
 
 const BlogPage = () => {
+  const [session, loading] = useSession();
   const [posts, setPosts] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState([]);
@@ -21,7 +23,7 @@ const BlogPage = () => {
     <Layout>
       <div className="blog">
         <section className="blog__title">
-          <TitleBox title="Blog" button="Add new article" href="/blog/add" />
+          <TitleBox title="Blog" button="Add new article" href="/blog/add" session={session} />
         </section>
         <section className="searchbox__container">
           <SearchBox
@@ -72,30 +74,36 @@ const BlogPage = () => {
             Backend
           </motion.button>
         </section>
-        <motion.div layout className="blog__cards">
-          <AnimatePresence>
-            {posts
-              .filter(
-                (post) =>
-                  post.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-                  post.username.toLowerCase().includes(searchValue.toLowerCase())
-              )
-              .filter((post) => post.category.includes(postCategory))
-              .map((post) => (
-                <BlogCard
-                  key={post._id}
-                  postid={post._id}
-                  userimage={post.userimage}
-                  username={post.username}
-                  image={post.image}
-                  title={post.title}
-                  excerpt={post.excerpt}
-                  likes={post.likes}
-                  comments={post.comments}
-                />
-              ))}
-          </AnimatePresence>
-        </motion.div>
+        {loading ? (
+          <motion.div layout className="blog__cards">
+            Loading posts...
+          </motion.div>
+        ) : (
+          <motion.div layout className="blog__cards">
+            <AnimatePresence>
+              {posts
+                .filter(
+                  (post) =>
+                    post.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+                    post.username.toLowerCase().includes(searchValue.toLowerCase())
+                )
+                .filter((post) => post.category.includes(postCategory))
+                .map((post) => (
+                  <BlogCard
+                    key={post._id}
+                    postid={post._id}
+                    userimage={post.userimage}
+                    username={post.username}
+                    image={post.image}
+                    title={post.title}
+                    excerpt={post.excerpt}
+                    likes={post.likes}
+                    comments={post.comments}
+                  />
+                ))}
+            </AnimatePresence>
+          </motion.div>
+        )}
       </div>
     </Layout>
   );

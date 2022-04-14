@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SearchBox from 'components/SearchBox';
 
 const ProjectPage = () => {
-  const [session] = useSession();
+  const [session, loading] = useSession();
   const [activeButton, setActiveButton] = useState('All projects');
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState(['']);
@@ -74,88 +74,93 @@ const ProjectPage = () => {
             Favorite
           </motion.button>
         </section>
+        {loading ? (
+          <motion.section layout className="projects__cards">
+            Loading projects...
+          </motion.section>
+        ) : (
+          <motion.section layout className="projects__cards">
+            {activeButton === 'All projects' && (
+              <AnimatePresence>
+                {projects
+                  .filter((project) =>
+                    project.title.toLowerCase().includes(searchValue.toLowerCase())
+                  )
+                  .filter((project) => {
+                    if (selectSkill[0] !== '')
+                      return project.technology.indexOf(selectSkill[0]) !== -1;
+                    else return project;
+                  })
+                  .map((project) => (
+                    <ProjectCard
+                      key={project.projectid}
+                      projectid={project.projectid}
+                      title={project.title}
+                      userid={project.userid}
+                      username={project.username}
+                      userimage={project.userimage}
+                      logo={project.logo}
+                      link={project.link}
+                      description={project.description}
+                      technology={project.technology}
+                      likes={project.likes}
+                    />
+                  ))}
+              </AnimatePresence>
+            )}
 
-        <motion.section layout className="projects__cards">
-          {activeButton === 'All projects' && (
-            <AnimatePresence>
-              {projects
-                .filter((project) =>
-                  project.title.toLowerCase().includes(searchValue.toLowerCase())
-                )
-                .filter((project) => {
-                  if (selectSkill[0] !== '')
-                    return project.technology.indexOf(selectSkill[0]) !== -1;
-                  else return project;
-                })
-                .map((project) => (
-                  <ProjectCard
-                    key={project.projectid}
-                    projectid={project.projectid}
-                    title={project.title}
-                    userid={project.userid}
-                    username={project.username}
-                    userimage={project.userimage}
-                    logo={project.logo}
-                    link={project.link}
-                    description={project.description}
-                    technology={project.technology}
-                    likes={project.likes}
-                  />
-                ))}
-            </AnimatePresence>
-          )}
+            {/* //Your projects */}
 
-          {/* //Your projects */}
-
-          {activeButton === 'Your projects' && (
-            <AnimatePresence>
-              {projects
-                .filter((project) => project.userid === session.user.id)
-                .filter((project) =>
-                  project.title.toLowerCase().includes(searchValue.toLowerCase())
-                )
-                .map((project) => (
-                  <ProjectCard
-                    key={project.projectid}
-                    projectid={project.projectid}
-                    title={project.title}
-                    userid={project.userid}
-                    username={project.username}
-                    userimage={project.userimage}
-                    logo={project.logo}
-                    link={project.link}
-                    description={project.description}
-                    technology={project.technology}
-                    likes={project.likes}
-                  />
-                ))}
-            </AnimatePresence>
-          )}
-          {/* Favorite */}
-          {activeButton === 'Favorite' && (
-            <AnimatePresence>
-              {projects
-                .filter((project) =>
-                  project.title.toLowerCase().includes(searchValue.toLowerCase())
-                )
-                .map((project) => (
-                  <ProjectCard
-                    key={project.projectid}
-                    projectid={project.projectid}
-                    title={project.title}
-                    userid={project.userid}
-                    username={project.username}
-                    userimage={project.userimage}
-                    logo={project.logo}
-                    link={project.link}
-                    description={project.description}
-                    technology={project.technology}
-                    likes={project.likes}
-                  />
-                ))}
-            </AnimatePresence>
-          )}
-        </motion.section>
+            {activeButton === 'Your projects' && (
+              <AnimatePresence>
+                {projects
+                  .filter((project) => project.userid === session.user.id)
+                  .filter((project) =>
+                    project.title.toLowerCase().includes(searchValue.toLowerCase())
+                  )
+                  .map((project) => (
+                    <ProjectCard
+                      key={project.projectid}
+                      projectid={project.projectid}
+                      title={project.title}
+                      userid={project.userid}
+                      username={project.username}
+                      userimage={project.userimage}
+                      logo={project.logo}
+                      link={project.link}
+                      description={project.description}
+                      technology={project.technology}
+                      likes={project.likes}
+                    />
+                  ))}
+              </AnimatePresence>
+            )}
+            {/* Favorite */}
+            {activeButton === 'Favorite' && (
+              <AnimatePresence>
+                {projects
+                  .filter((project) =>
+                    project.title.toLowerCase().includes(searchValue.toLowerCase())
+                  )
+                  .map((project) => (
+                    <ProjectCard
+                      key={project.projectid}
+                      projectid={project.projectid}
+                      title={project.title}
+                      userid={project.userid}
+                      username={project.username}
+                      userimage={project.userimage}
+                      logo={project.logo}
+                      link={project.link}
+                      description={project.description}
+                      technology={project.technology}
+                      likes={project.likes}
+                    />
+                  ))}
+              </AnimatePresence>
+            )}
+          </motion.section>
+        )}
       </div>
     </Layout>
   );
