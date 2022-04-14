@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/client';
 import { signIn } from 'next-auth/client';
+import { motion } from 'framer-motion';
 
 const LoginForm = () => {
   const [session] = useSession();
@@ -35,9 +36,14 @@ const LoginForm = () => {
     }
   };
   return (
-    <div className="form sign">
-      <div className="form__header">Login to your account</div>
+    <motion.div
+      className="form sign"
+      animate={{ opacity: 1, scale: 1, translateY: 0 }}
+      initial={{ opacity: 0, scale: 0, translateY: 180 }}
+      exit={{ opacity: 0, scale: 0, translateY: 180 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}>
       <form onSubmit={handleSubmit} ref={loginForm}>
+        <div className="form__header">Login to your account</div>
         {error && <div className="form__error">{error}</div>}
         <div className="form__field">
           <label htmlFor="email" className="form__label">
@@ -67,7 +73,7 @@ const LoginForm = () => {
           {formProcessing ? 'Checking...' : 'Login'}
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

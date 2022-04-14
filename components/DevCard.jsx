@@ -5,6 +5,7 @@ import Link from 'next/link';
 import FlagIconSwitcher from './IconSwitcher/FlagIconSwitcher';
 import SkillsIconSwitcher from './IconSwitcher/SkillsIconSwitcher';
 import SocialIconSwitcher from './IconSwitcher/SocialIconSwitcher';
+import { motion } from 'framer-motion';
 
 const DevCard = ({ id, name, image, position, skills, langs, socials }) => {
   //const [session] = useSession();
@@ -42,7 +43,13 @@ const DevCard = ({ id, name, image, position, skills, langs, socials }) => {
   // };
 
   return (
-    <div className="devcard">
+    <motion.div
+      layout
+      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0 }}
+      exit={{ opacity: 0, scale: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      className="devcard">
       <article className="devcard__top">
         <div className="devcard__image">
           <img src={image} alt="" />
@@ -54,13 +61,13 @@ const DevCard = ({ id, name, image, position, skills, langs, socials }) => {
             ))}
           </div>
           <div className="devcard__details--name">{name}</div>
-          <div className="devcard__details--title">{position}</div>
+          <div className="devcard__details--position">{position}</div>
         </div>
       </article>
       <div className="devcard__smalltext">Skills</div>
       <article className="devcard__skills">
         {skills.map((skill, i) => (
-          <SkillsIconSwitcher key={i} name={skill} className="icon-medium primary-blue" />
+          <SkillsIconSwitcher key={i} name={skill} className="icon-medium secondary-blue" />
         ))}
       </article>
       <article className="devcard__buttons">
@@ -83,13 +90,13 @@ const DevCard = ({ id, name, image, position, skills, langs, socials }) => {
               <a>
                 <SocialIconSwitcher
                   name={social.name}
-                  className="icon-small primary-blue hover-secondary-blue"
+                  className="icon-small secondary-blue hover-primary-blue"
                 />
               </a>
             </Link>
           ))}
       </article>
-    </div>
+    </motion.div>
   );
 };
 

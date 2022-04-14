@@ -5,7 +5,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  background: $primary-white;
+  background: var(--primary-bg-color);
   &__hello {
     display: flex;
     flex-direction: row;
@@ -14,7 +14,7 @@
     width: 100%;
     height: 90vh;
     padding: 2rem 1rem;
-    background: $primary-white;
+    background: var(--primary-bg-color);
     border-radius: 400px 0 0 200px;
     border-left: 5px solid $secondary-blue;
   }
@@ -26,11 +26,19 @@
     width: 100%;
     height: 90vh;
     padding: 2rem 0;
-    background: $secondary-white;
+    background: var(--secondary-bg-color);
+    @media screen and (max-width: $screen-medium) {
+      flex-direction: column;
+      justify-content: center;
+      height: auto;
+    }
     &.top {
       border-radius: 200px 400px 0 400px;
       border-left: 5px solid $secondary-blue;
       border-right: 5px solid $primary-green;
+      @media screen and (max-width: $screen-medium) {
+        border-radius: 100px 200px 0 200px;
+      }
     }
     &.bottom {
       border-radius: 400px 0 400px 200px;
@@ -41,9 +49,13 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: $primary-white;
+      background: var(--primary-bg-color);
       & h1 {
         font-size: 52px;
+        color: var(--primary-text-color);
+        @media screen and (max-width: $screen-medium) {
+          font-size: 40px;
+        }
       }
     }
   }
@@ -51,15 +63,25 @@
     flex: 1;
     &.top {
       padding-left: 100px;
+      @media screen and (max-width: $screen-medium) {
+        padding-left: 32px;
+      }
     }
     & h1 {
       font-size: 52px;
+      color: var(--primary-text-color);
+      @media screen and (max-width: $screen-medium) {
+        font-size: 40px;
+      }
     }
     &-name {
-      color: $primary-blue;
+      color: var(--secondary-blue);
     }
     & h2 {
-      color: $secondary-black;
+      color: var(--secondary-text-color);
+      @media screen and (max-width: $screen-medium) {
+        font-size: 20px;
+      }
     }
     &-button {
       display: flex;
@@ -71,6 +93,7 @@
       background: $primary-blue;
       color: $primary-white;
       border-radius: 4px;
+      margin-bottom: 16px;
       &:hover {
         background: $secondary-blue;
         transition: all 0.3s ease-in-out;
@@ -82,6 +105,9 @@
     width: 100%;
     &.top {
       padding-left: 100px;
+      @media screen and (max-width: $screen-medium) {
+        padding-left: 32px;
+      }
     }
     &-img {
       width: 400px;
@@ -104,7 +130,7 @@
       padding: 1rem;
       border-radius: 0.5rem;
       gap: 0.5rem;
-      background: $primary-white;
+      background: var(--secondary-bg-color);
       box-shadow: 0 0 128px 0 rgba(0,0,0,.1),
       0 32px 64px -48px rgba(0,0,0,.5);
       transition: all 0.3s ease-in-out;
@@ -124,13 +150,15 @@
   &__button {
     padding: 4px 16px;
     background: transparent;
+    color: var(--secondary-blue);
     border: none;
-    border-bottom: 2px solid $secondary-blue;
+    border-bottom: 2px solid var(--secondary-blue);
     font-weight: bold;
+    font-size: 1.25rem;
     cursor: pointer;
     &:hover {
-      color: $primary-blue;
-      border-bottom: 2px solid $primary-green;
+      color: var(--primary-blue);
+      border-bottom: 2px solid var(--primary-green);
     }
   }
   &__skills {
@@ -138,10 +166,16 @@
     grid-template-columns: repeat(8, 1fr);
     column-gap: 0.5rem;
     row-gap: 0.5rem;
+    @media screen and (max-width: $screen-medium) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 0 0.5rem;
+    }
     &-box {
       padding: 1rem;
       border-radius: 0.5rem;
-      background: $primary-white;
+      background: var(--secondary-bg-color);
       box-shadow: 0 0 128px 0 rgba(0,0,0,.1),
       0 32px 64px -48px rgba(0,0,0,.5);
       transition: all 0.3s ease-in-out;

@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/client';
-import { SearchIcon } from 'components/Icons/FontIcons';
 import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
-//import projects from 'data/projects.json';
 import ProjectCard from 'components/ProjectCard';
 import Layout from 'components/Layout';
 import axios from 'axios';
+import { motion, AnimatePresence } from 'framer-motion';
+import SearchBox from 'components/SearchBox';
 
 const ProjectPage = () => {
-  const [session] = useSession();
+  const [session, loading] = useSession();
   const [activeButton, setActiveButton] = useState('All projects');
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState(['']);
@@ -30,129 +30,137 @@ const ProjectPage = () => {
             href="/projects/add"
           />
         </section>
-        <section className="projects__searchcontainer">
-          <div className="projects__searchbox">
-            <div className="projects__searchbox-icon">
-              <SearchIcon className="icon-medium secondary-blue" />
-            </div>
-            <input
-              type="text"
-              className="projects__searchbox-input"
-              placeholder="Search project by name"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-          </div>
+        <section className="searchbox__container">
+          <SearchBox
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            placeholder="Find project by name"
+          />
         </section>
         <p>Find project by tags</p>
         <section className="projects__tags">
           <SkillsTags selectSkill={selectSkill} setSelectSkill={setSelectSkill} />
         </section>
-        <section className="community__buttons">
-          <button
+        <section className="filters">
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.1 }}
             className={
-              activeButton === 'All projects' ? 'community__button active' : 'community__button'
+              activeButton === 'All projects' ? 'filters__button active' : 'filters__button'
             }
             onClick={() => setActiveButton('All projects')}>
             All projects
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
             className={
-              activeButton === 'Your projects' ? 'community__button active' : 'community__button'
+              activeButton === 'Your projects' ? 'filters__button active' : 'filters__button'
             }
             onClick={() => setActiveButton('Your projects')}>
             Your projects
-          </button>
-          <button
-            className={
-              activeButton === 'Favorite' ? 'community__button active' : 'community__button'
-            }
+          </motion.button>
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.3 }}
+            className={activeButton === 'Favorite' ? 'filters__button active' : 'filters__button'}
             onClick={() => setActiveButton('Favorite')}>
             Favorite
-          </button>
+          </motion.button>
         </section>
+        {loading ? (
+          <motion.section layout className="projects__cards">
+            Loading projects...
+          </motion.section>
+        ) : (
+          <motion.section layout className="projects__cards">
+            {activeButton === 'All projects' && (
+              <AnimatePresence>
+                {projects
+                  .filter((project) =>
+                    project.title.toLowerCase().includes(searchValue.toLowerCase())
+                  )
+                  .filter((project) => {
+                    if (selectSkill[0] !== '')
+                      return project.technology.indexOf(selectSkill[0]) !== -1;
+                    else return project;
+                  })
+                  .map((project) => (
+                    <ProjectCard
+                      key={project.projectid}
+                      projectid={project.projectid}
+                      title={project.title}
+                      userid={project.userid}
+                      username={project.username}
+                      userimage={project.userimage}
+                      logo={project.logo}
+                      link={project.link}
+                      description={project.description}
+                      technology={project.technology}
+                      likes={project.likes}
+                    />
+                  ))}
+              </AnimatePresence>
+            )}
 
-        <section className="projects__profiles">
-          {activeButton === 'All projects' && (
-            <>
-              {projects
-                .filter((project) =>
-                  project.title.toLowerCase().includes(searchValue.toLowerCase())
-                )
-                .filter((project) => {
-                  if (selectSkill[0] !== '')
-                    return project.technology.indexOf(selectSkill[0]) !== -1;
-                  else return project;
-                })
-                .map((project) => (
-                  <ProjectCard
-                    key={project.projectid}
-                    projectid={project.projectid}
-                    title={project.title}
-                    userid={project.userid}
-                    username={project.username}
-                    userimage={project.userimage}
-                    logo={project.logo}
-                    link={project.link}
-                    description={project.description}
-                    technology={project.technology}
-                    likes={project.likes}
-                  />
-                ))}
-            </>
-          )}
+            {/* //Your projects */}
 
-          {/* //Your projects */}
-
-          {activeButton === 'Your projects' && (
-            <>
-              {projects
-                .filter((project) => project.userid === session.user.id)
-                .filter((project) =>
-                  project.title.toLowerCase().includes(searchValue.toLowerCase())
-                )
-                .map((project) => (
-                  <ProjectCard
-                    key={project.projectid}
-                    projectid={project.projectid}
-                    title={project.title}
-                    userid={project.userid}
-                    username={project.username}
-                    userimage={project.userimage}
-                    logo={project.logo}
-                    link={project.link}
-                    description={project.description}
-                    technology={project.technology}
-                    likes={project.likes}
-                  />
-                ))}
-            </>
-          )}
-          {/* Favorite */}
-          {activeButton === 'Favorite' && (
-            <>
-              {projects
-                .filter((project) =>
-                  project.title.toLowerCase().includes(searchValue.toLowerCase())
-                )
-                .map((project) => (
-                  <ProjectCard
-                    key={project.projectid}
-                    projectid={project.projectid}
-                    title={project.title}
-                    userid={project.userid}
-                    username={project.username}
-                    userimage={project.userimage}
-                    logo={project.logo}
-                    link={project.link}
-                    description={project.description}
-                    technology={project.technology}
-                    likes={project.likes}
-                  />
-                ))}
-            </>
-          )}
-        </section>
+            {activeButton === 'Your projects' && (
+              <AnimatePresence>
+                {projects
+                  .filter((project) => project.userid === session.user.id)
+                  .filter((project) =>
+                    project.title.toLowerCase().includes(searchValue.toLowerCase())
+                  )
+                  .map((project) => (
+                    <ProjectCard
+                      key={project.projectid}
+                      projectid={project.projectid}
+                      title={project.title}
+                      userid={project.userid}
+                      username={project.username}
+                      userimage={project.userimage}
+                      logo={project.logo}
+                      link={project.link}
+                      description={project.description}
+                      technology={project.technology}
+                      likes={project.likes}
+                    />
+                  ))}
+              </AnimatePresence>
+            )}
+            {/* Favorite */}
+            {activeButton === 'Favorite' && (
+              <AnimatePresence>
+                {projects
+                  .filter((project) =>
+                    project.title.toLowerCase().includes(searchValue.toLowerCase())
+                  )
+                  .map((project) => (
+                    <ProjectCard
+                      key={project.projectid}
+                      projectid={project.projectid}
+                      title={project.title}
+                      userid={project.userid}
+                      username={project.username}
+                      userimage={project.userimage}
+                      logo={project.logo}
+                      link={project.link}
+                      description={project.description}
+                      technology={project.technology}
+                      likes={project.likes}
+                    />
+                  ))}
+              </AnimatePresence>
+            )}
+          </motion.section>
+        )}
       </div>
     </Layout>
   );

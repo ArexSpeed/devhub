@@ -1,5 +1,6 @@
 .form {
-  background: #fff;
+  background: var(--primary-bg-color);
+  color: var(--primary-text-color);
   width: 100%;
   max-width: 700px;
   height: 100%;
@@ -8,7 +9,7 @@
   box-shadow: 0 0 128px 0 rgba(0,0,0,.1),
               0 32px 64px -48px rgba(0,0,0,.5);
   &.sign {
-    width: 450px;
+    max-width: 450px;
   }
   &__header {
     font-size: 24px;
@@ -50,10 +51,17 @@
     width: 100%;
     font-size: 16px;
     padding: 0 8px;
-    border: 1px solid $secondary-white;
+    background: inherit;
+    color: inherit;
+    border: 1px solid var(--secondary-bg-color);
     border-radius: 0.25rem;
+    font-family: inherit;
     outline: none;
     z-index: 0;
+    & option {
+      background: var(--primary-bg-color);
+      color: var(--primary-text-color);
+    }
   }
   &__upload {
     height: 2.5rem;
@@ -83,7 +91,9 @@
     min-height: 150px;
     font-size: 16px;
     padding: 0 8px;
-    border: 1px solid $secondary-white;
+    background: inherit;
+    color: inherit;
+    border: 1px solid var(--secondary-bg-color);
     border-radius: 0.25rem;
     outline: none;
     z-index: 0;
@@ -115,8 +125,9 @@
       padding: 4px;
       margin-right: 4px;
       cursor: pointer;
-      background: $primary-white;
-      border: 1px solid $secondary-white;
+      background: var(--secondary-bg-color);
+      border: none;
+      border-radius: 2px;
       &.checked {
         background: $primary-green;
       }

@@ -1,6 +1,6 @@
 .header {
-  background: $primary-white;
-  color: $primary-black;
+  background: var(--primary-bg-color);
+  color: var(--primary-text-color);
   position: fixed;
   top: 0;
   width: 100%;
@@ -19,6 +19,9 @@
     & span {
       font-size: 1.25rem;
       margin-left: 0.5rem;
+      @media screen and (max-width: $screen-small) {
+        display: none;
+      }
     }
   }
   &__image {
@@ -47,6 +50,15 @@
       & span {
         font-size: 1.25rem;
         margin-right: 0.5rem;
+        @media screen and (max-width: $screen-small) {
+          display: none;
+        }
+      }
+    }
+    &-login {
+      color: var(--primary-text-color);
+      &:hover {
+        color: var(--secondary-blue);
       }
     }
   }

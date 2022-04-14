@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { signIn, useSession } from 'next-auth/client';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 const RegisterForm = () => {
   const [session] = useSession();
@@ -57,7 +58,12 @@ const RegisterForm = () => {
     }
   };
   return (
-    <div className="form sign">
+    <motion.div
+      className="form sign"
+      animate={{ opacity: 1, scale: 1, translateY: 0 }}
+      initial={{ opacity: 0, scale: 0, translateY: '60%' }}
+      exit={{ opacity: 0, scale: 0, translateY: '60%' }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}>
       <div className="form__header">Create your new developer account</div>
       <form action="#" onSubmit={handleSubmit} ref={registerForm}>
         {error && <div className="form__error">{error}</div>}
@@ -123,7 +129,7 @@ const RegisterForm = () => {
           Create account
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

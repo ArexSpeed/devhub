@@ -5,12 +5,11 @@
   height: 75vh;
 }
 .animations .card{
-  background: #fff;
+  background: transparent;
   width: 400px;
   display: flex;
   align-items: center;
   opacity: 0;
-  border-radius: 8px;
   pointer-events: none;
   position: absolute;
   animation: animate 15s linear infinite;

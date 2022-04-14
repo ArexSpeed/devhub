@@ -2,7 +2,42 @@ $primary-white: #FFFFFF;
 $secondary-white: #F3F3F3;
 $primary-black: #000000;
 $secondary-black: #555555;
+$primary-dark: #111827;
+$primary-gray: #DDDDDD;
+$dark-blue: #0072AF;
+$light-blue: #17ABDB;
+$dark-green: #78b90f;
+$light-green: #95E616;
 $primary-blue: #0072AF;
 $secondary-blue: #17ABDB;
-$primary-green: #95E616;
 $secondary-green: #78b90f;
+$primary-green: #95E616;
+$screen-small: 640px;
+$screen-medium: 768px;
+$screen-large: 1024px;
+$screen-xl: 1280px;
+$screen-2xl: 1536px;
+
+:root {
+  --primary-bg-color: #{$primary-white};
+  --secondary-bg-color: #{$secondary-white};
+  --primary-text-color: #{$primary-black};
+  --secondary-text-color: #{$secondary-black};
+  --opposite-text-color: #{$primary-white};
+  --primary-blue: #{$light-blue};
+  --secondary-blue: #{$dark-blue};
+  --primary-green: #{$light-green};
+  --secondary-green: #{$dark-green};
+}
+
+[data-theme="dark"] {
+  --primary-bg-color: #{$primary-dark};
+  --secondary-bg-color: #{$primary-black};
+  --primary-text-color: #{$primary-white};
+  --secondary-text-color: #{$primary-gray};
+  --opposite-text-color: #{$primary-black};
+  --primary-blue: #{$dark-blue};
+  --secondary-blue: #{$light-blue};
+  --primary-green: #{$dark-green};
+  --secondary-green: #{$light-green};
+}

@@ -1,7 +1,7 @@
 .projectcard {
   display: flex;
   flex-direction: column;
-  background-color: $primary-white;
+  background-color: var(--primary-bg-color);
   width: 100%;
   padding: 16px;
   border-radius: 0.5rem;
@@ -88,7 +88,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: $primary-green;
+      background-color: var(--primary-green);
       bottom: 0;
       right: 0;
       width: 16px;
@@ -99,16 +99,15 @@
   }
 
   &__link {
-    display: flex;
-    align-items: center;
+    display: inline-flex;
     padding: 4px 8px;
     gap: 4px;
-    background-color: $primary-green;
+    background-color: var(--primary-green);
     border-radius: 8px;
     border: none;
     cursor: pointer;
     &:hover {
-      background-color: $secondary-green;
+      background-color: var(--secondary-green);
       transition: all 0.3s ease-in-out;
     }
   }

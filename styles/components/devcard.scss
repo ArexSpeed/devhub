@@ -4,7 +4,7 @@
   width: 100%;
   height: auto;
   padding: 1rem;
-  background: $primary-white;
+  background: var(--primary-bg-color);
   border-radius: 0.5rem;
   margin-bottom: 1rem;
   &__top {
@@ -35,19 +35,15 @@
     &--langs {
       display: flex;
       align-self: flex-end;
-      font-size: 12px;
       gap: 0.25rem;
+      padding-bottom: 0.25rem;
     }
     &--name {
-      font-size: 16px;
       font-weight: 600;
-    }
-    &--job {
-      color: $secondary-black;
     }
   }
   &__smalltext {
-    color: $secondary-black;
+    color: var(--secondary-text-color);
     font-weight: 500;
     font-size: 12px;
     padding: 1rem 0 0.25rem 0;
@@ -75,15 +71,24 @@
     outline: none;
     cursor: pointer;
     &-profile {
-      background: $secondary-white;
+      background: var(--secondary-bg-color);
+      color: inherit;
+      &:hover {
+        outline: 1px solid var(--secondary-blue);
+        transition: all 0.3s ease-in-out;
+      }
     }
     &-follow {
-      background: $secondary-blue;
-      color: $primary-white;
+      background: var(--secondary-blue);
+      color: var(--opposite-text-color);
+      &:hover {
+        background: var(--primary-blue);
+        transition: all 0.3s ease-in-out;
+      }
     }
     &-unfollow {
-      background: $secondary-white;
-      color: $secondary-blue;
+      background: var(--secondary-bg-color);
+      color: var(--secondary-blue);
     }
   }
   &__social {

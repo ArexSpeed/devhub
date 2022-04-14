@@ -31,13 +31,13 @@
   color: $secondary-black;
 }
 .primary-blue {
-  color: $primary-blue;
+  color: var(--primary-blue);
 }
 .secondary-blue {
-  color: $secondary-blue;
+  color: var(--secondary-blue);
 }
 .primary-green {
-  color: $primary-green;
+  color: var(--primary-green);
 }
 .hover-primary-white {
   &:hover{
@@ -65,19 +65,19 @@
 }
 .hover-primary-blue {
   &:hover{
-    color: $primary-blue;
+    color: var(--primary-blue);
     transition: all 0.3s ease-in-out;
   }
 }
 .hover-secondary-blue {
   &:hover{
-    color: $secondary-blue;
+    color: var(--secondary-blue);
     transition: all 0.3s ease-in-out;
   }
 }
 .hover-primary-green {
   &:hover{
-    color: $primary-green;
+    color: var(--primary-green);
     transition: all 0.3s ease-in-out;
   }
 }

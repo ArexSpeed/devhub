@@ -60,7 +60,7 @@ const Profile = ({ userProp }) => {
           ))}
         </div>
         <p>Projects</p>
-        <div className="profile__projects">
+        <div className="projects__cards">
           {projects
             ?.filter((project) => project.userid === router.query.id)
             ?.map((project) => (
