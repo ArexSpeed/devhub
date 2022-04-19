@@ -133,6 +133,136 @@
             "correct": true
           }
         ]
+      },
+      {
+        "questionid": "6",
+        "question": "What is JSX?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Programming language",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "JSX is a syntax extension of JavaScript",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "I don`t know",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "React package for writing and reading HTML inside React Components",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "7",
+        "question": "Can web browsers read JSX directly?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Web browsers cannot read JSX directly",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "Web browsers can read JSX directly",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "Web browsers cannot read JSX at all",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "There is no JSX in React",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "8",
+        "question": "What is the virtual DOM?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Another naming of DOM",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "There is no virtual DOM in React",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "A special space to storage data",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "React keeps a lightweight representation of the real DOM in the memory, and that is known as the virtual DOM",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "9",
+        "question": "How do you create a React app?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Install the node package using the command prompt or terminal",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Install the firebase package using the command prompt or terminal",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "Install the create-react-app package using the command prompt or terminal",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "Install the react-redux package using the command prompt or terminal",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "10",
+        "question": "What is an event in React?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "An event from calendar",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "An event is an action that a user or system may trigger, such as pressing a key, a mouse click, etc",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "Everything we do in React are events",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "There are no events in React",
+            "correct": false
+          }
+        ]
       }
     ]
   },
@@ -270,6 +400,136 @@
             "correct": false
           }
         ]
+      },
+      {
+        "questionid": "6",
+        "question": "Explain the ternary operator in Python.",
+        "answers": [
+          {
+            "id": "1",
+            "content": "We have this: [on true] ? [expression] : [on false]",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "We have this: [on true] if [expression] else [on false]",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "It is the same like in C++",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "It is the same like in ReactJs",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "7",
+        "question": "What is slicing?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "It is a kind of a loop like in JavaScript",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Slicing is a technique that allows us to retrieve only a part of a list, tuple, or string. For this, we use the slicing operator [ ]",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "The same as decrement in math",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "The same as increment in math",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "8",
+        "question": "Is Python case-sensitive?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "I don`t know for sure",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "There are no case-sensitive programming languages",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "No",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "It is case-sensitive if it distinguishes between identifiers or cares about case- lowercase or uppercase.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "9",
+        "question": "How would you convert a string into lowercase?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "We use the lower() method for this",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "We use the toLowerCase() method for this",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "We use the upper() method for this",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "We use the toUpperCase() method for this",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "10",
+        "question": "Explain help() function in Python.",
+        "answers": [
+          {
+            "id": "1",
+            "content": "The help() function displays a link to Stack Overflow",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "The help() function write the code for you",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "The help() function displays the documentation string and help for its argument",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "There is no help() function in Python",
+            "correct": false
+          }
+        ]
       }
     ]
   },
@@ -280,52 +540,260 @@
     "questions": [
       {
         "questionid": "1",
-        "question": "Which library is using for state managment?",
+        "question": "What is Angular?",
         "answers": [
           {
             "id": "1",
-            "content": "Redux",
+            "content": "Angular is a development platform, built on TypeScript",
             "correct": true
           },
           {
             "id": "2",
-            "content": "Mongo",
+            "content": "It is a database service",
             "correct": false
           },
           {
             "id": "3",
-            "content": "React Router",
+            "content": "It is an extension for React",
             "correct": false
           },
           {
             "id": "4",
-            "content": "Swiper",
+            "content": "It is a desktop programming language ",
             "correct": false
           }
         ]
       },
       {
         "questionid": "2",
-        "question": "Which component do you use for waiting to data load?",
+        "question": "Why were client-side frameworks like Angular introduced?",
         "answers": [
           {
             "id": "1",
-            "content": "Spinner",
+            "content": "To make life harder for the developers",
             "correct": false
           },
           {
             "id": "2",
-            "content": "Suspanse",
+            "content": "To make life easier for the developers",
             "correct": true
           },
           {
             "id": "3",
-            "content": "Wait",
+            "content": "It is boring when you don't have client-side frameworks",
             "correct": false
           },
           {
             "id": "4",
-            "content": "Loader",
+            "content": "Client-side frameworks are useless",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "3",
+        "question": "How does an Angular application work?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "It Is works like vanila JS app",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "With the help of black magic",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "The same way as VueJs framework does",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "Every Angular app consists of a file named angular.json with the configurations of the app. The builder looks at this file to find the entry point of the app",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "4",
+        "question": "What are some of the advantages of Angular over other frameworks?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "It is free to use",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Angular doesn't have any advantages",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "Features that are provided out of the box, declarative UI, long-term Google support",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "Long-term Meta (Facebook) support",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "5",
+        "question": "Explain Components in Angular.",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Components are the basic building blocks, which control a part of the UI for any application. A component is defined using the @Component decorator. It has three three parts: template, stylesheet and class",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "In Angular components are the same as in React",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "It is a place where we can group modules",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "Components are objects which get instantiated only once during the lifetime of an application",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "6",
+        "question": "Explain Modules in Angular",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Modules are the basic building blocks, which control a part of the UI for any application",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "In Angular mpdules are the same as in React",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "The main objective of a module is to share data, functions with different components of an Angular application",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "A module is a place where we can group components, directives, services, and pipes",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "7",
+        "question": "Explain Services in Angular",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Services are the basic building blocks, which control a part of the UI for any application",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "In Angular Services are the same as in React",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "Services are objects which get instantiated only once during the lifetime of an application",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "A services is a place where we can group components, directives, services, and pipes",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "8",
+        "question": "What are lifecycle hooks in Angular?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Hooks in Angular are objects to change the state of a component",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Every component in Angular has a lifecycle, different phases it goes through from the time of creation to the time it's destroyed. Angular provides hooks to tap into these phases and trigger changes at specific phases in a lifecycle",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "Hooks in Angular are special components to render a page content",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "It is another way to name a simple function",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "9",
+        "question": "Can an angular application to render on the server-side?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "No, Angular uses client-side rendering only",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Angular can not use both client-side or server-side rendering",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "Angular by default, uses client-side rendering only",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "Yes, angular provides a technology called Angular Universal, which can be used to render applications on the server-side",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "10",
+        "question": "What are directives in Angular?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "A directive is a class in Angular that is declared with a @Directive decorator. Every directive has its own behaviour and can be imported into various components of an application",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "A directive in Angular is a function to manage the sate of the app",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "I don't know",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "There are no directives in Angular?",
             "correct": false
           }
         ]
@@ -339,52 +807,260 @@
     "questions": [
       {
         "questionid": "1",
-        "question": "Which library is using for state managment?",
+        "question": "What is HTML?",
         "answers": [
           {
             "id": "1",
-            "content": "Redux",
+            "content": "HTML stands for Hyper Text Markup Language",
             "correct": true
           },
           {
             "id": "2",
-            "content": "Mongo",
+            "content": "It is not a programming language",
             "correct": false
           },
           {
             "id": "3",
-            "content": "React Router",
+            "content": "HTML stands for Hyper Truck Market Landscape",
             "correct": false
           },
           {
             "id": "4",
-            "content": "Swiper",
+            "content": "How To Make Lasagna",
             "correct": false
           }
         ]
       },
       {
         "questionid": "2",
-        "question": "Which component do you use for waiting to data load?",
+        "question": "What is the difference between an opening tag and a closing tag?",
         "answers": [
           {
             "id": "1",
-            "content": "Spinner",
+            "content": "Opening tag has a / in front",
             "correct": false
           },
           {
             "id": "2",
-            "content": "Suspanse",
+            "content": "Closing tag has a / in front",
             "correct": true
           },
           {
             "id": "3",
-            "content": "Wait",
+            "content": "There is no difference",
             "correct": false
           },
           {
             "id": "4",
-            "content": "Loader",
+            "content": "There is no a closing tag in HTML",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "3",
+        "question": "< br  / > What type of tag is this?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "There is no such a tag in HTML",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "An opening tag",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "A broken one",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "Break tag",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "4",
+        "question": "Where is the meta tag only found?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "The last page",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "The home page",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "The second page",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "The final page",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "5",
+        "question": "What should values always be enclosed in?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Commas",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Quotation marks",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "Parenthesis",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "Curly Braces",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "6",
+        "question": "What does <a href = ”http://www.google.com“ title = ”Link to  Google” target = ”_blank”> Google </a> do?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Adds a link to google on the page which opens a new tab",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "Adds a search engine to the page",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "Nothing",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "Adds a link to google on the page",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "7",
+        "question": "Choose the correct HTML element for the largest heading:",
+        "answers": [
+          {
+            "id": "1",
+            "content": "<head>",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "<heading>",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "<h6>",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "<h1>",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "8",
+        "question": "What is the correct HTML for adding a background color?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "<background>yellow</background>",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "<body style=\"background-color:yellow;\">",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "<body bg=\"yellow\">",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "<body bg={yellow}>",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "9",
+        "question": "Which of these elements are all <table> elements?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "<table><head><tfoot>",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "<table><tr><tt>",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "<thead><body><tr>",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "<table><tr><td>",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "10",
+        "question": "How can you make a numbered list?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "<li>",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "<ul>",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "<ol>",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "<list>",
             "correct": false
           }
         ]
@@ -398,52 +1074,260 @@
     "questions": [
       {
         "questionid": "1",
-        "question": "Which library is using for state managment?",
+        "question": "What is CSS?",
         "answers": [
           {
             "id": "1",
-            "content": "Redux",
+            "content": "CSS stands for Cascading Style Sheets",
             "correct": true
           },
           {
             "id": "2",
-            "content": "Mongo",
+            "content": "CSS stands for Canadian Sweet Style",
             "correct": false
           },
           {
             "id": "3",
-            "content": "React Router",
+            "content": "CSS - Can Say Something",
             "correct": false
           },
           {
             "id": "4",
-            "content": "Swiper",
+            "content": "CSS stands for Cascading Sheets Style",
             "correct": false
           }
         ]
       },
       {
         "questionid": "2",
-        "question": "Which component do you use for waiting to data load?",
+        "question": "What is the correct HTML for referring to an external style sheet?",
         "answers": [
           {
             "id": "1",
-            "content": "Spinner",
+            "content": "<style src={mystyle.css}>",
             "correct": false
           },
           {
             "id": "2",
-            "content": "Suspanse",
-            "correct": true
+            "content": "<stylesheet>mystyle.css</stylesheet>",
+            "correct": false
           },
           {
             "id": "3",
-            "content": "Wait",
+            "content": "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">",
             "correct": false
           },
           {
             "id": "4",
-            "content": "Loader",
+            "content": "<style src=\"mystyle.css\">",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "3",
+        "question": "Where in an HTML document is the correct place to refer to an external style sheet?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "In the <head> section",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "In the <body> section",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "At the end of the document",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "In the <script> tag",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "4",
+        "question": "Which HTML tag is used to define an internal style sheet?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "<?php ?>",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "<css>",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "<style>",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "<script>",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "5",
+        "question": "Which HTML attribute is used to define inline styles?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "styles",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "class",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "font",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "style",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "6",
+        "question": "Which is the correct CSS syntax?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "{body:color=black;}",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "body {color: black;}",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "{body;color:black;}",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "body:color=black;",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "7",
+        "question": "How do you insert a comment in a CSS file?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "/* this is a comment */",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "// this is a comment //",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "// this is a comment",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "}this is a comment{",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "8",
+        "question": "Which property is used to change the background color?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "bgc",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "bgcolor",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "color-background",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "background-color",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "9",
+        "question": "How do you add a background color for all <h1> elements?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "{background-color:#FFFFFF;} to all h1",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "h1.all {background-color:#FFFFFF;}",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "all.h1 {background-color:#FFFFFF;}",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "h1 {background-color:#FFFFFF;}",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "10",
+        "question": "How do you display hyperlinks without an underline?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "a {text-decoration: none;}",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "a {text-decoration: no-underline;}",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "a {decoration: no-underline;}",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "a {underline: none;}",
             "correct": false
           }
         ]
@@ -457,53 +1341,261 @@
     "questions": [
       {
         "questionid": "1",
-        "question": "Which library is using for state managment?",
+        "question": "What is SASS?",
         "answers": [
           {
             "id": "1",
-            "content": "Redux",
+            "content": "Sass is a stylesheet language that’s compiled to CSS",
             "correct": true
           },
           {
             "id": "2",
-            "content": "Mongo",
+            "content": "Sass is a stylesheet language that’s compiled to SCSS",
             "correct": false
           },
           {
             "id": "3",
-            "content": "React Router",
+            "content": "Sass is not a stylesheet language",
             "correct": false
           },
           {
             "id": "4",
-            "content": "Swiper",
+            "content": "Sass is a stylesheet language that’s compiled to JavaScript",
             "correct": false
           }
         ]
       },
       {
         "questionid": "2",
-        "question": "Which component do you use for waiting to data load?",
+        "question": "Whta SASS allows you to use?",
         "answers": [
           {
             "id": "1",
-            "content": "Spinner",
+            "content": "JS objects or arrays",
             "correct": false
           },
           {
             "id": "2",
-            "content": "Suspanse",
+            "content": "Variables, nested rules, mixins, functions, and more",
             "correct": true
           },
           {
             "id": "3",
-            "content": "Wait",
+            "content": "Keyboard and mouse",
             "correct": false
           },
           {
             "id": "4",
-            "content": "Loader",
+            "content": "Webpack compiler",
             "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "3",
+        "question": "Defines a style rule for various media types.",
+        "answers": [
+          {
+            "id": "1",
+            "content": "@media",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "@import",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "@extend",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "@debug",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "4",
+        "question": "Select the correct way of defining a variable in Sass.",
+        "answers": [
+          {
+            "id": "1",
+            "content": "@primary-color: #888;",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "%primary-color: #888;",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "$primary-color: #888;",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "#primary-color: #888;",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "5",
+        "question": "Why is the @include directive used in Sass?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "To include the mixin in the document",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "To define the mixin",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "All of the above",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "None of the above",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "6",
+        "question": "Which directive is used to specify the mixin?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "@debug",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "@extend",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "@include",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "@mixin",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "7",
+        "question": "What for is @use rule for?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "The @use rule allowes you to define complex operations on SassScript values that you can re-use throughout your stylesheet.",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "The @use rule allowes you to define styles that can be re-used throughout your stylesheet.",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "The @use rule loads mixins, functions, and variables from other Sass stylesheets, and combines CSS from multiple stylesheets together",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "The @use rule loads a Sass stylesheet and makes its mixins, functions, and variables available when your stylesheet is loaded with the @forward rule.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "8",
+        "question": "What is interpolation in SASS?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "There is no Interpolation in SASS",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Interpolation can be used almost anywhere in a Sass stylesheet to embed the result of a SassScript expression into a chunk of CSS",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "You assign a value to a name that begins with $, and then you can refer to that name instead of the value itself",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "Allow you to define complex operations",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "9",
+        "question": "What is Parent Selector?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "The parent selector, &, is a special selector invented by Sass that’s used in nested selectors to refer to the outer selector",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "The parent selector, %, is a special selector invented by Sass that’s used in nested selectors to refer to the outer selector",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "The parent selector, #, is a special selector invented by Sass that’s used in nested selectors to refer to the outer selector",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "The parent selector, @, is a special selector invented by Sass that’s used in nested selectors to refer to the outer selector",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "10",
+        "question": "What is Placeholder Selectors?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "It looks and acts a lot like a class selector, but it starts with a <@:) and it's not included in the CSS output.",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "It looks and acts a lot like a class selector, but it starts with a <> and it's not included in the CSS output.",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "It looks and acts a lot like a class selector, but it starts with a ^ and it's not included in the CSS output.",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "It looks and acts a lot like a class selector, but it starts with a % and it's not included in the CSS output",
+            "correct": true
           }
         ]
       }
@@ -516,52 +1608,260 @@
     "questions": [
       {
         "questionid": "1",
-        "question": "Which library is using for state managment?",
+        "question": "Inside which HTML element do we put the JavaScript?",
         "answers": [
           {
             "id": "1",
-            "content": "Redux",
+            "content": "<script>",
             "correct": true
           },
           {
             "id": "2",
-            "content": "Mongo",
+            "content": "<js>",
             "correct": false
           },
           {
             "id": "3",
-            "content": "React Router",
+            "content": "<javascript>",
             "correct": false
           },
           {
             "id": "4",
-            "content": "Swiper",
+            "content": "<scripting>",
             "correct": false
           }
         ]
       },
       {
         "questionid": "2",
-        "question": "Which component do you use for waiting to data load?",
+        "question": "What is the correct JavaScript syntax to change the content of the HTML element? <p id=\"demo\">This is a demonstration.</p>",
         "answers": [
           {
             "id": "1",
-            "content": "Spinner",
-            "correct": false
-          },
-          {
-            "id": "2",
-            "content": "Suspanse",
+            "content": "document.getElementById(\"demo\").innerHTML = \"Hello World!\";",
             "correct": true
           },
           {
+            "id": "2",
+            "content": "document.getElementByName(\"p\").innerHTML = \"Hello World!\";",
+            "correct": false
+          },
+          {
             "id": "3",
-            "content": "Wait",
+            "content": "document.getElement(\"p\").innerHTML = \"Hello World!\";",
             "correct": false
           },
           {
             "id": "4",
-            "content": "Loader",
+            "content": "#demo.innerHTML = \"Hello World!\";",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "3",
+        "question": "Where is the correct place to insert a JavaScript?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "The <head> section",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Both the <head> section and the <body> section are correct",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "The <body> section",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "None of that",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "4",
+        "question": "What is the correct syntax for referring to an external script called \"xxx.js\"?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "<script src=\"xxx.js\">",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "<script name=\"xxx.js\">",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "<script href=\"xxx.js\">",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "None of that",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "5",
+        "question": "How do you write \"Hello World\" in an alert box?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "msg(\"Hello World\");",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "alertBox(\"Hello World\");",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "msgBox(\"Hello World\");",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "alert(\"Hello World\");",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "6",
+        "question": "How do you create a function in JavaScript?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "const myFunction = () <= { }",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "function:myFunction()",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "function myFunction()",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "function = myFunction()",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "7",
+        "question": "How do you call a function named \"myFunction\"?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "myFunction",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "call function myFunction()",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "call myFunction()",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "myFunction()",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "8",
+        "question": "How to write an IF statement in JavaScript?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "if i = 5 then",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "if i == 5 then",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "if (i == 5)",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "if i = 5",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "9",
+        "question": "How to write an IF statement for executing some code if \"i\" is NOT equal to 5?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "i =! 5 then",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "if (i != 5)",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "if (i =! 5)",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "if i <> 5",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "10",
+        "question": "How does a FOR loop start?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "for (i = 0; i <= 5)",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "for i = 1 to 5",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "for (i = 0; i <= 5; i++)",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "for (i <= 5; i++)",
             "correct": false
           }
         ]
@@ -575,52 +1875,260 @@
     "questions": [
       {
         "questionid": "1",
-        "question": "Which library is using for state managment?",
+        "question": "What is TypeScript?",
         "answers": [
           {
             "id": "1",
-            "content": "Redux",
-            "correct": true
-          },
-          {
-            "id": "2",
-            "content": "Mongo",
+            "content": "It is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS",
             "correct": false
           },
           {
+            "id": "2",
+            "content": "TypeScript adds additional syntax to JavaScript to support a tighter integration with your editor",
+            "correct": true
+          },
+          {
             "id": "3",
-            "content": "React Router",
+            "content": "It is the standard markup language for documents designed to be displayed in a web browser",
             "correct": false
           },
           {
             "id": "4",
-            "content": "Swiper",
+            "content": "A style sheet language used for describing the presentation of a document written in a markup language such as HTML",
             "correct": false
           }
         ]
       },
       {
         "questionid": "2",
-        "question": "Which component do you use for waiting to data load?",
+        "question": "Which of the following companies has developed and designed TypeScript?",
         "answers": [
           {
             "id": "1",
-            "content": "Spinner",
+            "content": "Amazon",
             "correct": false
           },
           {
             "id": "2",
-            "content": "Suspanse",
-            "correct": true
+            "content": "TypeScript",
+            "correct": false
           },
           {
             "id": "3",
-            "content": "Wait",
+            "content": "Microsoft",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": "Oracle",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "3",
+        "question": "What is the typing principle of typescript?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Gradual",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Duck",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "Dynamic",
             "correct": false
           },
           {
             "id": "4",
-            "content": "Loader",
+            "content": "All of the above",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "4",
+        "question": "Which of the following filenames is the extension for typescript?",
+        "answers": [
+          {
+            "id": "1",
+            "content": ".tt",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": ".nod",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": ".ts",
+            "correct": true
+          },
+          {
+            "id": "4",
+            "content": ".txt",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "5",
+        "question": "Which of the computer programming languages below has influenced the creation of typescript?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "JavaScript",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Java",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "C#",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "All of the above",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "6",
+        "question": "All are backported features of TypeScript, except...",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Methods",
+            "correct": true
+          },
+          {
+            "id": "2",
+            "content": "Modules",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "Classes",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "Arrows",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "questionid": "7",
+        "question": "The advantages of Typescript are...",
+        "answers": [
+          {
+            "id": "1",
+            "content": "It assists in code structuring",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "It applies class -based object oriented programming",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "It introduces coding guidelines",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "All of the above",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "8",
+        "question": "What variable scopes are available in TypeScript?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Global Scope",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Local Scope",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "Class Scope",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "All of the above",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "9",
+        "question": "Which of the statements below is true about the variables in Typescript?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "A variable name should include both alphabets and numeric digits",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "A variable name cannot start with a digit",
+            "correct": false
+          },
+          {
+            "id": "3",
+            "content": "It cannot include spaces and special characters except for dollar ($) sign and underscore (_)",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "All of the above",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "questionid": "10",
+        "question": "By which type below are integers represented?",
+        "answers": [
+          {
+            "id": "1",
+            "content": "Int32",
+            "correct": false
+          },
+          {
+            "id": "2",
+            "content": "Number",
+            "correct": true
+          },
+          {
+            "id": "3",
+            "content": "Int64",
+            "correct": false
+          },
+          {
+            "id": "4",
+            "content": "Int",
             "correct": false
           }
         ]
