@@ -27,7 +27,7 @@ const ProfilePage = () => {
   return (
     <Layout>
       <div className="profile">
-        <TitleBox button="Edit profile" href="/profile/edit" />
+        <TitleBox button="Edit profile" href="/profile/edit" session={session} />
         <ProfileCard
           name={user.name}
           imageUrl={user.imageUrl}
