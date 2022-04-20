@@ -31,15 +31,6 @@ const FinishedQuizes = () => {
                 strokeWidth={10}
                 value={result.score}
                 text={`${result.score}%`}
-                styles={{
-                  text: {
-                    fill: '#000',
-                    fontSize: '27px'
-                  },
-                  path: {
-                    stroke: '#0072AF'
-                  }
-                }}
               />
             </div>
             <Link href={`/quiz/${result.quizid}`} passHref>
