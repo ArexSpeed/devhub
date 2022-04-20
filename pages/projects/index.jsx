@@ -93,8 +93,8 @@ const ProjectPage = () => {
                   })
                   .map((project) => (
                     <ProjectCard
-                      key={project.projectid}
-                      projectid={project.projectid}
+                      key={project._id}
+                      projectid={project._id}
                       title={project.title}
                       userid={project.userid}
                       username={project.username}
@@ -120,8 +120,8 @@ const ProjectPage = () => {
                   )
                   .map((project) => (
                     <ProjectCard
-                      key={project.projectid}
-                      projectid={project.projectid}
+                      key={project._id}
+                      projectid={project._id}
                       title={project.title}
                       userid={project.userid}
                       username={project.username}
@@ -144,8 +144,8 @@ const ProjectPage = () => {
                   )
                   .map((project) => (
                     <ProjectCard
-                      key={project.projectid}
-                      projectid={project.projectid}
+                      key={project._id}
+                      projectid={project._id}
                       title={project.title}
                       userid={project.userid}
                       username={project.username}
