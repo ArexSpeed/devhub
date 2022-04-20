@@ -49,7 +49,9 @@ const create = async (payload) => {
     languages: [],
     skills: [],
     about: '',
-    socials: blankSocial
+    socials: blankSocial,
+    followed: [],
+    followers: []
   });
 
   return user;

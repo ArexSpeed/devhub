@@ -3,7 +3,6 @@ import { useSession } from 'next-auth/client';
 import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
 import DevCard from 'components/DevCard';
-import follows from 'data/usersFollow.json';
 import axios from 'axios';
 import Layout from 'components/Layout';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -17,13 +16,13 @@ const CommunityPage = () => {
   const [developerPosition, setDeveloperPosition] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState(['']);
-  const [userFollows, setUserFollows] = useState({});
-  const userid = 1; //temporary user id
+  // const [userFollows, setUserFollows] = useState({});
+  // const userid = 1; //temporary user id
 
-  useEffect(() => {
-    const findFollow = follows.find((follow) => follow.userid === userid);
-    setUserFollows(findFollow);
-  }, []);
+  // useEffect(() => {
+  //   const findFollow = follows.find((follow) => follow.userid === userid);
+  //   setUserFollows(findFollow);
+  // }, []);
   useEffect(async () => {
     const data = await axios.get('/api/users');
     setUsers(data.data);
@@ -94,7 +93,7 @@ const CommunityPage = () => {
             {activeButton === 'All Developers' && (
               <AnimatePresence>
                 {users
-                  .filter((user) => user.name.toLowerCase().includes(searchValue.toLowerCase()))
+                  .filter((user) => user.name?.toLowerCase().includes(searchValue.toLowerCase()))
                   .filter((user) => user.position.includes(developerPosition))
                   .filter((user) => {
                     if (selectSkill[0] !== '') return user.skills.indexOf(selectSkill[0]) !== -1;
@@ -110,6 +109,8 @@ const CommunityPage = () => {
                       skills={user.skills}
                       langs={user.languages}
                       socials={user.socials}
+                      followed={user.followed}
+                      followers={user.followers}
                     />
                   ))}
               </AnimatePresence>
@@ -117,18 +118,21 @@ const CommunityPage = () => {
             {activeButton === 'Followed' && (
               <>
                 {users
-                  .filter((user) => userFollows.followed.indexOf(user.userid) !== -1)
+                  ?.filter((user) => user.followers?.indexOf(session.user.id) !== -1)
                   .filter((user) => user.position.includes(developerPosition))
                   .filter((user) => user.name.includes(searchValue))
                   .map((user) => (
                     <DevCard
-                      key={user.userid}
-                      id={user.userid}
+                      key={user._id}
+                      id={user._id}
                       name={user.name}
+                      image={user.imageUrl}
                       position={user.position}
                       skills={user.skills}
                       langs={user.languages}
-                      socials={user.social}
+                      socials={user.socials}
+                      followed={user.followed}
+                      followers={user.followers}
                     />
                   ))}
               </>
@@ -136,18 +140,21 @@ const CommunityPage = () => {
             {activeButton === 'Followers' && (
               <>
                 {users
-                  .filter((user) => userFollows.followers.indexOf(user.userid) !== -1)
+                  .filter((user) => user.followed?.indexOf(session.user.id) !== -1)
                   .filter((user) => user.position.includes(developerPosition))
                   .filter((user) => user.name.includes(searchValue))
                   .map((user) => (
                     <DevCard
-                      key={user.userid}
-                      id={user.userid}
+                      key={user._id}
+                      id={user._id}
                       name={user.name}
+                      image={user.imageUrl}
                       position={user.position}
                       skills={user.skills}
                       langs={user.languages}
-                      socials={user.social}
+                      socials={user.socials}
+                      followed={user.followed}
+                      followers={user.followers}
                     />
                   ))}
               </>
