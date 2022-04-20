@@ -7,7 +7,7 @@ import SkillsIconSwitcher from './IconSwitcher/SkillsIconSwitcher';
 import SocialIconSwitcher from './IconSwitcher/SocialIconSwitcher';
 import { motion } from 'framer-motion';
 
-const DevCard = ({ id, name, image, position, skills, langs, socials, followed, followers }) => {
+const DevCard = ({ id, name, image, position, skills, langs, socials, followers }) => {
   const [session] = useSession();
   const [follow, setFollow] = useState(false);
   //const [follows, setFollows] = useState([]);
