@@ -140,6 +140,9 @@ const ProjectPage = () => {
               <AnimatePresence>
                 {projects
                   .filter((project) =>
+                    project.likes.find((like) => like?.userid === session.user.id)
+                  )
+                  .filter((project) =>
                     project.title.toLowerCase().includes(searchValue.toLowerCase())
                   )
                   .map((project) => (

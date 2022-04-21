@@ -13,28 +13,24 @@ const ProjectCard = ({ projectid, title, username, userimage, logo, link, descri
   const [isLike, setIsLike] = useState(false);
   const [likes, setLikes] = useState([]);
 
-  // useEffect(() => {
-  //   const findLike = likes?.find((like) => like === session.user.id);
-  //   if (findLike) setIsLike(true);
-  // }, [like, likes]);
-
   useEffect(async () => {
-    const data = await axios.get(`/api/projects/likes?projectid=${projectid}`);
-    console.log(data.data, 'likes');
-    setLikes(data.data);
+    const result = await axios.get(`/api/projects/likes?projectid=${projectid}`);
+    console.log(result.data, 'likes');
+    setLikes(result.data);
   }, [isLike]);
 
   useEffect(() => {
     const findLike = likes?.find((like) => like.userid === session.user.id);
+    console.log(findLike, 'findLike');
     if (findLike) setIsLike(true);
   }, [likes]);
 
   const addLike = async () => {
-    console.log(projectid, 'id');
-    const newLikesArr = [...likes, { userid: session.user.id, username: session.user.name }]; //new array of users id who likes this project
+    const newLikesArr = [...likes, { userid: session.user.id, username: session.user.name }];
     const payload = {
       likes: newLikesArr
     };
+
     const response = await fetch(`/api/projects/likes?projectid=${projectid}`, {
       method: 'PATCH',
       body: JSON.stringify(payload),
@@ -46,15 +42,15 @@ const ProjectCard = ({ projectid, title, username, userimage, logo, link, descri
     if (response.ok) {
       setIsLike(true);
     } else {
-      console.log('Sth went wrong');
+      console.log('Sth went wrong!');
     }
   };
-
   const removeLike = async () => {
     const newLikesArr = likes.filter((like) => like.userid !== session.user.id);
     const payload = {
       likes: newLikesArr
     };
+
     const response = await fetch(`/api/projects/likes?projectid=${projectid}`, {
       method: 'PATCH',
       body: JSON.stringify(payload),
@@ -66,9 +62,10 @@ const ProjectCard = ({ projectid, title, username, userimage, logo, link, descri
     if (response.ok) {
       setIsLike(false);
     } else {
-      console.log('Sth went wrong');
+      console.log('Sth went wrong!');
     }
   };
+
   return (
     <motion.div
       className="projectcard"
