@@ -1,5 +1,5 @@
-import { useState } from 'react';
-//import { useSession } from 'next-auth/client';
+import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/client';
 import Link from 'next/link';
 //import axios from 'axios';
 import FlagIconSwitcher from './IconSwitcher/FlagIconSwitcher';
@@ -7,10 +7,15 @@ import SkillsIconSwitcher from './IconSwitcher/SkillsIconSwitcher';
 import SocialIconSwitcher from './IconSwitcher/SocialIconSwitcher';
 import { motion } from 'framer-motion';
 
-const DevCard = ({ id, name, image, position, skills, langs, socials }) => {
-  //const [session] = useSession();
+const DevCard = ({ id, name, image, position, skills, langs, socials, followers }) => {
+  const [session] = useSession();
   const [follow, setFollow] = useState(false);
   //const [follows, setFollows] = useState([]);
+
+  useEffect(() => {
+    const findFollow = followers?.find((followersId) => followersId === session.user.id);
+    if (findFollow) setFollow(true);
+  }, [followers]);
 
   // useEffect(() => {
   //   const foll = axios.get(`/api/follows?userid=${session.user.id}`);

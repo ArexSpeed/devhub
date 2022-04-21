@@ -1,5 +1,4 @@
 import { connectToDatabase } from 'util/mongodb';
-import { createFollow } from 'services/users/follows';
 import { ObjectId } from 'mongodb';
 
 export default async (req, res) => {
@@ -8,54 +7,37 @@ export default async (req, res) => {
   switch (req.method) {
     case 'GET': {
       const userid = req.query.userid;
-      const data = await db
-        .collection('follows')
-        .find({ userid: userid })
-        .sort({ _id: 1 })
-        .toArray();
+      const data = await db.collection('users').find({ userid: userid }).sort({ _id: 1 }).toArray();
       res.json(data);
 
       break;
     }
-    case 'POST': {
+    case 'PATCH': {
       try {
         const payload = req.body;
-        console.log(payload, 'body');
-        const data = await createFollow(payload);
-        res.status(200).json({ status: 'created', data });
-      } catch (error) {
-        res.status(422).json({ status: 'not_created', error });
-      }
-      break;
-    }
-    case 'PUT': {
-      try {
-        const queryId = req.query.id;
-        const payload = req.body;
-        const id = ObjectId(queryId);
-        console.log(queryId, 'query user');
-        console.log(payload, 'payload put');
-        //const data = await update(payload, queryId);
-        const filter = { _id: id };
-        const updateDoc = {
+        const id1 = ObjectId(req.query.currentUser); //current user (this one who click follow, add to followers)
+        const id2 = ObjectId(req.query.selectedUser); //user who was selected and add to followed
+        const filterFollowed = { _id: id1 };
+        const filterFollowers = { _id: id2 };
+        const updateFollowed = {
           $set: {
-            name: payload.name,
-            email: payload.email,
-            imageUrl: payload.imageUrl,
-            position: payload.position,
-            languages: payload.languages,
-            skills: payload.skills,
-            about: payload.about,
-            socials: payload.socials
+            followed: payload.followed //user who was selected
+          }
+        };
+        const updateFollowers = {
+          $set: {
+            followers: payload.followers //current user (this one who click follow)
           }
         };
 
         const options = { upsert: true };
-        const data = await db.collection('users').updateOne(filter, updateDoc, options);
-        //console.log(data, 'find user');
+        await db.collection('users').updateOne(filterFollowed, updateFollowed, options);
+        const data = await db
+          .collection('users')
+          .updateOne(filterFollowers, updateFollowers, options);
         res.status(200).json({ status: 'edit user', data });
       } catch (error) {
-        res.status(422).json({ status: 'not_created', error });
+        res.status(422).json({ status: 'not_created', error: error.message });
       }
       break;
     }

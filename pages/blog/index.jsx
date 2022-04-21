@@ -1,24 +1,25 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/client';
 import axios from 'axios';
-import SkillsTags from 'components/SkillsTags';
 import TitleBox from 'components/TitleBox';
 import BlogCard from 'components/BlogCard';
 import Layout from 'components/Layout';
 import { motion, AnimatePresence } from 'framer-motion';
 import SearchBox from 'components/SearchBox';
+import UserTags from 'components/UserTags';
 
 const BlogPage = () => {
   const [session, loading] = useSession();
   const [posts, setPosts] = useState([]);
   const [searchValue, setSearchValue] = useState('');
-  const [selectSkill, setSelectSkill] = useState([]);
+  const [selectAuthor, setSelectAuthor] = useState('');
   const [postCategory, setPostCategory] = useState('');
 
   useEffect(async () => {
     const getPosts = await axios.get('/api/posts');
     setPosts(getPosts.data);
   }, []);
+
   return (
     <Layout>
       <div className="blog">
@@ -32,9 +33,9 @@ const BlogPage = () => {
             placeholder="Find article by title"
           />
         </section>
-        <p>Find article by tags</p>
+        <p>Find article by author</p>
         <section className="community__tags">
-          <SkillsTags selectSkill={selectSkill} setSelectSkill={setSelectSkill} />
+          <UserTags selectAuthor={selectAuthor} setSelectAuthor={setSelectAuthor} posts={posts} />
         </section>
         <section className="blog__filters">
           <motion.button
@@ -88,6 +89,7 @@ const BlogPage = () => {
                     post.username.toLowerCase().includes(searchValue.toLowerCase())
                 )
                 .filter((post) => post.category.includes(postCategory))
+                .filter((post) => post.username.includes(selectAuthor))
                 .map((post) => (
                   <BlogCard
                     key={post._id}

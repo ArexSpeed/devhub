@@ -13,7 +13,7 @@ const authorizeUser = async (payload) => {
 
   const user = await db.collection('users').findOne({ email: email });
 
-  console.log(user, 'user in services');
+  //console.log(user, 'user in services');
   if (!user) {
     return null;
   }
@@ -21,7 +21,6 @@ const authorizeUser = async (payload) => {
   const passwordHash = crypto
     .pbkdf2Sync(password, user.passwordSalt, 1000, 64, `sha512`)
     .toString(`hex`);
-  console.log('after hash');
   if (passwordHash !== user.passwordHash) {
     return null;
   }
