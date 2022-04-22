@@ -1,6 +1,7 @@
 import { getPosts, getPost } from 'services/posts/getPosts';
 import PostCard from 'components/PostCard';
 import Layout from 'components/Layout';
+import BlogComment from 'components/BlogComment';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -31,6 +32,7 @@ export default function Post({ postProp }) {
           username={post?.username}
           userimage={post?.userimage}
         />
+        <BlogComment />
       </div>
     </Layout>
   );

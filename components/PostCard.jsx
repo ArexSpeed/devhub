@@ -4,7 +4,6 @@ import { useSession } from 'next-auth/client';
 import axios from 'axios';
 // eslint-disable-next-line prettier/prettier
 export default function PostCard({ image, title, excerpt, content, userimage, username, postid }) {
-  
   const [session] = useSession();
   const [isLike, setIsLike] = useState(false);
   const [likes, setLikes] = useState([]);
@@ -59,10 +58,8 @@ export default function PostCard({ image, title, excerpt, content, userimage, us
     } else {
       console.log('Something went wrong!');
     }
-  };  
-  
-  
-  
+  };
+
   return (
     <div className="postcard">
       <section className="postcard__top">
@@ -72,14 +69,14 @@ export default function PostCard({ image, title, excerpt, content, userimage, us
         <article className="postcard__description">
           <div className="postcard__info">
             <article className="blogcard__social">
-            <button className="blogcard__social-btn" onClick={isLike ? removeLike : addLike}>
-            {isLike ? (
-            <HeartOutlineIcon className="icon-medium primary-blue" />
-          ) : (
-            <HeartIcon className="icon-medium primary-blue" />
-          )}
-              <div className="blogcard__social-count">{likes.length}</div>
-            </button>
+              <button className="blogcard__social-btn" onClick={isLike ? removeLike : addLike}>
+                {isLike ? (
+                  <HeartOutlineIcon className="icon-medium primary-blue" />
+                ) : (
+                  <HeartIcon className="icon-medium primary-blue" />
+                )}
+                <div className="blogcard__social-count">{likes.length}</div>
+              </button>
               <button className="blogcard__social-btn">
                 <CommentIcon className="icon-medium primary-blue" />
                 <div className="blogcard__social-count">4</div>

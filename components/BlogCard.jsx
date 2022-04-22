@@ -87,11 +87,11 @@ const BlogCard = ({ postid, userimage, username, image, title, excerpt, comments
         <article className="blogcard__bottom">
           <div className="blogcard__social">
             <button className="blogcard__social-btn" onClick={isLike ? removeLike : addLike}>
-            {isLike ? (
-            <HeartOutlineIcon className="icon-medium primary-blue" />
-          ) : (
-            <HeartIcon className="icon-medium primary-blue" />
-          )}
+              {isLike ? (
+                <HeartOutlineIcon className="icon-medium primary-blue" />
+              ) : (
+                <HeartIcon className="icon-medium primary-blue" />
+              )}
               <div className="blogcard__social-count">{likes.length}</div>
             </button>
             <button className="blogcard__social-btn">
