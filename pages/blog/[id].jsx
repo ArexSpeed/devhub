@@ -23,6 +23,7 @@ export default function Post({ postProp }) {
     <Layout>
       <div className="blog">
         <PostCard
+          postid={post?._id}
           image={post?.image}
           title={post?.title}
           excerpt={post?.excerpt}

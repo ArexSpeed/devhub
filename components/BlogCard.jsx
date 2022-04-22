@@ -62,12 +62,6 @@ const BlogCard = ({ postid, userimage, username, image, title, excerpt, comments
     }
   };
 
-
-
-
-
-
-
   return (
     <motion.div
       className="blogcard"
