@@ -38,7 +38,7 @@ const BlogCard = ({ postid, userimage, username, image, title, excerpt, comments
     if (response.ok) {
       setIsLike(true);
     } else {
-      console.log('Sth went wrong!');
+      console.log('Something went wrong!');
     }
   };
   const removeLike = async () => {
@@ -58,7 +58,7 @@ const BlogCard = ({ postid, userimage, username, image, title, excerpt, comments
     if (response.ok) {
       setIsLike(false);
     } else {
-      console.log('Sth went wrong!');
+      console.log('Something went wrong!');
     }
   };
 
