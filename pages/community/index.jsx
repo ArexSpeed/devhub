@@ -11,6 +11,7 @@ import SearchBox from 'components/SearchBox';
 const CommunityPage = () => {
   // eslint-disable-next-line no-unused-vars
   const [session, loading] = useSession();
+  const [currentUserData, setCurrentUserData] = useState({});
   const [users, setUsers] = useState([]);
   const [activeButton, setActiveButton] = useState('All Developers');
   const [developerPosition, setDeveloperPosition] = useState('');
@@ -28,9 +29,15 @@ const CommunityPage = () => {
     setUsers(data.data);
   }, []);
 
+  useEffect(() => {
+    const currentUser = users.find((user) => user._id === session?.user.id);
+    if (currentUser) setCurrentUserData(currentUser);
+  }, [users]);
+
   return (
     <Layout>
       <div className="community">
+        {console.log(currentUserData)}
         <section className="community__title">
           <TitleBox title="Developers Community" />
         </section>
@@ -93,6 +100,7 @@ const CommunityPage = () => {
             {activeButton === 'All Developers' && (
               <AnimatePresence>
                 {users
+                  .filter((user) => user._id !== session?.user.id)
                   .filter((user) => user.name?.toLowerCase().includes(searchValue.toLowerCase()))
                   .filter((user) => user.position.includes(developerPosition))
                   .filter((user) => {
@@ -111,6 +119,7 @@ const CommunityPage = () => {
                       socials={user.socials}
                       followed={user.followed}
                       followers={user.followers}
+                      currentUserFollowed={currentUserData.followed}
                     />
                   ))}
               </AnimatePresence>
@@ -118,7 +127,7 @@ const CommunityPage = () => {
             {activeButton === 'Followed' && (
               <>
                 {users
-                  ?.filter((user) => user.followers?.indexOf(session.user.id) !== -1)
+                  .filter((user) => currentUserData.followed?.indexOf(user._id) !== -1)
                   .filter((user) => user.position.includes(developerPosition))
                   .filter((user) => user.name.includes(searchValue))
                   .map((user) => (
@@ -133,6 +142,7 @@ const CommunityPage = () => {
                       socials={user.socials}
                       followed={user.followed}
                       followers={user.followers}
+                      currentUserFollowed={currentUserData.followed}
                     />
                   ))}
               </>
@@ -140,7 +150,7 @@ const CommunityPage = () => {
             {activeButton === 'Followers' && (
               <>
                 {users
-                  .filter((user) => user.followed?.indexOf(session.user.id) !== -1)
+                  .filter((user) => currentUserData.followers?.indexOf(user._id) !== -1)
                   .filter((user) => user.position.includes(developerPosition))
                   .filter((user) => user.name.includes(searchValue))
                   .map((user) => (
@@ -155,6 +165,7 @@ const CommunityPage = () => {
                       socials={user.socials}
                       followed={user.followed}
                       followers={user.followers}
+                      currentUserFollowed={currentUserData.followed}
                     />
                   ))}
               </>

@@ -13,7 +13,6 @@ export async function getStaticPaths() {
   const paths = users.map((user) => ({
     params: { id: user._id.toString() }
   }));
-
   return { paths, fallback: 'blocking' };
 }
 
