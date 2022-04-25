@@ -7,15 +7,18 @@ import SkillsIconSwitcher from './IconSwitcher/SkillsIconSwitcher';
 import SocialIconSwitcher from './IconSwitcher/SocialIconSwitcher';
 import { motion } from 'framer-motion';
 
-const DevCard = ({ id, name, image, position, skills, langs, socials, followers }) => {
+// eslint-disable-next-line prettier/prettier
+const DevCard = ({ id, name, image, position, skills, langs, socials, followers, currentUserFollowed }) => {
   const [session] = useSession();
-  const [follow, setFollow] = useState(false);
+  const [isFollow, setIsFollow] = useState(false);
   //const [follows, setFollows] = useState([]);
 
   useEffect(() => {
-    const findFollow = followers?.find((followersId) => followersId === session.user.id);
-    if (findFollow) setFollow(true);
-  }, [followers]);
+    if (session) {
+      const findFollow = followers?.find((followersId) => followersId === session.user.id);
+      if (findFollow) setIsFollow(true);
+    }
+  }, [session, followers]);
 
   // useEffect(() => {
   //   const foll = axios.get(`/api/follows?userid=${session.user.id}`);
@@ -25,27 +28,62 @@ const DevCard = ({ id, name, image, position, skills, langs, socials, followers 
   //   setFollows([]);
   // }, [session]);
 
-  // const addFollow = async (newFollowId) => {
-  //   setFollows((prev) => [...prev, newFollowId]);
-  //   const payload = {
-  //     userid: session.user.id,
-  //     followed: follows
-  //   };
+  const checkSessionFollow = () => {
+    if (!session) {
+      alert('Please login to follow user');
+    } else {
+      if (isFollow) removeFollow();
+      if (!isFollow) addFollow();
+    }
+  };
 
-  //   const response = await fetch(`/api/follows`, {
-  //     method: 'POST',
-  //     body: JSON.stringify(payload),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   });
+  const addFollow = async () => {
+    const payload = {
+      followed: [...currentUserFollowed, id],
+      followers: [...followers, session.user.id]
+    };
 
-  //   if (response.ok) {
-  //     setFollow(true);
-  //   } else {
-  //     const payload = await response.json();
-  //   }
-  // };
+    console.log(payload, 'paylaod');
+
+    const response = await fetch(`/api/follows?currentUser=${session.user.id}&selectedUser=${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      setIsFollow(true);
+    } else {
+      console.log('Sth went wrong!');
+    }
+  };
+
+  const removeFollow = async () => {
+    const newFollowed = currentUserFollowed.filter((follow) => follow !== id);
+    const newFollowers = followers.filter((follow) => follow !== session.user.id);
+    const payload = {
+      followed: newFollowed,
+      followers: newFollowers
+    };
+
+    console.log(payload, 'paylaod');
+
+    const response = await fetch(`/api/follows?currentUser=${session.user.id}&selectedUser=${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      setIsFollow(false);
+    } else {
+      console.log('Sth went wrong!');
+    }
+  };
 
   return (
     <motion.div
@@ -81,10 +119,10 @@ const DevCard = ({ id, name, image, position, skills, langs, socials, followers 
         </Link>
         <button
           className={`devcard__button ${
-            follow ? 'devcard__button-unfollow' : 'devcard__button-follow'
+            isFollow ? 'devcard__button-unfollow' : 'devcard__button-follow'
           } `}
-          onClick={() => setFollow(!follow)}>
-          {follow ? 'Unfollow' : 'Follow'}
+          onClick={checkSessionFollow}>
+          {isFollow ? 'Unfollow' : 'Follow'}
         </button>
       </article>
       <article className="devcard__social">

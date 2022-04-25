@@ -100,6 +100,7 @@ const CommunityPage = () => {
             {activeButton === 'All Developers' && (
               <AnimatePresence>
                 {users
+                  .filter((user) => user._id !== session?.user.id)
                   .filter((user) => user.name?.toLowerCase().includes(searchValue.toLowerCase()))
                   .filter((user) => user.position.includes(developerPosition))
                   .filter((user) => {
@@ -118,6 +119,7 @@ const CommunityPage = () => {
                       socials={user.socials}
                       followed={user.followed}
                       followers={user.followers}
+                      currentUserFollowed={currentUserData.followed}
                     />
                   ))}
               </AnimatePresence>
@@ -140,6 +142,7 @@ const CommunityPage = () => {
                       socials={user.socials}
                       followed={user.followed}
                       followers={user.followers}
+                      currentUserFollowed={currentUserData.followed}
                     />
                   ))}
               </>
@@ -162,6 +165,7 @@ const CommunityPage = () => {
                       socials={user.socials}
                       followed={user.followed}
                       followers={user.followers}
+                      currentUserFollowed={currentUserData.followed}
                     />
                   ))}
               </>
