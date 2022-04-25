@@ -9,6 +9,10 @@ const FinishQuizPage = () => {
 
   const value = router.query.score * 10;
 
+  const handleBackToQuizzes = () => {
+    router.push('/quiz');
+  };
+
   return (
     <Layout>
       <div className="finishedQuiz">
@@ -30,6 +34,9 @@ const FinishQuizPage = () => {
             <span>Your score is {router.query.score}</span>
             <div className="finishedQuiz__conclusion--progressbar">
               <CircularProgressbar strokeWidth={10} value={value} text={`${value}%`} />
+            </div>
+            <div>
+              <button onClick={handleBackToQuizzes}>Back to quizzes</button>
             </div>
           </div>
         </div>

@@ -18,3 +18,14 @@ export const getQuizzes = async () => {
 
   return quizes;
 };
+
+export const getFinishedQuizzes = async (userId) => {
+  const { db } = await connectToDatabase();
+  const finishedQuizzes = await db
+    .collection('finishedQuizes')
+    .find({ userid: userId })
+    .sort({ _id: 1 })
+    .toArray();
+
+  return finishedQuizzes;
+};
