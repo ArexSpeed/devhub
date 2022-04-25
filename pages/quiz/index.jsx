@@ -3,7 +3,17 @@ import FinishedQuizes from 'components/FinishedQuizes';
 import Quizes from 'components/Quizes';
 import Layout from 'components/Layout';
 
-const Quiz = () => {
+import { getQuizzes } from 'services/quizes/getQuizzes';
+
+export async function getServerSideProps() {
+  const quizzes = await getQuizzes();
+  return {
+    props: { quizzes: JSON.stringify(quizzes) }
+  };
+}
+
+const Quiz = ({ quizzes }) => {
+  const data = JSON.parse(quizzes);
   return (
     <Layout>
       <div className="quiz">
@@ -16,7 +26,22 @@ const Quiz = () => {
         <FinishedQuizes />
 
         {/* All quizes component */}
-        <Quizes />
+        <div className="quiz__all-quizes">
+          <div className="quiz__all-quizes--title">
+            <span>Quizes</span>
+          </div>
+          <div className="quiz__all-quizes--quizes">
+            {data?.map((quiz) => (
+              <Quizes
+                key={quiz._id}
+                level={quiz.level}
+                quizName={quiz.quizname}
+                questions={quiz.questions}
+                quizId={quiz._id}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </Layout>
   );
