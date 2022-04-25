@@ -5,7 +5,6 @@ import 'react-circular-progressbar/dist/styles.css';
 import Link from 'next/link';
 
 const FinishedQuizes = () => {
-  //console.log(data);
   return (
     <div className="quiz__finished-quizes">
       <div className="quiz__finished-quizes--title">

@@ -1,13 +1,28 @@
-import quizes from 'data/quiz.json';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
 import Question from 'components/Question';
 import Layout from 'components/Layout';
 
-const IdQuizPage = () => {
+import { getQuizzes, getQuiz } from 'services/quizes/getQuizzes';
+
+export async function getStaticPaths() {
+  const quizzes = await getQuizzes();
+  const paths = quizzes.map((quiz) => ({
+    params: { id: quiz._id.toString() }
+  }));
+
+  return { paths, fallback: 'blocking' };
+}
+
+export async function getStaticProps({ params }) {
+  const quiz = await getQuiz(params.id);
+  return { revalidate: 30, props: { quizProp: JSON.stringify(quiz) } };
+}
+
+const IdQuizPage = ({ quizProp }) => {
+  const quiz = JSON.parse(quizProp);
   const router = useRouter();
-  const [quiz, setQuiz] = useState({});
 
   const [scores, setScores] = useState([
     {
@@ -32,15 +47,14 @@ const IdQuizPage = () => {
     }
   ]);
 
-  useEffect(() => {
-    const getQuiz = quizes.find((quiz) => quiz.quizid === router.query.id);
-    //console.log(getQuiz);
-    setQuiz(getQuiz);
-  }, [router]);
+  // useEffect(() => {
+  //   const getQuiz = quiz.find((quiz) => quiz.quizid === router.query.id);
+  //   //console.log(getQuiz);
+  //   setQuiz(getQuiz);
+  // }, [router]);
 
   const sendScores = () => {
     const scoresReduce = scores.reduce((prev, curr) => prev + curr.point, 0);
-    //console.log('wynik ', scoresReduce);
     router.push(`/quiz/finish?level=${quiz.level}&name=${quiz.quizname}&score=${scoresReduce}`);
   };
 

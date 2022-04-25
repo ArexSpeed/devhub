@@ -29,20 +29,7 @@ const FinishQuizPage = () => {
             <span>Correct answers is {router.query.score}</span>
             <span>Your score is {router.query.score}</span>
             <div className="finishedQuiz__conclusion--progressbar">
-              <CircularProgressbar
-                strokeWidth={10}
-                value={value}
-                text={`${value}%`}
-                // styles={{
-                //   text: {
-                //     fill: '#000',
-                //     fontSize: '27px'
-                //   },
-                //   path: {
-                //     stroke: '#0072AF'
-                //   }
-                // }}
-              />
+              <CircularProgressbar strokeWidth={10} value={value} text={`${value}%`} />
             </div>
           </div>
         </div>
