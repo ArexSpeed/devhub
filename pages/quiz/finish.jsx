@@ -6,7 +6,6 @@ import Layout from 'components/Layout';
 
 const FinishQuizPage = () => {
   const router = useRouter();
-  //console.log(router);
 
   const value = router.query.score * 10;
 
@@ -34,15 +33,15 @@ const FinishQuizPage = () => {
                 strokeWidth={10}
                 value={value}
                 text={`${value}%`}
-                styles={{
-                  text: {
-                    fill: '#000',
-                    fontSize: '27px'
-                  },
-                  path: {
-                    stroke: '#0072AF'
-                  }
-                }}
+                // styles={{
+                //   text: {
+                //     fill: '#000',
+                //     fontSize: '27px'
+                //   },
+                //   path: {
+                //     stroke: '#0072AF'
+                //   }
+                // }}
               />
             </div>
           </div>

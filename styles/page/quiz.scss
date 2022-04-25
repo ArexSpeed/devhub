@@ -27,7 +27,7 @@
       gap: 8px;
       padding: 8px;
       width: 136px;
-      background: #ffffff;
+      background: var(--primary-bg-color);
       box-sizing: border-box;
       border-radius: 8px;
       display: flex;
@@ -47,11 +47,11 @@
 
     &--card a{
       padding: 4px 20px;
-      background: #17abdb;
+      background: var(--primary-blue);
       border-radius: 4px;
       border: none;
 
-      color: #ffffff;
+      color: $primary-white;
 
       font-weight: 400;
       font-size: 14px;
@@ -59,7 +59,7 @@
 
     &--card a:hover {
       cursor: pointer;
-      background: #1284aa;
+      background: var(--secondary-blue);
     }
   }
 
@@ -79,7 +79,7 @@
       gap: 8px;
       padding: 8px;
       width: 136px;
-      background: #ffffff;
+      background: var(--primary-bg-color);
       box-sizing: border-box;
       border-radius: 8px;
       display: flex;
@@ -94,11 +94,11 @@
     }
     &--card a {
       padding: 4px 20px;
-      background: #17abdb;
+      background: var(--primary-blue);
       border-radius: 4px;
       border: none;
 
-      color: #ffffff;
+      color: $primary-white;
 
       font-weight: 400;
       font-size: 14px;
@@ -106,19 +106,29 @@
 
     &--card a:hover {
       cursor: pointer;
-      background: #1284aa;
+      background: var(--secondary-blue);
     }
   }
 }
 
 .junior {
-  border: 1px solid #95e616;
+  border: 1px solid $primary-green;
 }
 
 .middle {
-  border: 1px solid #0072af;
+  border: 1px solid $primary-blue;
 }
 
 .senior {
   border: 1px solid #ff0606;
+}
+
+
+.CircularProgressbar-text {
+  fill: var(--primary-text-color) !important;
+  font-size: 27px !important;
+}
+
+.CircularProgressbar-path {
+  stroke: var(--primary-blue) !important;
 }
