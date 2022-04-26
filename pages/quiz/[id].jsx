@@ -3,6 +3,7 @@ import { useState } from 'react';
 import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
 import Question from 'components/Question';
 import Layout from 'components/Layout';
+import { useSession } from 'next-auth/client';
 
 import { getQuizzes, getQuiz } from 'services/quizes/getQuizzes';
 
@@ -21,7 +22,10 @@ export async function getStaticProps({ params }) {
 }
 
 const IdQuizPage = ({ quizProp }) => {
+  const [session] = useSession();
+  console.log(session);
   const quiz = JSON.parse(quizProp);
+  console.log(quiz);
   const router = useRouter();
 
   const [scores, setScores] = useState([
@@ -44,18 +48,66 @@ const IdQuizPage = ({ quizProp }) => {
     {
       questionid: '5',
       point: 0
+    },
+    {
+      questionid: '6',
+      point: 0
+    },
+    {
+      questionid: '7',
+      point: 0
+    },
+    {
+      questionid: '8',
+      point: 0
+    },
+    {
+      questionid: '9',
+      point: 0
+    },
+    {
+      questionid: '10',
+      point: 0
     }
   ]);
 
-  // useEffect(() => {
-  //   const getQuiz = quiz.find((quiz) => quiz.quizid === router.query.id);
-  //   //console.log(getQuiz);
-  //   setQuiz(getQuiz);
-  // }, [router]);
-
   const sendScores = () => {
     const scoresReduce = scores.reduce((prev, curr) => prev + curr.point, 0);
-    router.push(`/quiz/finish?level=${quiz.level}&name=${quiz.quizname}&score=${scoresReduce}`);
+    // router.push(`/quiz/finish?level=${quiz.level}&name=${quiz.quizname}&score=${scoresReduce}`);
+    return scoresReduce;
+  };
+
+  const handleSybmitResult = async () => {
+    const score = sendScores();
+
+    const payload = {
+      quizid: quiz._id,
+      quizname: quiz.quizname,
+      quizlevel: quiz.level,
+      userid: session.user.id,
+      username: session.user.name,
+      score: score
+    };
+
+    const response = await fetch(`/api/quizes/finish`, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      router.push(`/quiz/finish?level=${quiz.level}&name=${quiz.quizname}&score=${score}`);
+    } else {
+      console.log('error');
+    }
+
+    console.log('result');
+    console.log('srores=>', scores);
+    console.log('p=>', payload);
+
+    router.push(`/quiz/finish?level=${quiz.level}&name=${quiz.quizname}&score=${score}`);
   };
 
   return (
@@ -83,7 +135,7 @@ const IdQuizPage = ({ quizProp }) => {
             />
           ))}
           <div className="quizPage__container--btn">
-            <button onClick={sendScores}>Finish test</button>
+            <button onClick={handleSybmitResult}>Finish test</button>
           </div>
         </div>
       </div>

@@ -40,6 +40,24 @@
     &--progressbar {
         max-width: 200px;
         width: 100%;
+        margin: 2rem 1rem;
+    }
+
+    & a {
+      padding: 4px 20px;
+      background: var(--primary-blue);
+      border-radius: 4px;
+      border: none;
+
+      color: $primary-white;
+
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    & a:hover {
+      cursor: pointer;
+      background: var(--secondary-blue);
     }
   }
 }
