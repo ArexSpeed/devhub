@@ -1,4 +1,3 @@
-// import data from 'data/quizScore.json';
 import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';

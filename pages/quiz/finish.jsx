@@ -3,15 +3,12 @@ import SkillsIconSwitcher from 'components/IconSwitcher/SkillsIconSwitcher';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Layout from 'components/Layout';
+import Link from 'next/link';
 
 const FinishQuizPage = () => {
   const router = useRouter();
 
   const value = router.query.score * 10;
-
-  const handleBackToQuizzes = () => {
-    router.push('/quiz');
-  };
 
   return (
     <Layout>
@@ -35,9 +32,9 @@ const FinishQuizPage = () => {
             <div className="finishedQuiz__conclusion--progressbar">
               <CircularProgressbar strokeWidth={10} value={value} text={`${value}%`} />
             </div>
-            <div>
-              <button onClick={handleBackToQuizzes}>Back to quizzes</button>
-            </div>
+            <Link href="/quiz">
+              <a>Back to quizzes</a>
+            </Link>
           </div>
         </div>
       </div>

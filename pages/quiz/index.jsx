@@ -2,9 +2,10 @@ import TitleBox from 'components/TitleBox';
 import FinishedQuizes from 'components/FinishedQuizes';
 import Quizes from 'components/Quizes';
 import Layout from 'components/Layout';
+import { useEffect, useState } from 'react';
 
 import { getQuizzes, getFinishedQuizzes } from 'services/quizes/getQuizzes';
-import { getSession } from 'next-auth/client';
+import { getSession, useSession } from 'next-auth/client';
 
 export async function getServerSideProps({ req }) {
   const session = await getSession({ req });
@@ -20,10 +21,39 @@ export async function getServerSideProps({ req }) {
   };
 }
 
+const finishedQuizzesByOneUser = (finishedQuizzes, userId) => {
+  const filteredQuizzesByUserId = finishedQuizzes.filter((quiz) => quiz.userid === userId);
+
+  const sorted = filteredQuizzesByUserId.sort((a, b) => a.quizid - b.quizid || a.score - b.score);
+
+  const finalArray = Object.values(
+    sorted.reduce((prev, curr) => {
+      if (curr.quizid in prev) {
+        if (curr.score > prev[curr.quizid].score) prev[curr.quizid] = Object.assign({}, curr);
+      } else {
+        prev[curr.quizid] = Object.assign({}, curr);
+      }
+      return prev;
+    }, {})
+  );
+
+  return finalArray;
+};
+
 const Quiz = ({ quizzes, finishedQuizzes }) => {
+  const [session] = useSession();
+
+  const [bestQuizzes, setBestQuizzes] = useState([]);
+
   const dataQuizzes = JSON.parse(quizzes);
   const dataFinishedQuizzes = JSON.parse(finishedQuizzes);
-  console.log(dataFinishedQuizzes);
+
+  useEffect(() => {
+    if (session) {
+      setBestQuizzes(finishedQuizzesByOneUser(dataFinishedQuizzes, session.user.id));
+    }
+  }, [session]);
+
   return (
     <Layout>
       <div className="quiz">
@@ -35,19 +65,25 @@ const Quiz = ({ quizzes, finishedQuizzes }) => {
         {/* Finished quizes (component) */}
         <div className="quiz__finished-quizes">
           <div className="quiz__finished-quizes--title">
-            <span>Finished quizes</span>
+            <span>Finished quizzes {bestQuizzes.length}</span>
           </div>
-          <div className="quiz__all-quizes--quizes">
-            {dataFinishedQuizzes.map((finishedQuiz) => (
-              <FinishedQuizes
-                key={finishedQuiz._id}
-                level={finishedQuiz.quizlevel}
-                scoreid={finishedQuiz._id}
-                quizname={finishedQuiz.quizname}
-                score={finishedQuiz.score}
-                quizid={finishedQuiz.quizid}
-              />
-            ))}
+          <div className="quiz__finished-quizes--results">
+            {dataFinishedQuizzes.length === 0 ? (
+              <p>You have no finished quizzes yet 😞</p>
+            ) : !session ? (
+              <p>Loading...</p>
+            ) : (
+              bestQuizzes.map((finishedQuiz) => (
+                <FinishedQuizes
+                  key={finishedQuiz._id}
+                  level={finishedQuiz.quizlevel}
+                  scoreid={finishedQuiz._id}
+                  quizname={finishedQuiz.quizname}
+                  score={finishedQuiz.score}
+                  quizid={finishedQuiz.quizid}
+                />
+              ))
+            )}
           </div>
         </div>
 

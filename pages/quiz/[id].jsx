@@ -89,19 +89,19 @@ const IdQuizPage = ({ quizProp }) => {
       score: score
     };
 
-    // const response = await fetch(`/api/quizes/finish`, {
-    //   method: 'POST',
-    //   body: JSON.stringify(payload),
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // });
+    const response = await fetch(`/api/quizes/finish`, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
 
-    // if (response.ok) {
-    //   router.push(`/quiz/finish?level=${quiz.level}&name=${quiz.quizname}&score=${score}`);
-    // } else {
-    //   console.log('error');
-    // }
+    if (response.ok) {
+      router.push(`/quiz/finish?level=${quiz.level}&name=${quiz.quizname}&score=${score}`);
+    } else {
+      console.log('error');
+    }
 
     console.log('result');
     console.log('srores=>', scores);
