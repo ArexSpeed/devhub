@@ -17,17 +17,11 @@ const CommunityPage = () => {
   const [developerPosition, setDeveloperPosition] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState(['']);
-  // const [userFollows, setUserFollows] = useState({});
-  // const userid = 1; //temporary user id
 
-  // useEffect(() => {
-  //   const findFollow = follows.find((follow) => follow.userid === userid);
-  //   setUserFollows(findFollow);
-  // }, []);
   useEffect(async () => {
     const data = await axios.get('/api/users');
     setUsers(data.data);
-  }, []);
+  }, [activeButton]);
 
   useEffect(() => {
     const currentUser = users.find((user) => user._id === session?.user.id);
@@ -125,7 +119,7 @@ const CommunityPage = () => {
               </AnimatePresence>
             )}
             {activeButton === 'Followed' && (
-              <>
+              <AnimatePresence>
                 {users
                   .filter((user) => currentUserData.followed?.indexOf(user._id) !== -1)
                   .filter((user) => user.position.includes(developerPosition))
@@ -145,10 +139,10 @@ const CommunityPage = () => {
                       currentUserFollowed={currentUserData.followed}
                     />
                   ))}
-              </>
+              </AnimatePresence>
             )}
             {activeButton === 'Followers' && (
-              <>
+              <AnimatePresence>
                 {users
                   .filter((user) => currentUserData.followers?.indexOf(user._id) !== -1)
                   .filter((user) => user.position.includes(developerPosition))
@@ -168,7 +162,7 @@ const CommunityPage = () => {
                       currentUserFollowed={currentUserData.followed}
                     />
                   ))}
-              </>
+              </AnimatePresence>
             )}
           </motion.div>
         )}
