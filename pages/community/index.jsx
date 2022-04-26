@@ -17,13 +17,7 @@ const CommunityPage = () => {
   const [developerPosition, setDeveloperPosition] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState(['']);
-  // const [userFollows, setUserFollows] = useState({});
-  // const userid = 1; //temporary user id
 
-  // useEffect(() => {
-  //   const findFollow = follows.find((follow) => follow.userid === userid);
-  //   setUserFollows(findFollow);
-  // }, []);
   useEffect(async () => {
     const data = await axios.get('/api/users');
     setUsers(data.data);
