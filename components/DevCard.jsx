@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 const DevCard = ({ id, name, image, position, skills, langs, socials, followers, currentUserFollowed }) => {
   const [session] = useSession();
   const [isFollow, setIsFollow] = useState(false);
-  //const [follows, setFollows] = useState([]);
+  const [goToProfile, setGoToProfile] = useState(false);
 
   useEffect(() => {
     if (session) {
@@ -19,14 +19,6 @@ const DevCard = ({ id, name, image, position, skills, langs, socials, followers,
       if (findFollow) setIsFollow(true);
     }
   }, [session, followers]);
-
-  // useEffect(() => {
-  //   const foll = axios.get(`/api/follows?userid=${session.user.id}`);
-  //   if (foll) {
-  //     setFollows(foll.data);
-  //   }
-  //   setFollows([]);
-  // }, [session]);
 
   const checkSessionFollow = () => {
     if (!session) {
@@ -42,8 +34,6 @@ const DevCard = ({ id, name, image, position, skills, langs, socials, followers,
       followed: [...currentUserFollowed, id],
       followers: [...followers, session.user.id]
     };
-
-    console.log(payload, 'paylaod');
 
     const response = await fetch(`/api/follows?currentUser=${session.user.id}&selectedUser=${id}`, {
       method: 'PATCH',
@@ -115,7 +105,11 @@ const DevCard = ({ id, name, image, position, skills, langs, socials, followers,
       </article>
       <article className="devcard__buttons">
         <Link href={`/profile/${id}`} passHref>
-          <button className="devcard__button devcard__button-profile">Profile</button>
+          <button
+            className="devcard__button devcard__button-profile"
+            onClick={() => setGoToProfile(true)}>
+            {goToProfile ? 'Loading...' : 'Profile'}
+          </button>
         </Link>
         <button
           className={`devcard__button ${
