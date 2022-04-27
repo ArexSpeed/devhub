@@ -3,7 +3,6 @@ import TitleBox from 'components/TitleBox';
 import SkillsTags from 'components/SkillsTags';
 import EventCard from 'components/EventCard';
 import Layout from 'components/Layout';
-import { motion } from 'framer-motion';
 import SearchBox from 'components/SearchBox';
 import axios from 'axios';
 import { useSession } from 'next-auth/client';
@@ -11,6 +10,7 @@ import ButtonsEvents from 'components/ButtonsEvents';
 import EventLoader from 'components/EventLoader';
 
 const EventsPage = () => {
+  // eslint-disable-next-line no-unused-vars
   const [session, loading] = useSession();
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState([]);
