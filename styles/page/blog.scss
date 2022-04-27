@@ -96,7 +96,65 @@
             }
         }
     }
-
+    &__comment {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 50px 0px 50px;
+    }
+    &__textarea {
+        width: 400px;
+        height: 100px;
+        max-width: 700px;
+        max-height: 150px;
+        border-radius: 9px;
+    }
+    &__form_button {
+        width: 5rem;
+        height: 2.5rem;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #0072AF;
+        color: #FFFFFF;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        display: block;
+    }
+    &__form_button:hover {
+        background-color: #17ABDB;
+        transition: all 0.3s ease-in-out;
+    }
+    &__author {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+    }
+    &__author_img {
+        object-fit: cover;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        background: var(--primary-bg-color);
+        border-radius: 1rem;
+        padding: 1rem;
+        margin: auto;
+        width: 100%;
+    }
+    &__content_user {
+        font-weight: bold;
+    }
+    &__content_time {
+        color: var(--secondary-text-color);
+        font-size: small;
+    }
+    &__content_text {
+        font-weight: 400;
+    }
 
 }
 

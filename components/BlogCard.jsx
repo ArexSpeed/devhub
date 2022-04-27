@@ -1,10 +1,69 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/client';
 import Link from 'next/link';
 import { ChevronRight, HeartIcon, CommentIcon, HeartOutlineIcon } from './Icons/FontIcons';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 
-const BlogCard = ({ postid, userimage, username, image, title, excerpt, likes, comments }) => {
-  const [like, setLike] = useState(false);
+const BlogCard = ({ postid, userimage, username, image, title, excerpt, comments }) => {
+  const [session] = useSession();
+  const [isLike, setIsLike] = useState(false);
+  const [likes, setLikes] = useState([]);
+  useEffect(async () => {
+    const result = await axios.get(`/api/posts/likes?postid=${postid}`);
+    console.log(result.data, 'likes');
+    setLikes(result.data);
+  }, [isLike]);
+
+  useEffect(() => {
+    if (session) {
+      const findLike = likes?.find((like) => like.userid === session.user.id);
+      console.log(findLike, 'findLike');
+      if (findLike) setIsLike(true);
+    }
+  }, [likes]);
+
+  const addLike = async () => {
+    const newLikesArr = [...likes, { userid: session.user.id, username: session.user.name }];
+    const payload = {
+      likes: newLikesArr
+    };
+
+    const response = await fetch(`/api/posts/likes?postid=${postid}`, {
+      method: 'PATCH',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      setIsLike(true);
+    } else {
+      console.log('Something went wrong!');
+    }
+  };
+  const removeLike = async () => {
+    const newLikesArr = likes.filter((like) => like.userid !== session.user.id);
+    const payload = {
+      likes: newLikesArr
+    };
+
+    const response = await fetch(`/api/posts/likes?postid=${postid}`, {
+      method: 'PATCH',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      setIsLike(false);
+    } else {
+      console.log('Something went wrong!');
+    }
+  };
+
   return (
     <motion.div
       className="blogcard"
@@ -29,8 +88,11 @@ const BlogCard = ({ postid, userimage, username, image, title, excerpt, likes, c
         </article>
         <article className="blogcard__bottom">
           <div className="blogcard__social">
-            <button className="blogcard__social-btn" onClick={() => setLike(!like)}>
-              {like ? (
+            <button
+              disabled={!session}
+              className="blogcard__social-btn"
+              onClick={isLike && session ? removeLike : addLike}>
+              {isLike ? (
                 <HeartOutlineIcon className="icon-medium primary-blue" />
               ) : (
                 <HeartIcon className="icon-medium primary-blue" />
