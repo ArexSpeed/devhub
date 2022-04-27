@@ -20,9 +20,11 @@ const ProjectCard = ({ projectid, title, username, userimage, logo, link, descri
   }, [isLike]);
 
   useEffect(() => {
-    const findLike = likes?.find((like) => like.userid === session.user.id);
-    console.log(findLike, 'findLike');
-    if (findLike) setIsLike(true);
+    if (session) {
+      const findLike = likes?.find((like) => like.userid === session.user.id);
+      console.log(findLike, 'findLike');
+      if (findLike) setIsLike(true);
+    }
   }, [likes]);
 
   const addLike = async () => {
@@ -95,7 +97,10 @@ const ProjectCard = ({ projectid, title, username, userimage, logo, link, descri
       </div>
 
       <div className="projectcard__likes">
-        <button className="projectcard__likes-btn" onClick={isLike ? removeLike : addLike}>
+        <button
+          className="projectcard__likes-btn"
+          disabled={!session}
+          onClick={isLike ? removeLike : addLike}>
           {isLike ? (
             <HeartOutlineIcon className="icon-medium primary-blue" />
           ) : (
