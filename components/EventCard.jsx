@@ -15,8 +15,10 @@ const EventCard = ({ date, duration, title, tags, eventid }) => {
   }, [isSaved]);
 
   useEffect(() => {
-    const findLike = saves?.find((participant) => participant.userid === session.user.id);
-    if (findLike) setIsSaved(true);
+    if (session) {
+      const findLike = saves?.find((participant) => participant.userid === session.user.id);
+      if (findLike) setIsSaved(true);
+    }
   }, [saves]);
 
   const addLike = async () => {
@@ -108,7 +110,7 @@ const EventCard = ({ date, duration, title, tags, eventid }) => {
 
           <button
             className={`eventDescription__link ${!isSaved && 'active'}`}
-            onClick={isSaved ? removeLike : addLike}>
+            onClick={isSaved && session ? removeLike : addLike}>
             <BookmarkIcon className="icon-medium primary-blue" />
             <span>{!isSaved ? 'Save' : 'Saved'}</span>
           </button>
