@@ -11,7 +11,7 @@ function BlogComment() {
       </div>
       <div className="blog__comment_add">
         <form>
-          <textarea className="blog__textarea" name="comment" form="usrform">
+          <textarea className="blog__textarea" name="comment" form="usrform" value="">
             Enter text here...
           </textarea>
         </form>
