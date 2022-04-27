@@ -1,16 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TitleBox from 'components/TitleBox';
 import SkillsTags from 'components/SkillsTags';
 import EventCard from 'components/EventCard';
-import events from 'data/events.json';
 import Layout from 'components/Layout';
-import { motion } from 'framer-motion';
 import SearchBox from 'components/SearchBox';
+import axios from 'axios';
+import { useSession } from 'next-auth/client';
+import ButtonsEvents from 'components/ButtonsEvents';
+import EventLoader from 'components/EventLoader';
 
 const EventsPage = () => {
+  // eslint-disable-next-line no-unused-vars
+  const [session, loading] = useSession();
   const [searchValue, setSearchValue] = useState('');
   const [selectSkill, setSelectSkill] = useState([]);
   const [activeButton, setActiveButton] = useState('Incoming');
+  const [events, setEvents] = useState([]);
+
+  useEffect(async () => {
+    const getEvents = await axios.get('/api/events');
+    setEvents(getEvents.data);
+    console.log(getEvents.data);
+  }, []);
 
   return (
     <Layout>
@@ -30,47 +41,32 @@ const EventsPage = () => {
           <SkillsTags selectSkill={selectSkill} setSelectSkill={setSelectSkill} />
         </section>
         <section className="filters">
-          <motion.button
-            animate={{ opacity: 1, scale: 1 }}
-            initial={{ opacity: 0, scale: 0 }}
-            exit={{ opacity: 0, scale: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.1 }}
-            className={activeButton === 'Incoming' ? 'filters__button active' : 'filters__button'}
-            onClick={() => setActiveButton('Incoming')}>
-            Incoming
-          </motion.button>
-          <motion.button
-            animate={{ opacity: 1, scale: 1 }}
-            initial={{ opacity: 0, scale: 0 }}
-            exit={{ opacity: 0, scale: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.2 }}
-            className={activeButton === 'Like' ? 'filters__button active' : 'filters__button'}
-            onClick={() => setActiveButton('Like')}>
-            You might like
-          </motion.button>
-          <motion.button
-            animate={{ opacity: 1, scale: 1 }}
-            initial={{ opacity: 0, scale: 0 }}
-            exit={{ opacity: 0, scale: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.3 }}
-            className={activeButton === 'Saved' ? 'filters__button active' : 'filters__button'}
-            onClick={() => setActiveButton('Saved')}>
-            Saved
-          </motion.button>
+          <ButtonsEvents
+            value1="Incoming"
+            value2="You might like"
+            value3="Saved"
+            setActiveButton={setActiveButton}
+            activeButton={activeButton}
+          />
         </section>
         <section className="events__cards">
-          {events
-            .filter((event) => event.title.toLowerCase().includes(searchValue.toLowerCase()))
-            .map((event) => (
-              <EventCard
-                key={event.eventid}
-                date={event.date}
-                duration={event.duration}
-                title={event.title}
-                tags={event.tags}
-                participants={event.participants}
-              />
-            ))}
+          {loading ? (
+            <EventLoader />
+          ) : (
+            events
+              .filter((event) => event.title.toLowerCase().includes(searchValue.toLowerCase()))
+              .map((event) => (
+                <EventCard
+                  key={event.eventid}
+                  date={event.date}
+                  duration={event.duration}
+                  title={event.title}
+                  tags={event.tags}
+                  participants={event.participants}
+                  eventid={event._id}
+                />
+              ))
+          )}
         </section>
       </div>
     </Layout>

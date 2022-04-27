@@ -1,13 +1,69 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BookmarkIcon, TagIcon, TimeIcon, UsersIcon } from 'components/Icons/FontIcons';
+import { useSession } from 'next-auth/client';
+import axios from 'axios';
 
-const EventCard = ({ date, duration, title, tags, participants }) => {
-  const [saved, setSaved] = useState(false);
-  const day = date.substr(0, 2);
-  const month = date.substr(3, 2);
-  const year = date.substr(6, 4);
-  const hour = date.substr(10, 6);
+const EventCard = ({ date, duration, title, tags, eventid }) => {
+  const [session] = useSession();
+  const [isSaved, setIsSaved] = useState(false);
+  const [saves, setSaves] = useState([]);
   const tag = tags.join(', ');
+
+  useEffect(async () => {
+    const result = await axios.get(`/api/events/saves?eventid=${eventid}`);
+    setSaves(result.data);
+  }, [isSaved]);
+
+  useEffect(() => {
+    const findLike = saves?.find((participant) => participant.userid === session.user.id);
+    if (findLike) setIsSaved(true);
+  }, [saves]);
+
+  const addLike = async () => {
+    const newLikesArr = [...saves, { userid: session.user.id, username: session.user.name }];
+    const payload = {
+      participants: newLikesArr
+    };
+    const response = await fetch(`/api/events/saves?eventid=${eventid}`, {
+      method: 'PATCH',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      setIsSaved(true);
+      console.log('something went good');
+    } else {
+      console.log('something went wrong');
+      console.log(eventid);
+    }
+  };
+
+  const removeLike = async () => {
+    const newLikesArr = saves.filter((save) => save.userid !== session.user.id);
+    const payload = {
+      participants: newLikesArr
+    };
+    const response = await fetch(`/api/events/saves?eventid=${eventid}`, {
+      method: 'PATCH',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      setIsSaved(false);
+      console.log('something went good');
+    } else {
+      console.log('something went wrong');
+      console.log(eventid);
+    }
+  };
+
+  // 2022-05-09T10:00
   return (
     <div className="eventcard">
       <div className="eventTimer">
@@ -15,20 +71,20 @@ const EventCard = ({ date, duration, title, tags, participants }) => {
         <div className="eventTimeContainer">
           <div className="eventTime">
             <span className="eventTime__subtitle">Day</span>
-            <span className="eventTime__number">{day}</span>
+            <span className="eventTime__number">{date.substr(8, 2)}</span>
           </div>
           <div className="eventTime">
             <span className="eventTime__subtitle">Month</span>
 
-            <span className="eventTime__number">{month}</span>
+            <span className="eventTime__number">{date.substr(5, 2)}</span>
           </div>
           <div className="eventTime">
             <span className="eventTime__subtitle">Year</span>
-            <span className="eventTime__number">{year}</span>
+            <span className="eventTime__number">{date.substr(0, 4)}</span>
           </div>
           <div className="eventTime">
             <span className="eventTime__subtitle">Hour</span>
-            <span className="eventTime__number">{hour}</span>
+            <span className="eventTime__number">{date.substr(11, 5)}</span>
           </div>
         </div>
       </div>
@@ -47,14 +103,14 @@ const EventCard = ({ date, duration, title, tags, participants }) => {
         <div className="eventDescription__footer">
           <button className="eventDescription__footer-btn">
             <UsersIcon className="icon-medium primary-blue" />
-            <div className="eventDescription__footer-count">{participants.length}</div>
+            <div className="eventDescription__footer-count">{saves.length}</div>
           </button>
 
           <button
-            className={`eventDescription__link ${saved && 'active'}`}
-            onClick={() => setSaved(!saved)}>
+            className={`eventDescription__link ${!isSaved && 'active'}`}
+            onClick={isSaved ? removeLike : addLike}>
             <BookmarkIcon className="icon-medium primary-blue" />
-            <span>Save</span>
+            <span>{!isSaved ? 'Save' : 'Saved'}</span>
           </button>
         </div>
       </div>
