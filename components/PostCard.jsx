@@ -14,9 +14,12 @@ export default function PostCard({ image, title, excerpt, content, userimage, us
   }, [isLike]);
 
   useEffect(() => {
-    const findLike = likes?.find((like) => like.userid === session.user.id);
-    console.log(findLike, 'findLike');
-    if (findLike) setIsLike(true);
+    if(session) {
+      const findLike = likes?.find((like) => like.userid === session.user.id);
+      console.log(findLike, 'findLike');
+      if (findLike) setIsLike(true);
+    }
+
   }, [likes]);
 
   const addLike = async () => {
@@ -69,7 +72,9 @@ export default function PostCard({ image, title, excerpt, content, userimage, us
         <article className="postcard__description">
           <div className="postcard__info">
             <article className="blogcard__social">
-              <button className="blogcard__social-btn" onClick={isLike ? removeLike : addLike}>
+              <button 
+              disabled={!session}
+              className="blogcard__social-btn" onClick={isLike ? removeLike : addLike}>
                 {isLike ? (
                   <HeartOutlineIcon className="icon-medium primary-blue" />
                 ) : (

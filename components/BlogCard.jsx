@@ -16,9 +16,11 @@ const BlogCard = ({ postid, userimage, username, image, title, excerpt, comments
   }, [isLike]);
 
   useEffect(() => {
-    const findLike = likes?.find((like) => like.userid === session.user.id);
-    console.log(findLike, 'findLike');
-    if (findLike) setIsLike(true);
+    if (session) {
+      const findLike = likes?.find((like) => like.userid === session.user.id);
+      console.log(findLike, 'findLike');
+      if (findLike) setIsLike(true);
+    }
   }, [likes]);
 
   const addLike = async () => {
@@ -86,7 +88,10 @@ const BlogCard = ({ postid, userimage, username, image, title, excerpt, comments
         </article>
         <article className="blogcard__bottom">
           <div className="blogcard__social">
-            <button className="blogcard__social-btn" onClick={isLike ? removeLike : addLike}>
+            <button
+              disabled={!session}
+              className="blogcard__social-btn"
+              onClick={isLike && session ? removeLike : addLike}>
               {isLike ? (
                 <HeartOutlineIcon className="icon-medium primary-blue" />
               ) : (
