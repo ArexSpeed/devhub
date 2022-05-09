@@ -23,6 +23,15 @@ const BlogCard = ({ postid, userimage, username, image, title, excerpt, comments
     }
   }, [likes]);
 
+  const checkSession = () => {
+    if (!session) {
+      alert('Please login to add like');
+    } else {
+      if (isLike) removeLike();
+      if (!isLike) addLike();
+    }
+  };
+
   const addLike = async () => {
     const newLikesArr = [...likes, { userid: session.user.id, username: session.user.name }];
     const payload = {
@@ -88,10 +97,7 @@ const BlogCard = ({ postid, userimage, username, image, title, excerpt, comments
         </article>
         <article className="blogcard__bottom">
           <div className="blogcard__social">
-            <button
-              disabled={!session}
-              className="blogcard__social-btn"
-              onClick={isLike && session ? removeLike : addLike}>
+            <button className="blogcard__social-btn" onClick={checkSession}>
               {isLike ? (
                 <HeartOutlineIcon className="icon-medium primary-blue" />
               ) : (

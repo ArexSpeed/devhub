@@ -27,6 +27,15 @@ const ProjectCard = ({ projectid, title, username, userimage, logo, link, descri
     }
   }, [likes]);
 
+  const checkSession = () => {
+    if (!session) {
+      alert('Please login to add like');
+    } else {
+      if (isLike) removeLike();
+      if (!isLike) addLike();
+    }
+  };
+
   const addLike = async () => {
     const newLikesArr = [...likes, { userid: session.user.id, username: session.user.name }];
     const payload = {
@@ -97,10 +106,7 @@ const ProjectCard = ({ projectid, title, username, userimage, logo, link, descri
       </div>
 
       <div className="projectcard__likes">
-        <button
-          className="projectcard__likes-btn"
-          disabled={!session}
-          onClick={isLike ? removeLike : addLike}>
+        <button className="projectcard__likes-btn" onClick={checkSession}>
           {isLike ? (
             <HeartOutlineIcon className="icon-medium primary-blue" />
           ) : (

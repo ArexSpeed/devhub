@@ -118,52 +118,58 @@ const CommunityPage = () => {
                   ))}
               </AnimatePresence>
             )}
-            {activeButton === 'Followed' && (
-              <AnimatePresence>
-                {users
-                  .filter((user) => currentUserData.followed?.indexOf(user._id) !== -1)
-                  .filter((user) => user.position.includes(developerPosition))
-                  .filter((user) => user.name.includes(searchValue))
-                  .map((user) => (
-                    <DevCard
-                      key={user._id}
-                      id={user._id}
-                      name={user.name}
-                      image={user.imageUrl}
-                      position={user.position}
-                      skills={user.skills}
-                      langs={user.languages}
-                      socials={user.socials}
-                      followed={user.followed}
-                      followers={user.followers}
-                      currentUserFollowed={currentUserData.followed}
-                    />
-                  ))}
-              </AnimatePresence>
-            )}
-            {activeButton === 'Followers' && (
-              <AnimatePresence>
-                {users
-                  .filter((user) => currentUserData.followers?.indexOf(user._id) !== -1)
-                  .filter((user) => user.position.includes(developerPosition))
-                  .filter((user) => user.name.includes(searchValue))
-                  .map((user) => (
-                    <DevCard
-                      key={user._id}
-                      id={user._id}
-                      name={user.name}
-                      image={user.imageUrl}
-                      position={user.position}
-                      skills={user.skills}
-                      langs={user.languages}
-                      socials={user.socials}
-                      followed={user.followed}
-                      followers={user.followers}
-                      currentUserFollowed={currentUserData.followed}
-                    />
-                  ))}
-              </AnimatePresence>
-            )}
+            {activeButton === 'Followed' &&
+              (session ? (
+                <AnimatePresence>
+                  {users
+                    .filter((user) => currentUserData.followed?.indexOf(user._id) !== -1)
+                    .filter((user) => user.position.includes(developerPosition))
+                    .filter((user) => user.name.includes(searchValue))
+                    .map((user) => (
+                      <DevCard
+                        key={user._id}
+                        id={user._id}
+                        name={user.name}
+                        image={user.imageUrl}
+                        position={user.position}
+                        skills={user.skills}
+                        langs={user.languages}
+                        socials={user.socials}
+                        followed={user.followed}
+                        followers={user.followers}
+                        currentUserFollowed={currentUserData.followed}
+                      />
+                    ))}
+                </AnimatePresence>
+              ) : (
+                <p>Please login to see your followed users</p>
+              ))}
+            {activeButton === 'Followers' &&
+              (session ? (
+                <AnimatePresence>
+                  {users
+                    .filter((user) => currentUserData.followers?.indexOf(user._id) !== -1)
+                    .filter((user) => user.position.includes(developerPosition))
+                    .filter((user) => user.name.includes(searchValue))
+                    .map((user) => (
+                      <DevCard
+                        key={user._id}
+                        id={user._id}
+                        name={user.name}
+                        image={user.imageUrl}
+                        position={user.position}
+                        skills={user.skills}
+                        langs={user.languages}
+                        socials={user.socials}
+                        followed={user.followed}
+                        followers={user.followers}
+                        currentUserFollowed={currentUserData.followed}
+                      />
+                    ))}
+                </AnimatePresence>
+              ) : (
+                <p>Please login to see your followers users</p>
+              ))}
           </motion.div>
         )}
       </div>

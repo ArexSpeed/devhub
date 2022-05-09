@@ -57,7 +57,7 @@ const EventsPage = () => {
               .filter((event) => event.title.toLowerCase().includes(searchValue.toLowerCase()))
               .map((event) => (
                 <EventCard
-                  key={event.eventid}
+                  key={event._id}
                   date={event.date}
                   duration={event.duration}
                   title={event.title}
