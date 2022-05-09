@@ -111,57 +111,63 @@ const ProjectPage = () => {
 
             {/* //Your projects */}
 
-            {activeButton === 'Your projects' && (
-              <AnimatePresence>
-                {projects
-                  .filter((project) => project.userid === session.user.id)
-                  .filter((project) =>
-                    project.title.toLowerCase().includes(searchValue.toLowerCase())
-                  )
-                  .map((project) => (
-                    <ProjectCard
-                      key={project._id}
-                      projectid={project._id}
-                      title={project.title}
-                      userid={project.userid}
-                      username={project.username}
-                      userimage={project.userimage}
-                      logo={project.logo}
-                      link={project.link}
-                      description={project.description}
-                      technology={project.technology}
-                      likes={project.likes}
-                    />
-                  ))}
-              </AnimatePresence>
-            )}
+            {activeButton === 'Your projects' &&
+              (session ? (
+                <AnimatePresence>
+                  {projects
+                    .filter((project) => project.userid === session.user.id)
+                    .filter((project) =>
+                      project.title.toLowerCase().includes(searchValue.toLowerCase())
+                    )
+                    .map((project) => (
+                      <ProjectCard
+                        key={project._id}
+                        projectid={project._id}
+                        title={project.title}
+                        userid={project.userid}
+                        username={project.username}
+                        userimage={project.userimage}
+                        logo={project.logo}
+                        link={project.link}
+                        description={project.description}
+                        technology={project.technology}
+                        likes={project.likes}
+                      />
+                    ))}
+                </AnimatePresence>
+              ) : (
+                <p>Please login to see your followed users</p>
+              ))}
             {/* Favorite */}
-            {activeButton === 'Favorite' && (
-              <AnimatePresence>
-                {projects
-                  .filter((project) =>
-                    project.likes.find((like) => like?.userid === session.user.id)
-                  )
-                  .filter((project) =>
-                    project.title.toLowerCase().includes(searchValue.toLowerCase())
-                  )
-                  .map((project) => (
-                    <ProjectCard
-                      key={project._id}
-                      projectid={project._id}
-                      title={project.title}
-                      userid={project.userid}
-                      username={project.username}
-                      userimage={project.userimage}
-                      logo={project.logo}
-                      link={project.link}
-                      description={project.description}
-                      technology={project.technology}
-                      likes={project.likes}
-                    />
-                  ))}
-              </AnimatePresence>
-            )}
+            {activeButton === 'Favorite' &&
+              (session ? (
+                <AnimatePresence>
+                  {projects
+                    .filter((project) =>
+                      project.likes.find((like) => like?.userid === session.user.id)
+                    )
+                    .filter((project) =>
+                      project.title.toLowerCase().includes(searchValue.toLowerCase())
+                    )
+                    .map((project) => (
+                      <ProjectCard
+                        key={project._id}
+                        projectid={project._id}
+                        title={project.title}
+                        userid={project.userid}
+                        username={project.username}
+                        userimage={project.userimage}
+                        logo={project.logo}
+                        link={project.link}
+                        description={project.description}
+                        technology={project.technology}
+                        likes={project.likes}
+                      />
+                    ))}
+                </AnimatePresence>
+              ) : (
+                <p>Please login to see your followed users</p>
+              ))}
           </motion.section>
         )}
       </div>
